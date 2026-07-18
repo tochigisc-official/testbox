@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>栃木SC 26/27 SEASON SQUAD ｜ 選手・監督一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- 見出し=Anton(LP統一) / 選手名・番号=Poppins(ジオメトリックサンズ) -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  .hero{position:relative;max-width:1376px;margin:0 auto;
+    background:var(--heroImg) center top/cover no-repeat, var(--navy);
+    aspect-ratio:790/996;max-height:78vh;
+    display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
+    background:linear-gradient(to top,rgba(5,5,8,.94) 0%,rgba(5,5,8,.55) 45%,rgba(5,5,8,0) 100%);
+    pointer-events:none}
+  @media(min-width:600px){.hero{
+    background:var(--heroImgPC) center top/cover no-repeat, var(--navy);
+    aspect-ratio:2752/1358;max-height:82vh}
+    .hero::after{height:46%}}
+  .hero-body{position:relative;z-index:1;display:flex;flex-direction:row;align-items:flex-end;
+    gap:clamp(10px,2.2vw,20px);text-align:left;
+    padding:clamp(16px,3.4vw,30px) clamp(16px,3.4vw,34px)}
+  .hero-copy{display:flex;flex-direction:column;align-items:flex-start;line-height:.96}
+  .h-l1{font-family:'Anton',sans-serif;font-weight:400;
+    font-size:clamp(24px,5.5vw,52px);color:#fff;letter-spacing:.05em;
+    text-shadow:0 2px 8px rgba(0,0,0,.55)}
+  .h-l2{font-family:'Anton',sans-serif;font-weight:400;
+    font-size:clamp(44px,11vw,96px);color:#fff;letter-spacing:.02em;margin-top:.06em;
+    text-shadow:0 2px 12px rgba(0,0,0,.6)}
+  .h-l2 b{color:#FFEA00;font-weight:400}
+  .h-l3{font-family:'Anton',sans-serif;font-weight:400;
+    font-size:clamp(18px,4.6vw,25px);color:#c9cdd6;letter-spacing:.3em;
+    margin-top:.3em;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+  .h-l3 b{color:var(--yellow);font-weight:400}
+
+  :root{
+    --heroImg:url(images/hero/hero_sp.webp);
+    --heroImgPC:url(images/hero/hero_pc.webp);
+    --yellow:#FFEA00;
+    --blue:#004D9F;
+    --navy:#042242;
+    --red:#DB0025;
+    --text:#f2f2f2;
+    --muted:#9aa0ae;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    /* 黒板テクスチャ: 原寸タイル(拡大縮小なし) */
+    background:#0b0b0d;
+    color:var(--text);
+    font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  }
+  /* ===== ヒーロー(スマホ用/PC用を出し分け) ===== */
+  
+  
+  @media(min-width:600px){}
+  
+  /* ===== 本文 ===== */
+  main{max-width:1376px;margin:0 auto;padding:8px 14px 60px}
+  section{margin-top:36px}
+  .sec-head{
+    display:flex;align-items:baseline;gap:12px;
+    border-bottom:3px solid var(--yellow);
+    padding-bottom:6px;margin-bottom:18px;
+  }
+  .sec-head .en{
+    font-family:'Anton','Poppins','Helvetica Neue',sans-serif;
+    font-weight:400;
+    font-size:clamp(30px,8vw,46px);color:var(--yellow);letter-spacing:.03em;
+  }
+  .sec-head .ja{font-size:clamp(10px,2.8vw,13px);color:var(--muted);letter-spacing:.22em}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);           /* モバイル基準: 2列 */
+    gap:18px 12px;
+  }
+  @media(min-width:600px){.grid{grid-template-columns:repeat(3,1fr);gap:22px 16px}}
+  @media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+  @media(min-width:1250px){.grid{grid-template-columns:repeat(5,1fr)}}
+  .card{
+    background:rgba(10,10,14,.6);
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 4px 14px rgba(0,0,0,.5);
+  }
+  .card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+  /* 英語表記の帯: イエロー × ネイビー文字 / MADE TOMMY代替=Poppins */
+  .band{
+    background:var(--yellow);
+    color:var(--navy);
+    font-family:'Poppins','Avenir Next','Helvetica Neue',sans-serif;
+    font-weight:600;
+    font-size:clamp(11px,2.9vw,15px);
+    letter-spacing:.05em;
+    /* 行ボックスは通常フォント基準で固定 → 文字を縮小しても帯の高さは一定 */
+    line-height:calc(1.25 * clamp(11px,2.9vw,15px));
+    padding:5px 10px 6px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .info{padding:10px 11px 13px}
+  .name-ja{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+  .name-ja .num{
+    font-family:'Poppins','Avenir Next','Helvetica Neue',sans-serif;
+    font-weight:700;
+    font-size:clamp(17px,4.2vw,22px);color:var(--yellow);line-height:1;
+  }
+  .name-ja .kanji{font-size:clamp(14px,3.6vw,18px);font-weight:700}
+  .prof{font-size:12px;line-height:1.5;color:#c9cdd6}
+  .prof dt{color:var(--muted);margin-top:6px;font-size:10px}
+  .prof dt::before{content:"◼︎ ";font-size:8px;color:var(--yellow)}
+  .prof dd{margin-left:1px;font-size:clamp(11px,3vw,13px);color:#e8eaee}
+  footer{
+    text-align:center;padding:36px 20px 54px;color:#666;font-size:10px;
+    border-top:1px solid rgba(255,255,255,.08);margin-top:52px;
+  }
+  .ad-bar{position:sticky;top:0;z-index:300;width:100%;background:#141414;box-shadow:0 2px 8px rgba(0,0,0,.2);text-decoration:none;display:block}
+  .ad-bar-in{max-width:1376px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 12px;text-align:center;line-height:1.2}
+  .ad-l1{display:inline-flex;align-items:center;gap:8px}
+  .ad-nichiyu{background:#e50012;color:#fff;font-weight:900;font-size:12px;padding:2px 7px;border-radius:3px;letter-spacing:.02em}
+  .ad-co{color:#fff;font-weight:800;font-size:16px;letter-spacing:.03em}
+  .ad-l2{font-weight:700;font-size:12.5px;color:#c7ccd2;letter-spacing:.02em}
+  .ad-logis{color:#8aa0b3}
+  .ad-alesis{color:#fff}
+  .ad-bottom{max-width:1376px;margin:40px auto 0;padding:0 14px}
+  .ad-bottom a{display:block}
+  /* 広告バナーは面積を約1/4に(横幅50%・中央・左右にスペース)。スマホのみ全幅でしっかり表示 */
+  .ad-bottom img{width:50%;min-width:200px;height:auto;display:block;margin:0 auto;border-radius:8px}
+  @media(max-width:599px){.ad-bottom img{width:100%;min-width:0}}
+  .fork-float{position:fixed;right:12px;bottom:12px;z-index:250;display:block;width:100px;line-height:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,.28));animation:forkidle 2.4s ease-in-out infinite}
+  .fork-float:hover{animation-play-state:paused}
+  @keyframes forkidle{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-1.2deg)}}
+  .fork-float img{width:100%;height:auto;display:block}
+  @media(min-width:900px){.fork-float{width:140px;right:20px;bottom:20px}}
+  @media(prefers-reduced-motion:reduce){.fork-float{animation:none}}
+
+  /* ===== 位置ナビ(GK/DF/MF/FW/STAFF)・黒背景。B案のpnavと同じ作り ===== */
+  .pnav{position:sticky;z-index:40;top:0;background:#000;border-bottom:1px solid rgba(255,255,255,.14)}
+  .pnav-in{max-width:1376px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+  .pn-tabs{display:flex;align-items:center;gap:14px;overflow-x:auto;scrollbar-width:none}
+  .pn-tabs::-webkit-scrollbar{display:none}
+  .pn-tabs button{position:relative;border:0;background:none;font-family:'Anton','Poppins',sans-serif;font-weight:400;
+    font-size:clamp(15px,4vw,18px);color:#e8e8ea;padding:12px 6px;cursor:pointer;white-space:nowrap;letter-spacing:.04em}
+  .pn-tabs button.active{color:var(--yellow)}
+  .pn-tabs button.active::after{content:'';position:absolute;left:4px;right:4px;bottom:5px;height:2px;background:var(--yellow)}
+  .pn-right{display:flex;align-items:center;gap:8px;flex:0 0 auto;margin-left:10px}
+  .pn-official{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#fff;text-decoration:none;
+    border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 12px;letter-spacing:.04em;white-space:nowrap}
+  .pn-official svg{width:12px;height:12px}
+  .pn-official:hover{background:rgba(255,255,255,.1)}
+  .pn-top{flex:0 0 auto;border:0;background:#22242c;color:#fff;font-size:11px;font-weight:700;padding:7px 11px;border-radius:4px;cursor:pointer;letter-spacing:.04em}
+  @media(max-width:520px){.pn-official span{display:none}.pn-official{padding:7px 9px}}
+  /* 選手カードのポジション(氏名の前の行・テキストのみ) */
+  .info .pos-line{color:var(--yellow);font-family:'Poppins','Avenir Next',sans-serif;
+    font-weight:700;font-size:11px;letter-spacing:.14em;line-height:1;margin-bottom:5px}
+
+  /* ===== 背番号レイヤー(CSSで重ねる。見出しと同じAnton) ===== */
+  .card .shot{position:relative;overflow:hidden;container-type:inline-size}
+  .card .shot img{transform-origin:center center;transition:transform .5s cubic-bezier(.22,.68,.28,1)}
+  @media(hover:hover) and (pointer:fine){.card:hover .shot img{transform:scale(1.07)}}
+  @media(prefers-reduced-motion:reduce){.card .shot img{transition:none}.card:hover .shot img{transform:none}}
+  .card .shirt-no{
+    position:absolute;left:3.75%;top:2.5%;
+    font-family:'Anton',sans-serif;font-weight:400;line-height:1;
+    font-size:28cqw;                   /* 数字高=カード幅24.6% (Anton capratio0.879)。2桁幅≈28%で顔に触れない */
+    color:transparent;-webkit-text-stroke:0.43cqw #fff;  /* 線幅=数字高1.73% */
+    pointer-events:none;user-select:none;
+  }
+  /* ===== スタッフカード：選手カードと同一構造。テキスト部の背景色だけ3種で比較 ===== */
+  /* 役職(日本語)を英語名の帯の下・氏名の上に中サイズ表示 */
+  .info .role-jp{color:var(--yellow);font-weight:700;letter-spacing:.03em;
+    font-size:clamp(12px,3.2vw,15px);margin-bottom:5px;line-height:1.1}
+  /* 長い英語名は帯フォントを縮小して収める */
+  .band.len-m{font-size:clamp(10px,2.5vw,13px)}
+  .band.len-l{font-size:clamp(8px,2.1vw,11px);letter-spacing:.02em}
+  /* テキスト部が縦に伸びても一色で埋まるよう、カード自体を色付けしinfoは透明。帯は共通イエロー */
+  .card.sv-white{background:#fff}
+  .card.sv-white .role-jp{color:var(--blue)}
+  .card.sv-white .kanji{color:#191b1f}
+  .card.sv-white .prof dt{color:#8a93a0}
+  .card.sv-white .prof dt::before{color:var(--blue)}
+  .card.sv-white .prof dd{color:#333b45}
+  .card.sv-yellow{background:var(--yellow)}
+  .card.sv-yellow .role-jp{color:#042242}
+  .card.sv-yellow .kanji{color:#0a1725}
+  .card.sv-yellow .prof dt{color:#40506a}
+  .card.sv-yellow .prof dt::before{color:#042242}
+  .card.sv-yellow .prof dd{color:#0a1725}
+</style>
+</head>
+<body>
+<a class="ad-bar" href="https://kkt-nichiyu.co.jp/" target="_blank" rel="noopener"><span class="ad-bar-in">
+  <span class="ad-l1"><span class="ad-nichiyu">ニチユ</span><span class="ad-co">北関東ニチユ</span></span>
+  <span class="ad-l2">ニチユ物流システム ｜ <span class="ad-logis">Logisnext</span> <span class="ad-alesis">ALESIS</span></span>
+</span></a>
+<header class="hero">
+  <div class="hero-body">
+    <div class="hero-copy">
+      <span class="h-l1">TOCHIGI SC</span>
+      <span class="h-l2"><b>26/27</b> SEASON</span>
+      <span class="h-l3">PLAYERS <b>&amp;</b> STAFF</span>
+    </div>
+  </div>
+</header>
+<nav class="pnav" id="pnav"><div class="pnav-in">
+  <div class="pn-tabs">
+    <button data-sec="sec-GK" onclick="go('sec-GK')">GK</button><button data-sec="sec-DF" onclick="go('sec-DF')">DF</button><button data-sec="sec-MF" onclick="go('sec-MF')">MF</button><button data-sec="sec-FW" onclick="go('sec-FW')">FW</button><button data-sec="sec-STAFF" onclick="go('sec-STAFF')">STAFF</button>
+  </div>
+  <div class="pn-right">
+    <a class="pn-official" href="https://www.tochigisc.jp/" rel="noopener" aria-label="公式トップへ戻る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.4V21h14V9.4"/></svg><span>公式トップ</span></a>
+    <button class="pn-top" onclick="toTop()">TOP ▲</button>
+  </div>
+</div></nav>
+<main id="app"></main>
+<section class="ad-bottom"><a href="https://kkt-nichiyu.co.jp/" target="_blank" rel="noopener"><img src="images/common/sponsor_kkt-nichiyu.webp" alt="ニチユ物流システム／北関東ニチユ｜Logisnext ALESIS リチウムイオンバッテリー搭載 電動フォークリフト"></a></section>
+<footer>© TOCHIGI SC</footer>
+<script>
+const IMG = "images/";
+const DATA = {
+  GK: [
+    {num:1, ja:"川田 修平", en:"KAWATA Shuhei", dob:"1994年4月5日", hw:"189cm / 82kg", from:"埼玉県", img:"players/01_kawata-shuhei.webp"},
+    {num:21, ja:"櫻庭 立樹", en:"SAKURABA Riki", dob:"1999年10月13日", hw:"192cm / 87kg", from:"北海道", img:"players/21_sakuraba-riki.webp"},
+    {num:31, ja:"鹿野 修平", en:"SHIKANO Shuhei", dob:"1999年8月27日", hw:"183cm / 77kg", from:"東京都", img:"players/31_shikano-shuhei.webp"},
+    {num:41, ja:"田代 琉我", en:"TASHIRO Ryuga", dob:"1998年8月27日", hw:"185cm / 88kg", from:"神奈川県", img:"players/41_tashiro-ryuga.webp"},
+    {num:71, ja:"猪越 優惟", en:"INOKOSHI Yui", dob:"2001年5月26日", hw:"185cm / 81kg", from:"宮城県", img:"players/71_inokoshi-yui.webp"}
+  ],
+  DF: [
+    {num:3, ja:"東 廉太", en:"HIGASHI Renta", dob:"2004年6月17日", hw:"190cm / 84kg", from:"山口県", img:"players/03_higashi-renta.webp"},
+    {num:5, ja:"柳 育崇", en:"YANAGI Yasutaka", dob:"1994年6月22日", hw:"188cm / 94kg", from:"千葉県", img:"players/05_yanagi-yasutaka.webp"},
+    {num:6, ja:"阿部 海斗", en:"ABE Kaito", dob:"1999年6月18日", hw:"175cm / 70kg", from:"福岡県", img:"players/06_abe-kaito.webp"},
+    {num:14, ja:"鈴木 俊也", en:"SUZUKI Shunya", dob:"2000年11月24日", hw:"178cm / 73kg", from:"静岡県", img:"players/14_suzuki-shunya.webp"},
+    {num:24, ja:"田端 琉聖", en:"TABATA Ryusei", dob:"2003年5月11日", hw:"187cm / 78kg", from:"静岡県", img:"players/24_tabata-ryusei.webp"},
+    {num:26, ja:"田畑 知起", en:"TABATA Tomoki", dob:"2004年2月26日", hw:"182cm / 75kg", from:"愛媛県", img:"players/26_tabata-tomoki.webp"},
+    {num:37, ja:"木邨 優人", en:"KIMURA Yuto", dob:"2002年9月16日", hw:"184cm / 75kg", from:"大阪府", img:"players/37_kimura-yuto.webp"},
+    {num:88, ja:"内田 航平", en:"UCHIDA Kohei", dob:"1993年5月19日", hw:"175cm / 74kg", from:"埼玉県", img:"players/88_uchida-kohei.webp"}
+  ],
+  MF: [
+    {num:4, ja:"佐藤 祥", en:"SATO Sho", dob:"1993年7月22日", hw:"174cm / 71kg", from:"千葉県", img:"players/04_sato-sho.webp"},
+    {num:7, ja:"大迫 塁", en:"OSAKO Rui", dob:"2004年10月13日", hw:"177cm / 69kg", from:"鹿児島県", img:"players/07_osako-rui.webp"},
+    {num:10, ja:"五十嵐 太陽", en:"IGARASHI Taiyo", dob:"2003年4月14日", hw:"172cm / 60kg", from:"神奈川県", img:"players/10_igarashi-taiyo.webp"},
+    {num:11, ja:"青島 太一", en:"AOSHIMA Taichi", dob:"2001年4月17日", hw:"170cm / 63kg", from:"静岡県", img:"players/11_aoshima-taichi.webp"},
+    {num:13, ja:"大曽根 広汰", en:"OSONE Kota", dob:"1999年8月17日", hw:"167cm / 64kg", from:"東京都", img:"players/13_osone-kota.webp"},
+    {num:15, ja:"堤 陽輝", en:"TSUTSUMI Haruki", dob:"2003年6月13日", hw:"180cm / 75kg", from:"福岡県", img:"players/15_tsutsumi-haruki.webp"},
+    {num:16, ja:"名願 斗哉", en:"MYOGAN Toya", dob:"2004年6月29日", hw:"178cm / 70kg", from:"大阪府", img:"players/16_myogan-toya.webp"},
+    {num:17, ja:"杉森 考起", en:"SUGIMORI Koki", dob:"1997年4月5日", hw:"174cm / 67kg", from:"愛知県", img:"players/17_sugimori-koki.webp"},
+    {num:18, ja:"松下 佳貴", en:"MATSUSHITA Yoshiki", dob:"1994年3月3日", hw:"176cm / 67kg", from:"愛媛県", img:"players/18_matsushita-yoshiki.webp"},
+    {num:23, ja:"世瀬 啓人", en:"SESE Hiroto", dob:"1999年8月20日", hw:"182cm / 73kg", from:"鳥取県", img:"players/23_sese-hiroto.webp"},
+    {num:27, ja:"永井 大士", en:"NAGAI Taishi", dob:"2004年1月1日", hw:"170cm / 68kg", from:"神奈川県", img:"players/27_nagai-taishi.webp"},
+    {num:39, ja:"屋宜 和真", en:"YAGI Kazuma", dob:"2002年12月10日", hw:"167cm / 60kg", from:"北海道", img:"players/39_yagi-kazuma.webp"},
+    {num:47, ja:"吉野 陽翔", en:"YOSHINO Haruto", dob:"2002年8月4日", hw:"181cm / 76kg", from:"栃木県宇都宮市", img:"players/47_yoshino-haruto.webp"},
+    {num:77, ja:"中村 仁郎", en:"NAKAMURA Jiro", dob:"2003年8月22日", hw:"165cm / 59kg", from:"大阪府", img:"players/77_nakamura-jiro.webp"},
+    {num:81, ja:"中野 克哉", en:"NAKANO Katsuya", dob:"1996年9月13日", hw:"168cm / 64kg", from:"奈良県", img:"players/81_nakano-katsuya.webp"}
+  ],
+  FW: [
+    {num:9, ja:"近藤 慶一", en:"KONDO Yoshihito", dob:"2002年3月3日", hw:"181cm / 82kg", from:"岐阜県", img:"players/09_kondo-yoshihito.webp"},
+    {num:20, ja:"鈴木 輪太朗 イブラヒーム", en:"SUZUKI Wadi Ibrahim", dob:"2003年1月31日", hw:"192cm / 85kg", from:"神奈川県", img:"players/20_suzuki-wadi-ibrahim.webp"},
+    {num:25, ja:"山口 太陽", en:"YAMAGUCHI Taiyo", dob:"2006年8月18日", hw:"184cm / 79kg", from:"埼玉県", img:"players/25_yamaguchi-taiyo.webp"},
+    {num:29, ja:"矢野 貴章", en:"YANO Kisho", dob:"1984年4月5日", hw:"187cm / 78kg", from:"静岡県", img:"players/29_yano-kisho.webp"},
+    {num:80, ja:"オタボー ケネス", en:"OTABOR Kenneth", dob:"2002年5月13日", hw:"178cm / 67kg", from:"ナイジェリア", img:"players/80_otabor-kenneth.webp"}
+  ],
+  STAFF: [
+    {num:null, ja:"米山 篤志", en:"YONEYAMA Atsushi", dob:"1976年11月20日", hw:"", from:"栃木県宇都宮市", img:"staff/staff_01.webp", role:"監督"},
+    {num:null, ja:"濱崎 芳己", en:"HAMASAKI Yoshiki", dob:"1974年5月16日", hw:"", from:"静岡県", img:"staff/staff_02.webp", role:"ヘッドコーチ"},
+    {num:null, ja:"小幡 直嗣", en:"OBATA Naotsugu", dob:"1987年5月26日", hw:"", from:"東京都", img:"staff/staff_03.webp", role:"コーチ"},
+    {num:null, ja:"安井 聡志", en:"YASUI Satoshi", dob:"1994年12月31日", hw:"", from:"愛知県", img:"staff/staff_04.webp", role:"コーチ"},
+    {num:null, ja:"中村 元", en:"NAKAMURA Gen", dob:"1981年1月14日", hw:"", from:"大阪府", img:"staff/staff_05.webp", role:"コーチ"},
+    {num:null, ja:"阿部 謙作", en:"ABE Kensaku", dob:"1980年5月13日", hw:"", from:"神奈川県", img:"staff/staff_06.webp", role:"GKコーチ"},
+    {num:null, ja:"坂本 裕史", en:"SAKAMOTO Hirofumi", dob:"1996年6月29日", hw:"", from:"福島県", img:"staff/staff_07.webp", role:"フィジカルコーチ"},
+    {num:null, ja:"定道 大生", en:"SADAMICHI Taisei", dob:"", hw:"", from:"", img:"staff/staff_14.webp", role:"スプリントコーチ"},
+    {num:null, ja:"松本 祐太", en:"MATSUMOTO Yuta", dob:"1985年3月25日", hw:"", from:"埼玉県", img:"staff/staff_08.webp", role:"チーフトレーナー"},
+    {num:null, ja:"渡辺 貴裕", en:"WATANABE Takahiro", dob:"1994年9月3日", hw:"", from:"千葉県", img:"staff/staff_09.webp", role:"トレーナー"},
+    {num:null, ja:"横田 光洋", en:"YOKOTA Koyo", dob:"1994年11月2日", hw:"", from:"宮城県", img:"staff/staff_10.webp", role:"トレーナー"},
+    {num:null, ja:"北村イララガブリエル", en:"KITAMURA Irara Gabriel", dob:"1997年10月30日", hw:"", from:"岐阜県", img:"staff/staff_11.webp", role:"通訳"},
+    {num:null, ja:"瀬戸 敬士朗", en:"SETO Keishiro", dob:"1997年12月5日", hw:"", from:"石川県", img:"staff/staff_12.webp", role:"マネージャー"},
+    {num:null, ja:"國嶋 璃玖", en:"KUNISHIMA Riku", dob:"2002年8月1日", hw:"", from:"栃木県高根沢町", img:"staff/staff_13.webp", role:"マネージャー"}
+  ]
+};
+const SEC_JA = {GK:"ゴールキーパー", DF:"ディフェンダー", MF:"ミッドフィールダー", FW:"フォワード", STAFF:"スタッフ"};
+const app=document.getElementById("app");
+for(const [sec,players] of Object.entries(DATA)){
+  const s=document.createElement("section");
+  s.id="sec-"+sec;
+  s.innerHTML=`<div class="sec-head"><span class="en">${sec}</span><span class="ja">${SEC_JA[sec]}</span></div>`;
+  const g=document.createElement("div"); g.className="grid";
+  for(const p of players){
+    if(sec==="STAFF"){
+      // スタッフ: 白ミニマルカード(写真＋役職＋氏名)
+      g.insertAdjacentHTML("beforeend",`
+      <div class="card staff sv-white">
+        <div class="shot"><img src="${IMG}${p.img}" alt="${p.ja}" loading="lazy" width="800" height="800"></div>
+        <div class="band${p.en.length>=18?' len-l':p.en.length>=14?' len-m':''}">${p.en}</div>
+        <div class="info">
+          <div class="role-jp">${p.role||""}</div>
+          <div class="name-ja"><span class="kanji">${p.ja}</span></div>
+          <dl class="prof">
+            ${p.dob?`<dt>生年月日</dt><dd>${p.dob}</dd>`:""}
+            ${p.from?`<dt>出身</dt><dd>${p.from}</dd>`:""}
+          </dl>
+        </div>
+      </div>`);
+      continue;
+    }
+    // 選手: 背番号は写真にCSSで重ねる。名前は日本語氏名
+    g.insertAdjacentHTML("beforeend",`
+      <div class="card">
+        <div class="shot">
+          <img src="${IMG}${p.img}" alt="${p.ja}" loading="lazy" width="800" height="800">
+          ${p.num!==null?`<span class="shirt-no">${p.num}</span>`:""}
+        </div>
+        <div class="band">${p.en}</div>
+        <div class="info">
+          <div class="pos-line">${sec}</div>
+          <div class="name-ja"><span class="kanji">${p.ja}</span></div>
+          <dl class="prof">
+            ${p.from?`<dt>出身</dt><dd>${p.from}</dd>`:""}
+          </dl>
+        </div>
+      </div>`);
+  }
+  s.appendChild(g); app.appendChild(s);
+}
+// ===== 位置ナビ: 追従top調整・スクロールスパイ(B案pnavと同じ挙動) =====
+function go(id){var el=document.getElementById(id);if(!el)return;
+  var ab=document.querySelector('.ad-bar'),pn=document.getElementById('pnav');
+  var off=(ab?ab.offsetHeight:0)+pn.offsetHeight+16;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-off,behavior:'smooth'});}
+function toTop(){window.scrollTo({top:0,behavior:'smooth'});}
+(function(){
+  var ab=document.querySelector('.ad-bar'),pn=document.getElementById('pnav');
+  function setTop(){pn.style.top=(ab?ab.offsetHeight:0)+'px';}
+  window.addEventListener('resize',setTop);setTop();
+  var ids=['sec-GK','sec-DF','sec-MF','sec-FW','sec-STAFF'];
+  function spy(){var off=(ab?ab.offsetHeight:0)+pn.offsetHeight+40,cur=null;
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.getBoundingClientRect().top<=off)cur=ids[i];}
+    document.querySelectorAll('.pn-tabs button').forEach(function(b){b.classList.toggle('active',b.dataset.sec===cur);});}
+  var t=false;window.addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(function(){spy();t=false;});}},{passive:true});
+  spy();
+})();
+</script>
+<a class="fork-float" href="https://kkt-nichiyu.co.jp/" target="_blank" rel="noopener" aria-label="北関東ニチユ Logisnext ALESIS"><img src="images/common/fork.webp" alt="Logisnext ALESIS 電動フォークリフト｜北関東ニチユ"></a>
+
+<!-- ===== スタッフ カード×背景×表情 比較セレクター(宮吉/岩上レビュー用) ===== -->
+<style>
+#ctl{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;z-index:9999;display:flex;flex-direction:column;gap:5px;background:rgba(10,10,14,.96);border:1px solid rgba(255,234,0,.55);border-radius:14px;padding:9px 12px;box-shadow:0 6px 22px rgba(0,0,0,.7);max-width:96vw}
+#ctl .grp{display:flex;gap:6px;align-items:center;justify-content:center;flex-wrap:wrap}
+#ctl .lbl{font:700 11px/1 'Hiragino Kaku Gothic ProN',sans-serif;color:#c9cdd6;width:38px}
+#ctl span[data-k]{font:700 12px/1 'Hiragino Kaku Gothic ProN',sans-serif;color:#f2f2f2;background:#22242c;border-radius:999px;padding:8px 12px;cursor:pointer}
+#ctl span.on{background:#FFEA00;color:#042242}
+#ctlnote{position:fixed;left:50%;transform:translateX(-50%);bottom:118px;z-index:9999;font:600 11px/1.4 sans-serif;color:#c9cdd6;background:rgba(10,10,14,.9);border-radius:6px;padding:5px 12px;max-width:92vw;text-align:center}
+</style>
+<div id="ctlnote"></div>
+<div id="ctl">
+  <div class="grp"><span class="lbl">カード</span><span data-k="card" data-v="white">白カード</span><span data-k="card" data-v="yellow">黄カード</span><span data-k="card" data-v="player">選手と同じ</span></div>
+  <div class="grp"><span class="lbl">背景</span><span data-k="bg" data-v="paper">ペーパー</span><span data-k="bg" data-v="light">明るい</span></div>
+  <div class="grp"><span class="lbl">表情</span><span data-k="expr" data-v="smile">笑顔</span><span data-k="expr" data-v="straight">真顔</span></div>
+</div>
+<script>
+(function(){
+  var IMG="images/";
+  var STAFF=[
+    {num:null, ja:"米山 篤志", en:"YONEYAMA Atsushi", dob:"1976年11月20日", hw:"", from:"栃木県宇都宮市", img:"staff/staff_01.webp", role:"監督"},
+    {num:null, ja:"濱崎 芳己", en:"HAMASAKI Yoshiki", dob:"1974年5月16日", hw:"", from:"静岡県", img:"staff/staff_02.webp", role:"ヘッドコーチ"},
+    {num:null, ja:"小幡 直嗣", en:"OBATA Naotsugu", dob:"1987年5月26日", hw:"", from:"東京都", img:"staff/staff_03.webp", role:"コーチ"},
+    {num:null, ja:"安井 聡志", en:"YASUI Satoshi", dob:"1994年12月31日", hw:"", from:"愛知県", img:"staff/staff_04.webp", role:"コーチ"},
+    {num:null, ja:"中村 元", en:"NAKAMURA Gen", dob:"1981年1月14日", hw:"", from:"大阪府", img:"staff/staff_05.webp", role:"コーチ"},
+    {num:null, ja:"阿部 謙作", en:"ABE Kensaku", dob:"1980年5月13日", hw:"", from:"神奈川県", img:"staff/staff_06.webp", role:"GKコーチ"},
+    {num:null, ja:"坂本 裕史", en:"SAKAMOTO Hirofumi", dob:"1996年6月29日", hw:"", from:"福島県", img:"staff/staff_07.webp", role:"フィジカルコーチ"},
+    {num:null, ja:"定道 大生", en:"SADAMICHI Taisei", dob:"", hw:"", from:"", img:"staff/staff_14.webp", role:"スプリントコーチ"},
+    {num:null, ja:"松本 祐太", en:"MATSUMOTO Yuta", dob:"1985年3月25日", hw:"", from:"埼玉県", img:"staff/staff_08.webp", role:"チーフトレーナー"},
+    {num:null, ja:"渡辺 貴裕", en:"WATANABE Takahiro", dob:"1994年9月3日", hw:"", from:"千葉県", img:"staff/staff_09.webp", role:"トレーナー"},
+    {num:null, ja:"横田 光洋", en:"YOKOTA Koyo", dob:"1994年11月2日", hw:"", from:"宮城県", img:"staff/staff_10.webp", role:"トレーナー"},
+    {num:null, ja:"北村イララガブリエル", en:"KITAMURA Irara Gabriel", dob:"1997年10月30日", hw:"", from:"岐阜県", img:"staff/staff_11.webp", role:"通訳"},
+    {num:null, ja:"瀬戸 敬士朗", en:"SETO Keishiro", dob:"1997年12月5日", hw:"", from:"石川県", img:"staff/staff_12.webp", role:"マネージャー"},
+    {num:null, ja:"國嶋 璃玖", en:"KUNISHIMA Riku", dob:"2002年8月1日", hw:"", from:"栃木県高根沢町", img:"staff/staff_13.webp", role:"マネージャー"}
+  ];
+  var state={card:"white",bg:"light",expr:"straight"};
+  function grid(){var ss=document.querySelectorAll("section");for(var i=0;i<ss.length;i++){var en=ss[i].querySelector(".en");if(en&&en.textContent==="STAFF")return ss[i].querySelector(".grid");}}
+  function imgFor(p){var base=p.img.replace(/\.webp$/,"").replace(/_white$|_face$|_papersmile$/,"");var suf=state.bg==="light"?(state.expr==="smile"?"_white":"_face"):(state.expr==="smile"?"_papersmile":"");return IMG+base+suf+".webp";}
+  function bandCls(en){var L=en.length;return L>=18?" len-l":L>=14?" len-m":"";}
+  function cardHTML(p){var src=imgFor(p);
+    var sv=state.card==="white"?" sv-white":state.card==="yellow"?" sv-yellow":" sv-player";
+    return '<div class="card staff'+sv+'"><div class="shot"><img src="'+src+'" alt="'+p.ja+'" loading="lazy" width="800" height="800"></div>'+
+      '<div class="band'+bandCls(p.en)+'">'+p.en+'</div>'+
+      '<div class="info"><div class="role-jp">'+(p.role||"")+'</div><div class="name-ja"><span class="kanji">'+p.ja+'</span></div>'+
+      '<dl class="prof">'+(p.dob?'<dt>生年月日</dt><dd>'+p.dob+'</dd>':'')+(p.from?'<dt>出身</dt><dd>'+p.from+'</dd>':'')+'</dl></div></div>';}
+  var CN={white:"白カード",yellow:"黄カード",player:"選手と同じ"},BN={paper:"ペーパー",light:"明るい"},EN={smile:"笑顔",straight:"真顔"};
+  function render(){var g=grid();if(!g)return;g.innerHTML=STAFF.map(cardHTML).join("");document.querySelectorAll("#ctl span[data-k]").forEach(function(b){b.classList.toggle("on",state[b.dataset.k]===b.dataset.v);});document.getElementById("ctlnote").textContent=CN[state.card]+" × 背景:"+BN[state.bg]+" × "+EN[state.expr]+"（選手カードは不変）";}
+  document.querySelectorAll("#ctl span[data-k]").forEach(function(b){b.onclick=function(){state[b.dataset.k]=b.dataset.v;render();};});
+  // 固定セレクターがフッター/広告を隠さないよう、その高さ分ページ下部に余白を確保
+  function padBottom(){var ctl=document.getElementById('ctl'),note=document.getElementById('ctlnote');
+    var tm=Math.min(ctl.getBoundingClientRect().top, note.getBoundingClientRect().top);
+    document.body.style.paddingBottom=Math.max(0, window.innerHeight - tm + 16)+'px';}
+  window.addEventListener('resize',padBottom);
+  render(); padBottom();
+})();
+</script>
+
+</body>
+</html>
