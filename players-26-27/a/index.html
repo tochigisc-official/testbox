@@ -87,6 +87,8 @@
     overflow:hidden;
     box-shadow:0 4px 14px rgba(0,0,0,.5);
   }
+  /* 選手カード=個人ページへのリンク(aタグ)。見た目はdivカードと同一 */
+  a.card-link{display:block;color:inherit;text-decoration:none;-webkit-tap-highlight-color:rgba(255,234,0,.15)}
   .card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
   /* 英語表記の帯: イエロー × ネイビー文字 / MADE TOMMY代替=Poppins */
   .band{
@@ -269,7 +271,6 @@ const DATA = {
     {num:null, ja:"中村 元", en:"NAKAMURA Gen", dob:"1981年1月14日", hw:"", from:"大阪府", img:"staff/staff_05_face.webp", role:"コーチ"},
     {num:null, ja:"阿部 謙作", en:"ABE Kensaku", dob:"1980年5月13日", hw:"", from:"神奈川県", img:"staff/staff_06_face.webp", role:"GKコーチ"},
     {num:null, ja:"坂本 裕史", en:"SAKAMOTO Hirofumi", dob:"1996年6月29日", hw:"", from:"福島県", img:"staff/staff_07_face.webp", role:"フィジカルコーチ"},
-    {num:null, ja:"定道 大生", en:"SADAMICHI Taisei", dob:"", hw:"", from:"", img:"staff/staff_14_face.webp", role:"スプリントコーチ"},
     {num:null, ja:"松本 祐太", en:"MATSUMOTO Yuta", dob:"1985年3月25日", hw:"", from:"埼玉県", img:"staff/staff_08_face.webp", role:"チーフトレーナー"},
     {num:null, ja:"渡辺 貴裕", en:"WATANABE Takahiro", dob:"1994年9月3日", hw:"", from:"千葉県", img:"staff/staff_09_face.webp", role:"トレーナー"},
     {num:null, ja:"横田 光洋", en:"YOKOTA Koyo", dob:"1994年11月2日", hw:"", from:"宮城県", img:"staff/staff_10_face.webp", role:"トレーナー"},
@@ -303,9 +304,9 @@ for(const [sec,players] of Object.entries(DATA)){
       </div>`);
       continue;
     }
-    // 選手: 背番号は写真にCSSで重ねる。名前は日本語氏名
+    // 選手: 背番号は写真にCSSで重ねる。名前は日本語氏名。カード全体が個人ページへのリンク
     g.insertAdjacentHTML("beforeend",`
-      <div class="card">
+      <a class="card card-link" href="players/${p.num}.html">
         <div class="shot">
           <img src="${IMG}${p.img}" alt="${p.ja}" loading="lazy" width="800" height="800">
           ${p.num!==null?`<span class="shirt-no">${p.num}</span>`:""}
@@ -318,7 +319,7 @@ for(const [sec,players] of Object.entries(DATA)){
             ${p.from?`<dt>出身</dt><dd>${p.from}</dd>`:""}
           </dl>
         </div>
-      </div>`);
+      </a>`);
   }
   s.appendChild(g); app.appendChild(s);
 }
