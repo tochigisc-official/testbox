@@ -63,6 +63,20 @@ main{max-width:760px;margin:0 auto}
 .qa{margin-bottom:16px}
 .qa-q{color:var(--yellow);font-weight:700;font-size:clamp(13px,3.6vw,15px);margin-bottom:5px}
 .qa-a{font-size:clamp(13px,3.6vw,15px);line-height:1.7;color:#e2e5ea}
+.qa-link{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(255,234,0,.5);font-weight:700}
+.qa-link:hover{border-bottom-color:var(--yellow)}
+/* --- 二択チップ --- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chip{display:inline-flex;align-items:center;overflow:hidden;
+  background:#17181d;border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  font-size:12.5px;font-weight:700;line-height:1.4}
+.chip .on{padding:7px 12px;background:var(--yellow);color:var(--navy)}
+.chip .off{padding:7px 12px;color:#6f7580}
+.chip .sl{padding:7px 2px;color:#3a3d46;font-weight:400}
+/* --- ダミー注記(本番前に削除する) --- */
+.dummy-note{margin:22px 16px 0;padding:8px 12px;border-radius:4px;
+  background:rgba(219,0,37,.14);border:1px solid rgba(219,0,37,.5);
+  color:#ff8fa3;font-size:11px;font-weight:700;letter-spacing:.04em}
 .pn-move-row{display:flex;justify-content:space-between;gap:10px;padding:0 16px;margin-top:40px}
 .pn-move{display:inline-flex;align-items:center;gap:6px;color:#e8eaee;text-decoration:none;font-weight:700;
   font-size:clamp(12px,3.4vw,14px);background:#17181d;border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:11px 14px}
@@ -94,7 +108,7 @@ footer{text-align:center;padding:36px 20px 54px;color:#666;font-size:10px;border
 </div></nav>
 <main>
  <div class="grid2">
-  <div class="shot"><img src="../images/players_pose/29_yano-kisho_pose.webp" alt="矢野 貴章" width="800" height="1067"><span class="shirt-no">29</span></div>
+  <div class="shot"><img src="../images/players_pose/29_yano-kisho_pose.webp" alt="矢野 貴章" width="800" height="1200"><span class="shirt-no">29</span></div>
   <div>
    <div class="head">
     <div class="pos-line">FW<small>フォワード</small></div>
@@ -116,7 +130,9 @@ footer{text-align:center;padding:36px 20px 54px;color:#666;font-size:10px;border
    </section>
   </div>
  </div>
+ <p class="dummy-note">※ 以下のQ&amp;Aはレイアウト確認用のダミーです（本番前に差し替え）</p><section class="blk"><div class="sec-head"><span class="en">CHOICE</span><span class="ja">どっち派？</span></div><ul class="chips"><li class="chip"><span class="on">朝型</span><span class="sl">/</span><span class="off">夜型</span></li><li class="chip"><span class="on">海</span><span class="sl">/</span><span class="off">山</span></li><li class="chip"><span class="on">犬</span><span class="sl">/</span><span class="off">猫</span></li><li class="chip"><span class="on">ごはん</span><span class="sl">/</span><span class="off">パン</span></li><li class="chip"><span class="off">辛党</span><span class="sl">/</span><span class="on">甘党</span></li><li class="chip"><span class="off">インドア</span><span class="sl">/</span><span class="on">アウトドア</span></li><li class="chip"><span class="off">映画館</span><span class="sl">/</span><span class="on">家で観る</span></li><li class="chip"><span class="off">大人数</span><span class="sl">/</span><span class="on">少人数</span></li><li class="chip"><span class="off">きのこの山</span><span class="sl">/</span><span class="on">たけのこの里</span></li><li class="chip"><span class="on">お風呂は熱め</span><span class="sl">/</span><span class="off">ぬるめ</span></li></ul></section>
  <section class="blk"><div class="sec-head qa-head"><img class="qa-ava" src="../images/players_qa/29_yano-kisho_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><div class="qa"><div class="qa-q">Q. 自分の性格をひとことで言うと？</div><div class="qa-a">マイペース</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー面）</div><div class="qa-a">諦めない姿勢</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー以外）</div><div class="qa-a">ポジティブ</div></div><div class="qa"><div class="qa-q">Q. チャームポイント</div><div class="qa-a">年齢</div></div><div class="qa"><div class="qa-q">Q. サッカー面での今シーズンの目標</div><div class="qa-a">昇格</div></div></section>
+ <section class="blk"><div class="sec-head"><span class="en">MEMORIES</span><span class="ja">あの頃のこと</span></div><div class="qa"><div class="qa-q">Q. 人生でいちばん親に怒られたことは？</div><div class="qa-a">小4の夏、夏休みの宿題を最終日まで1ページもやっていなくて、母に泣かれた。怒鳴られるより、あれがいちばん効いた。</div></div><div class="qa"><div class="qa-q">Q. 学生時代、いちばん苦手だった教科は？</div><div class="qa-a">古文。最後まで何を言っているのか分からなかった。</div></div><div class="qa"><div class="qa-q">Q. 給食でいちばん好きだったメニューは？</div><div class="qa-a">揚げパン。おかわりじゃんけんだけは負けたくなかった。</div></div><div class="qa"><div class="qa-q">Q. 子どもの頃の、いちばんの宝物は？</div><div class="qa-a">兄のお下がりのスパイク。ボロボロで足も合っていなかったのに、捨てられなかった。</div></div><div class="qa"><div class="qa-q">Q. 学生時代のあだ名は？　その由来は？</div><div class="qa-a">「きしょー」。ひねりが一切ないまま、いまも変わっていない。</div></div></section><section class="blk"><div class="sec-head"><span class="en">DAILY</span><span class="ja">ふだんのこと</span></div><div class="qa"><div class="qa-q">Q. 遠征バッグに必ず入れているものは？</div><div class="qa-a">使い慣れた枕</div></div><div class="qa"><div class="qa-q">Q. スマホのホーム画面、いちばん左上のアプリは？</div><div class="qa-a">天気アプリ</div></div><div class="qa"><div class="qa-q">Q. 冷蔵庫にいつも入っているものは？</div><div class="qa-a">炭酸水。箱で買っている。</div></div><div class="qa"><div class="qa-q">Q. 朝起きて、最初にすることは？</div><div class="qa-a">カーテンを開ける</div></div><div class="qa"><div class="qa-q">Q. カラオケの十八番は？</div><div class="qa-a">ゆず「栄光の架橋」</div></div><div class="qa"><div class="qa-q">Q. 買い物でいちばんお金を使うジャンルは？</div><div class="qa-a">子どもの服</div></div></section><section class="blk"><div class="sec-head"><span class="en">CAREER</span><span class="ja">サッカー人生</span></div><div class="qa"><div class="qa-q">Q. サッカーを始めた日のこと、覚えていますか？</div><div class="qa-a">覚えている。近所の空き地で、年上の子たちに混ぜてもらったのが最初だった。ボールにまともに触れないまま日が暮れて、それでも次の日も同じ場所に行った。うまくなりたいというより、あの輪に入りたかったのだと思う。</div></div><div class="qa"><div class="qa-q">Q. プロを諦めかけた瞬間はありましたか？　そこで何がありましたか？</div><div class="qa-a">一度ある。長くケガで離れていた時期に、自分だけ時間が止まっているように感じた。結局、毎日同じ時間にグラウンドへ行くことだけを続けた。戻れたのは、うまいことを考えるのをやめたからだと思っている。</div></div><div class="qa"><div class="qa-q">Q. 人生でいちばん悔しかった試合は？</div><div class="qa-a">勝てば結果が変わっていた最終節。終了間際の場面がいまも頭に残っていて、たぶん一生忘れない。</div></div></section><section class="blk"><div class="sec-head"><span class="en">TOCHIGI</span><span class="ja">栃木とチーム</span></div><div class="qa"><div class="qa-q">Q. 栃木に来ていちばん驚いたことは？</div><div class="qa-a">空が広いこと。あと、道路がすいていて運転しやすい。</div></div><div class="qa"><div class="qa-q">Q. 栃木で食べていちばんうまかったものは？</div><div class="qa-a">餃子。店ごとに全然ちがうのが面白い。</div></div><div class="qa"><div class="qa-q">Q. チームでいちばんおもしろい選手は？　その理由は？</div><div class="qa-a"><a class="qa-link" href="27.html">27 永井 大士</a>。真顔で変なことを言うので、毎回こっちが持っていかれる。</div></div></section>
  <section class="blk"><div class="sec-head"><span class="en">MESSAGE</span><span class="ja">サポーターの皆さんへ</span></div><p class="msg">昇格をつかみ取るために、一丸となって頑張りましょう！</p></section>
  <div class="pn-move-row"><a class="pn-move" href="27.html"><span class="ar">←</span> 27 永井 大士</a><a class="pn-move nx" href="31.html">31 鹿野 修平 <span class="ar">→</span></a></div>
  <a class="pn-list" href="../index.html#sec-FW">選手一覧へ戻る</a>
