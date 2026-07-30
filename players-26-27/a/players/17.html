@@ -72,6 +72,23 @@ main{max-width:760px;margin:0 auto}
 .qa{margin-bottom:16px}
 .qa-q{color:var(--yellow);font-weight:700;font-size:clamp(13px,3.6vw,15px);margin-bottom:5px}
 .qa-a{font-size:clamp(13px,3.6vw,15px);line-height:1.7;color:#e2e5ea}
+/* --- Q&A = 全設問のくくり(大見出し) --- */
+.qa-umb{display:flex;align-items:center;gap:13px;margin:38px 16px 0;padding-bottom:10px}
+.qa-umb .en{font-family:'Anton','Poppins',sans-serif;font-size:clamp(30px,8vw,42px);
+  color:var(--yellow);letter-spacing:.03em;line-height:1}
+.qa-umb .qa-ava{width:clamp(58px,15vw,72px);height:clamp(58px,15vw,72px)}
+/* --- 小見出しの下の注記 --- */
+.sub-note{color:#8b929d;font-size:11.5px;line-height:1.6;margin:-8px 0 14px}
+.qa-link{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(255,234,0,.5);font-weight:700}
+.qa-link:hover{border-bottom-color:var(--yellow)}
+/* --- 二択チップ --- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chip{display:inline-flex;align-items:center;overflow:hidden;
+  background:#17181d;border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  font-size:12.5px;font-weight:700;line-height:1.4}
+.chip .on{padding:7px 12px;background:var(--yellow);color:var(--navy)}
+.chip .off{padding:7px 12px;color:#6f7580}
+.chip .sl{padding:7px 2px;color:#3a3d46;font-weight:400}
 
 .pn-move-row{display:flex;justify-content:space-between;gap:10px;padding:0 16px;margin-top:40px}
 .pn-move{display:inline-flex;align-items:center;gap:6px;color:#e8eaee;text-decoration:none;font-weight:700;
@@ -114,15 +131,15 @@ footer{text-align:center;padding:36px 20px 54px;color:#666;font-size:10px;border
      <div class="en-name">SUGIMORI Koki</div>
     </div>
     
-    <div class="nick">コウキ、スギ</div>
+    
    </div>
    <section class="blk">
     <div class="sec-head"><span class="en">PROFILE</span><span class="ja">プロフィール</span></div>
-    <dl class="prof"><div><dt>生年月日</dt><dd>1997年4月5日</dd></div><div><dt>出身</dt><dd>愛知県</dd></div><div><dt>身長</dt><dd>174cm</dd></div><div><dt>体重</dt><dd>67kg</dd></div><div><dt>前所属</dt><dd>愛媛ＦＣ</dd></div><div><dt>在籍</dt><dd>1年目</dd></div></dl>
+    <dl class="prof"><div><dt>生年月日</dt><dd>1997.04.05</dd></div><div><dt>出身</dt><dd>愛知県</dd></div><div><dt>身長</dt><dd>174cm</dd></div><div><dt>体重</dt><dd>67kg</dd></div><div><dt>利き足</dt><dd>右</dd></div><div><dt>利き手</dt><dd>右</dd></div><div><dt>血液型</dt><dd>O型</dd></div><div><dt>前所属</dt><dd>愛媛ＦＣ</dd></div><div><dt>在籍</dt><dd>1年目</dd></div></dl>
    </section>
   </div>
  </div>
- <section class="blk"><div class="sec-head qa-head"><img class="qa-ava" src="../images/players_qa/17_sugimori-koki_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><div class="qa"><div class="qa-q">Q. 自分の性格をひとことで言うと？</div><div class="qa-a">せっかち</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー面）</div><div class="qa-a">チームが勝つ為に闘うこと</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー以外）</div><div class="qa-a">なし</div></div><div class="qa"><div class="qa-q">Q. チャームポイント</div><div class="qa-a">なし</div></div><div class="qa"><div class="qa-q">Q. サッカー面での今シーズンの目標</div><div class="qa-a">J2昇格、キャリアハイ</div></div></section>
+ <div class="qa-umb"><img class="qa-ava" src="../images/players_qa/17_sugimori-koki_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><section class="blk"><div class="sec-head"><span class="en">ABOUT</span><span class="ja">人柄・好きなもの</span></div><div class="qa"><div class="qa-q">Q. ニックネームは？</div><div class="qa-a">コウキ、スギ</div></div><div class="qa"><div class="qa-q">Q. 背番号のこだわりは？</div><div class="qa-a">11と7が好きだから</div></div><div class="qa"><div class="qa-q">Q. 大切にしている言葉、座右の銘は？</div><div class="qa-a">ベストを尽くす</div></div><div class="qa"><div class="qa-q">Q. 趣味・マイブームは？</div><div class="qa-a">勉強</div></div><div class="qa"><div class="qa-q">Q. 好きなアニメ・マンガは？</div><div class="qa-a">NARUTO</div></div><div class="qa"><div class="qa-q">Q. 好きな芸能人・アーティストは？</div><div class="qa-a">スピッツ</div></div><div class="qa"><div class="qa-q">Q. ホッとする瞬間はどんなとき？</div><div class="qa-a">家族との時間</div></div><div class="qa"><div class="qa-q">Q. 自分へのご褒美は？</div><div class="qa-a">美味しいものを食べる、旅行する</div></div></section><section class="blk"><div class="sec-head"><span class="en">DAILY</span><span class="ja">ふだんのこと</span></div><div class="qa"><div class="qa-q">Q. 遠征に必ず持っていくものは？</div><div class="qa-a">iPhone</div></div></section><section class="blk"><div class="sec-head"><span class="en">FOOTBALL</span><span class="ja">サッカーのこと</span></div><div class="qa"><div class="qa-q">Q. 子どもの頃のポジションは？</div><div class="qa-a">FW</div></div><div class="qa"><div class="qa-q">Q. 子どもの頃はどんな選手だった？</div><div class="qa-a">スピードあるストライカー</div></div><div class="qa"><div class="qa-q">Q. アピールポイントは？</div><div class="qa-a">ドリブルと推進力</div></div><div class="qa"><div class="qa-q">Q. 今シーズンの目標は？</div><div class="qa-a">J2昇格、キャリアハイ</div></div></section>
  <section class="blk"><div class="sec-head"><span class="en">MESSAGE</span><span class="ja">サポーターの皆さんへ</span></div><p class="msg">必ず昇格しましょう！</p></section>
  <div class="pn-move-row"><a class="pn-move" href="16.html"><span class="ar">←</span> 16 名願 斗哉</a><a class="pn-move nx" href="18.html">18 松下 佳貴 <span class="ar">→</span></a></div>
  <a class="pn-list" href="../index.html#sec-MF">選手一覧へ戻る</a>

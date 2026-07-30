@@ -72,6 +72,23 @@ main{max-width:760px;margin:0 auto}
 .qa{margin-bottom:16px}
 .qa-q{color:var(--yellow);font-weight:700;font-size:clamp(13px,3.6vw,15px);margin-bottom:5px}
 .qa-a{font-size:clamp(13px,3.6vw,15px);line-height:1.7;color:#e2e5ea}
+/* --- Q&A = 全設問のくくり(大見出し) --- */
+.qa-umb{display:flex;align-items:center;gap:13px;margin:38px 16px 0;padding-bottom:10px}
+.qa-umb .en{font-family:'Anton','Poppins',sans-serif;font-size:clamp(30px,8vw,42px);
+  color:var(--yellow);letter-spacing:.03em;line-height:1}
+.qa-umb .qa-ava{width:clamp(58px,15vw,72px);height:clamp(58px,15vw,72px)}
+/* --- 小見出しの下の注記 --- */
+.sub-note{color:#8b929d;font-size:11.5px;line-height:1.6;margin:-8px 0 14px}
+.qa-link{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(255,234,0,.5);font-weight:700}
+.qa-link:hover{border-bottom-color:var(--yellow)}
+/* --- 二択チップ --- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chip{display:inline-flex;align-items:center;overflow:hidden;
+  background:#17181d;border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  font-size:12.5px;font-weight:700;line-height:1.4}
+.chip .on{padding:7px 12px;background:var(--yellow);color:var(--navy)}
+.chip .off{padding:7px 12px;color:#6f7580}
+.chip .sl{padding:7px 2px;color:#3a3d46;font-weight:400}
 
 .pn-move-row{display:flex;justify-content:space-between;gap:10px;padding:0 16px;margin-top:40px}
 .pn-move{display:inline-flex;align-items:center;gap:6px;color:#e8eaee;text-decoration:none;font-weight:700;
@@ -113,16 +130,16 @@ footer{text-align:center;padding:36px 20px 54px;color:#666;font-size:10px;border
      <h1 class="kanji">田端 琉聖</h1>
      <div class="en-name">TABATA Ryusei</div>
     </div>
+    <a class="ig" href="https://www.instagram.com/ryusei_tabata/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor" stroke="none"/></svg><span>@ryusei_tabata</span></a>
     
-    <div class="nick">りゅうせい、たば</div>
    </div>
    <section class="blk">
     <div class="sec-head"><span class="en">PROFILE</span><span class="ja">プロフィール</span></div>
-    <dl class="prof"><div><dt>生年月日</dt><dd>2003年5月11日</dd></div><div><dt>出身</dt><dd>静岡県</dd></div><div><dt>身長</dt><dd>187cm</dd></div><div><dt>体重</dt><dd>78kg</dd></div><div><dt>前所属</dt><dd>立正大学</dd></div><div><dt>在籍</dt><dd>1年目</dd></div></dl>
+    <dl class="prof"><div><dt>生年月日</dt><dd>2003.05.11</dd></div><div><dt>出身</dt><dd>静岡県</dd></div><div><dt>身長</dt><dd>187cm</dd></div><div><dt>体重</dt><dd>78kg</dd></div><div><dt>利き足</dt><dd>右</dd></div><div><dt>利き手</dt><dd>右</dd></div><div><dt>血液型</dt><dd>A型</dd></div><div><dt>前所属</dt><dd>立正大学</dd></div><div><dt>在籍</dt><dd>1年目</dd></div></dl>
    </section>
   </div>
  </div>
- <section class="blk"><div class="sec-head qa-head"><img class="qa-ava" src="../images/players_qa/24_tabata-ryusei_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><div class="qa"><div class="qa-q">Q. 自分の性格をひとことで言うと？</div><div class="qa-a">気分屋</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー面）</div><div class="qa-a">キック、ヘディング</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー以外）</div><div class="qa-a">スタイル</div></div><div class="qa"><div class="qa-q">Q. チャームポイント</div><div class="qa-a">笑った時の細い目</div></div><div class="qa"><div class="qa-q">Q. サッカー面での今シーズンの目標</div><div class="qa-a">25試合先発出場</div></div></section>
+ <div class="qa-umb"><img class="qa-ava" src="../images/players_qa/24_tabata-ryusei_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><section class="blk"><div class="sec-head"><span class="en">ABOUT</span><span class="ja">人柄・好きなもの</span></div><div class="qa"><div class="qa-q">Q. ニックネームは？</div><div class="qa-a">りゅうせい、たば</div></div><div class="qa"><div class="qa-q">Q. 背番号のこだわりは？</div><div class="qa-a">親父が野球をやっていた時の背番号</div></div><div class="qa"><div class="qa-q">Q. 大切にしている言葉、座右の銘は？</div><div class="qa-a">塵も積もれば山となる</div></div><div class="qa"><div class="qa-q">Q. 趣味・マイブームは？</div><div class="qa-a">自炊</div></div><div class="qa"><div class="qa-q">Q. 好きな芸能人・アーティストは？</div><div class="qa-a">サンドウィッチマン・GADORO・Eric.B.Jr</div></div><div class="qa"><div class="qa-q">Q. 実は私、〇〇なんです</div><div class="qa-a">朝がとても弱い</div></div><div class="qa"><div class="qa-q">Q. ここだけはチームNo.1</div><div class="qa-a">緑茶好き</div></div><div class="qa"><div class="qa-q">Q. ホッとする瞬間はどんなとき？</div><div class="qa-a">寝る前ベッドに入った時</div></div></section><section class="blk"><div class="sec-head"><span class="en">DAILY</span><span class="ja">ふだんのこと</span></div><div class="qa"><div class="qa-q">Q. 遠征に必ず持っていくものは？</div><div class="qa-a">マッサージガン、鼻呼吸テープ</div></div></section><section class="blk"><div class="sec-head"><span class="en">FOOTBALL</span><span class="ja">サッカーのこと</span></div><div class="qa"><div class="qa-q">Q. 子どもの頃のポジションは？</div><div class="qa-a">トップ下、ボランチ、センターバック</div></div><div class="qa"><div class="qa-q">Q. 子どもの頃はどんな選手だった？</div><div class="qa-a">得点に絡んでいた</div></div><div class="qa"><div class="qa-q">Q. アピールポイントは？</div><div class="qa-a">ロングフィード、ヘディング</div></div><div class="qa"><div class="qa-q">Q. 今シーズンの目標は？</div><div class="qa-a">25試合先発出場</div></div></section>
  <section class="blk"><div class="sec-head"><span class="en">MESSAGE</span><span class="ja">サポーターの皆さんへ</span></div><p class="msg">必ずJ2昇格しましょう。今シーズンも熱い応援よろしくお願いします！</p></section>
  <div class="pn-move-row"><a class="pn-move" href="23.html"><span class="ar">←</span> 23 世瀬 啓人</a><a class="pn-move nx" href="25.html">25 山口 太陽 <span class="ar">→</span></a></div>
  <a class="pn-list" href="../index.html#sec-DF">選手一覧へ戻る</a>
