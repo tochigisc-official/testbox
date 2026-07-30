@@ -48,6 +48,12 @@ main{max-width:760px;margin:0 auto}
   letter-spacing:.09em;line-height:1;margin-top:3px}
 .nick{margin-top:10px;display:inline-block;background:#22242c;border-radius:999px;padding:6px 14px;
   font-size:12px;font-weight:700;color:#e8eaee}
+/* Instagram(アカウントを回答した選手のみ) */
+.ig{margin-top:12px;display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:7px 13px 7px 11px;
+  color:#e8eaee;font-size:12px;font-weight:700;letter-spacing:.02em}
+.ig svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;flex:0 0 auto}
+.ig:hover{border-color:var(--yellow);color:var(--yellow)}
 .blk{padding:0 16px;margin-top:34px}
 .sec-head{display:flex;align-items:baseline;gap:10px;border-bottom:3px solid var(--yellow);padding-bottom:7px;margin-bottom:16px}
 .sec-head .en{font-family:'Anton','Poppins','Helvetica Neue',sans-serif;font-size:clamp(22px,6vw,32px);
@@ -66,6 +72,23 @@ main{max-width:760px;margin:0 auto}
 .qa{margin-bottom:16px}
 .qa-q{color:var(--yellow);font-weight:700;font-size:clamp(13px,3.6vw,15px);margin-bottom:5px}
 .qa-a{font-size:clamp(13px,3.6vw,15px);line-height:1.7;color:#e2e5ea}
+/* --- Q&A = 全設問のくくり(大見出し) --- */
+.qa-umb{display:flex;align-items:center;gap:13px;margin:38px 16px 0;padding-bottom:10px}
+.qa-umb .en{font-family:'Anton','Poppins',sans-serif;font-size:clamp(30px,8vw,42px);
+  color:var(--yellow);letter-spacing:.03em;line-height:1}
+.qa-umb .qa-ava{width:clamp(58px,15vw,72px);height:clamp(58px,15vw,72px)}
+/* --- 小見出しの下の注記 --- */
+.sub-note{color:#8b929d;font-size:11.5px;line-height:1.6;margin:-8px 0 14px}
+.qa-link{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(255,234,0,.5);font-weight:700}
+.qa-link:hover{border-bottom-color:var(--yellow)}
+/* --- 二択チップ --- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chip{display:inline-flex;align-items:center;overflow:hidden;
+  background:#17181d;border:1px solid rgba(255,255,255,.14);border-radius:999px;
+  font-size:12.5px;font-weight:700;line-height:1.4}
+.chip .on{padding:7px 12px;background:var(--yellow);color:var(--navy)}
+.chip .off{padding:7px 12px;color:#6f7580}
+.chip .sl{padding:7px 2px;color:#3a3d46;font-weight:400}
 
 .pn-move-row{display:flex;justify-content:space-between;gap:10px;padding:0 16px;margin-top:40px}
 .pn-move{display:inline-flex;align-items:center;gap:6px;color:#e8eaee;text-decoration:none;font-weight:700;
@@ -107,15 +130,16 @@ footer{text-align:center;padding:36px 20px 54px;color:#666;font-size:10px;border
      <h1 class="kanji">中村 仁郎</h1>
      <div class="en-name">NAKAMURA Jiro</div>
     </div>
-    <div class="nick">じろう、じんじん</div>
+    <a class="ig" href="https://www.instagram.com/jiro_______0822/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.25" fill="currentColor" stroke="none"/></svg><span>@jiro_______0822</span></a>
+    
    </div>
    <section class="blk">
     <div class="sec-head"><span class="en">PROFILE</span><span class="ja">プロフィール</span></div>
-    <dl class="prof"><div><dt>生年月日</dt><dd>2003年8月22日</dd></div><div><dt>出身</dt><dd>大阪府</dd></div><div><dt>身長</dt><dd>165cm</dd></div><div><dt>体重</dt><dd>59kg</dd></div><div><dt>前所属</dt><dd>ガンバ大阪</dd></div><div><dt>在籍</dt><dd>新加入</dd></div></dl>
+    <dl class="prof"><div><dt>生年月日</dt><dd>2003.08.22</dd></div><div><dt>出身</dt><dd>大阪府</dd></div><div><dt>身長</dt><dd>165cm</dd></div><div><dt>体重</dt><dd>59kg</dd></div><div><dt>利き足</dt><dd>左</dd></div><div><dt>利き手</dt><dd>右</dd></div><div><dt>血液型</dt><dd>B型</dd></div><div><dt>前所属</dt><dd>ガンバ大阪</dd></div><div><dt>在籍</dt><dd>新加入</dd></div></dl>
    </section>
   </div>
  </div>
- <section class="blk"><div class="sec-head qa-head"><img class="qa-ava" src="../images/players_qa/77_nakamura-jiro_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><div class="qa"><div class="qa-q">Q. 自分の性格をひとことで言うと？</div><div class="qa-a">慎重</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー面）</div><div class="qa-a">テクニック</div></div><div class="qa"><div class="qa-q">Q. アピールポイント（サッカー以外）</div><div class="qa-a">QOLが高まってきてる</div></div><div class="qa"><div class="qa-q">Q. チャームポイント</div><div class="qa-a">涙ぼくろ</div></div><div class="qa"><div class="qa-q">Q. サッカー面での今シーズンの目標</div><div class="qa-a">10ゴールに絡む</div></div></section>
+ <div class="qa-umb"><img class="qa-ava" src="../images/players_qa/77_nakamura-jiro_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><section class="blk"><div class="sec-head"><span class="en">ABOUT</span><span class="ja">人柄・好きなもの</span></div><div class="qa"><div class="qa-q">Q. ニックネームは？</div><div class="qa-a">じろう、じんじん</div></div><div class="qa"><div class="qa-q">Q. 背番号のこだわりは？</div><div class="qa-a">7/7にチームに合流するから</div></div><div class="qa"><div class="qa-q">Q. 大切にしている言葉、座右の銘は？</div><div class="qa-a">謙虚に直向きに楽しむ</div></div><div class="qa"><div class="qa-q">Q. 趣味・マイブームは？</div><div class="qa-a">ゴルフ</div></div><div class="qa"><div class="qa-q">Q. 好きなアニメ・マンガは？</div><div class="qa-a">ナルト</div></div><div class="qa"><div class="qa-q">Q. 好きな芸能人・アーティストは？</div><div class="qa-a">山口一郎さん（サカナクション）</div></div><div class="qa"><div class="qa-q">Q. 実は私、〇〇なんです</div><div class="qa-a">ワインが好き（全然にわか）</div></div><div class="qa"><div class="qa-q">Q. ここだけはチームNo.1</div><div class="qa-a">生き方をおしゃれにしたいという気持ち</div></div><div class="qa"><div class="qa-q">Q. ホッとする瞬間はどんなとき？</div><div class="qa-a">妻に会った時♡</div></div><div class="qa"><div class="qa-q">Q. 自分へのご褒美は？</div><div class="qa-a">スイーツ</div></div></section><section class="blk"><div class="sec-head"><span class="en">DAILY</span><span class="ja">ふだんのこと</span></div><div class="qa"><div class="qa-q">Q. 遠征に必ず持っていくものは？</div><div class="qa-a">アイマスク</div></div></section><section class="blk"><div class="sec-head"><span class="en">FOOTBALL</span><span class="ja">サッカーのこと</span></div><div class="qa"><div class="qa-q">Q. 子どもの頃のポジションは？</div><div class="qa-a">トップ下</div></div><div class="qa"><div class="qa-q">Q. 子どもの頃はどんな選手だった？</div><div class="qa-a">ネイマールに憧れた小学生</div></div><div class="qa"><div class="qa-q">Q. アピールポイントは？</div><div class="qa-a">テクニック</div></div><div class="qa"><div class="qa-q">Q. 今シーズンの目標は？</div><div class="qa-a">10ゴールに絡む</div></div></section>
  <section class="blk"><div class="sec-head"><span class="en">MESSAGE</span><span class="ja">サポーターの皆さんへ</span></div><p class="msg">自分のプレーでワクワクしてもらえるよう頑張ります！</p></section>
  <div class="pn-move-row"><a class="pn-move" href="71.html"><span class="ar">←</span> 71 猪越 優惟</a><a class="pn-move nx" href="80.html">80 オタボー ケネス <span class="ar">→</span></a></div>
  <a class="pn-list" href="../index.html#sec-MF">選手一覧へ戻る</a>
