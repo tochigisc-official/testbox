@@ -39,10 +39,13 @@ main{max-width:760px;margin:0 auto}
 .pos-line{color:var(--yellow);font-family:'Poppins','Avenir Next',sans-serif;font-weight:700;
   font-size:12px;letter-spacing:.16em;margin-bottom:6px}
 .pos-line small{color:#c9cdd6;font-weight:600;letter-spacing:.08em;margin-left:8px;font-size:11px}
-.kanji{font-size:clamp(30px,8.5vw,44px);font-weight:800;line-height:1.15}
-.kana{color:var(--muted);font-size:clamp(11px,3vw,13px);margin-top:4px}
-.en-name{font-family:'Anton',sans-serif;color:var(--yellow);font-size:clamp(19px,5.4vw,28px);
-  letter-spacing:.05em;margin-top:8px}
+/* 氏名まわりは ふりがな→氏名→英名 を1かたまりに見せる。
+   英名は黄色をやめる(すぐ下のPROFILE見出しの黄色とぶつかるため) */
+.name-set{display:inline-block;border-left:3px solid var(--yellow);padding-left:11px}
+.kana{color:#8b929d;font-size:clamp(10.5px,2.8vw,12px);letter-spacing:.14em;line-height:1.2}
+.kanji{font-size:clamp(30px,8.5vw,44px);font-weight:800;line-height:1.12;margin-top:1px}
+.en-name{font-family:'Anton',sans-serif;color:#cfd4dc;font-size:clamp(15px,4.2vw,21px);
+  letter-spacing:.09em;line-height:1;margin-top:3px}
 .nick{margin-top:10px;display:inline-block;background:#22242c;border-radius:999px;padding:6px 14px;
   font-size:12px;font-weight:700;color:#e8eaee}
 .blk{padding:0 16px;margin-top:34px}
@@ -116,18 +119,20 @@ footer{text-align:center;padding:36px 20px 54px;color:#666;font-size:10px;border
   <div>
    <div class="head">
     <div class="pos-line">FW<small>フォワード</small></div>
-    <h1 class="kanji">矢野 貴章</h1>
-    <div class="kana">やの きしょう</div>
-    <div class="en-name">YANO Kisho</div>
+    <div class="name-set">
+     <div class="kana">やの きしょう</div>
+     <h1 class="kanji">矢野 貴章</h1>
+     <div class="en-name">YANO Kisho</div>
+    </div>
     
    </div>
    <section class="blk">
     <div class="sec-head"><span class="en">PROFILE</span><span class="ja">プロフィール</span></div>
-    <dl class="prof"><div><dt>生年月日</dt><dd>1984年4月5日</dd></div><div><dt>出身</dt><dd>静岡県</dd></div><div><dt>身長</dt><dd>187cm</dd></div><div><dt>体重</dt><dd>78kg</dd></div><div><dt>血液型</dt><dd>O型</dd></div><div><dt>利き足</dt><dd>右</dd></div><div><dt>利き手</dt><dd>左</dd></div><div><dt>前所属</dt><dd>アルビレックス新潟</dd></div><div><dt>在籍</dt><dd>7年目</dd></div></dl>
+    <dl class="prof"><div><dt>生年月日</dt><dd>1984.04.05</dd></div><div><dt>出身</dt><dd>静岡県</dd></div><div><dt>身長</dt><dd>187cm</dd></div><div><dt>体重</dt><dd>78kg</dd></div><div><dt>利き足</dt><dd>右</dd></div><div><dt>利き手</dt><dd>左</dd></div><div><dt>血液型</dt><dd>O型</dd></div><div><dt>前所属</dt><dd>アルビレックス新潟</dd></div><div><dt>在籍</dt><dd>7年目</dd></div></dl>
    </section>
   </div>
  </div>
- <div class="qa-umb"><img class="qa-ava" src="../images/players_qa/29_yano-kisho_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><section class="blk"><div class="sec-head"><span class="en">ABOUT</span><span class="ja">人柄・好きなもの</span></div><div class="qa"><div class="qa-q">Q. ニックネーム・あだ名は？</div><div class="qa-a">きしょう</div></div><div class="qa"><div class="qa-q">Q. 大切にしている言葉、座右の銘は？</div><div class="qa-a">全ては経験</div></div><div class="qa"><div class="qa-q">Q. 趣味・マイブームは？</div><div class="qa-a">旅行、アート、ご飯、ポッドキャスト</div></div><div class="qa"><div class="qa-q">Q. 好きな芸能人・アーティストは？</div><div class="qa-a">かまいたち</div></div><div class="qa"><div class="qa-q">Q. ここだけはチームNo.1</div><div class="qa-a">年齢</div></div><div class="qa"><div class="qa-q">Q. ホッとする瞬間はどんなとき？</div><div class="qa-a">寝る時</div></div><div class="qa"><div class="qa-q">Q. 自分へのご褒美は？</div><div class="qa-a">美味しいご飯</div></div></section><section class="blk"><div class="sec-head"><span class="en">DAILY</span><span class="ja">ふだんのこと</span></div><div class="qa"><div class="qa-q">Q. 遠征に必ず持っていくものは？</div><div class="qa-a">iPad</div></div></section><section class="blk"><div class="sec-head"><span class="en">FOOTBALL</span><span class="ja">サッカーのこと</span></div><div class="qa"><div class="qa-q">Q. アピールポイントは？</div><div class="qa-a">得点</div></div><div class="qa"><div class="qa-q">Q. 子どもの頃のポジションは？</div><div class="qa-a">FW</div></div><div class="qa"><div class="qa-q">Q. 子どもの頃はどんな選手だった？</div><div class="qa-a">足の速い選手</div></div><div class="qa"><div class="qa-q">Q. 今シーズンの目標は？</div><div class="qa-a">昇格</div></div></section>
+ <div class="qa-umb"><img class="qa-ava" src="../images/players_qa/29_yano-kisho_qa.webp" alt="" loading="lazy" width="300" height="300"><span class="en">Q&amp;A</span></div><section class="blk"><div class="sec-head"><span class="en">ABOUT</span><span class="ja">人柄・好きなもの</span></div><div class="qa"><div class="qa-q">Q. ニックネームは？</div><div class="qa-a">きしょう</div></div><div class="qa"><div class="qa-q">Q. 大切にしている言葉、座右の銘は？</div><div class="qa-a">全ては経験</div></div><div class="qa"><div class="qa-q">Q. 趣味・マイブームは？</div><div class="qa-a">旅行、アート、ご飯、ポッドキャスト</div></div><div class="qa"><div class="qa-q">Q. 好きな芸能人・アーティストは？</div><div class="qa-a">かまいたち</div></div><div class="qa"><div class="qa-q">Q. ここだけはチームNo.1</div><div class="qa-a">年齢</div></div><div class="qa"><div class="qa-q">Q. ホッとする瞬間はどんなとき？</div><div class="qa-a">寝る時</div></div><div class="qa"><div class="qa-q">Q. 自分へのご褒美は？</div><div class="qa-a">美味しいご飯</div></div></section><section class="blk"><div class="sec-head"><span class="en">DAILY</span><span class="ja">ふだんのこと</span></div><div class="qa"><div class="qa-q">Q. 遠征に必ず持っていくものは？</div><div class="qa-a">iPad</div></div></section><section class="blk"><div class="sec-head"><span class="en">FOOTBALL</span><span class="ja">サッカーのこと</span></div><div class="qa"><div class="qa-q">Q. 子どもの頃のポジションは？</div><div class="qa-a">FW</div></div><div class="qa"><div class="qa-q">Q. 子どもの頃はどんな選手だった？</div><div class="qa-a">足の速い選手</div></div><div class="qa"><div class="qa-q">Q. アピールポイントは？</div><div class="qa-a">得点</div></div><div class="qa"><div class="qa-q">Q. 今シーズンの目標は？</div><div class="qa-a">昇格</div></div></section>
  <section class="blk"><div class="sec-head"><span class="en">MESSAGE</span><span class="ja">サポーターの皆さんへ</span></div><p class="msg">昇格をつかみ取るために、一丸となって頑張りましょう！</p></section>
  <div class="pn-move-row"><a class="pn-move" href="27.html"><span class="ar">←</span> 27 永井 大士</a><a class="pn-move nx" href="31.html">31 鹿野 修平 <span class="ar">→</span></a></div>
  <a class="pn-list" href="../index.html#sec-FW">選手一覧へ戻る</a>
