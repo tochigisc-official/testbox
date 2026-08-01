@@ -577,159 +577,243 @@
    "no": "①",
    "zone": "場外",
    "gate": "Aゲート手前",
-   "shop": "SMILE KITCHEN"
+   "shop": "SMILE KITCHEN",
+   "x": 0.2119,
+   "y": 0.8585
   },
   {
    "no": "②",
    "zone": "場外",
    "gate": "Aゲート手前",
-   "shop": "Feel Good Tacos"
+   "shop": "Feel Good Tacos",
+   "x": 0.2689,
+   "y": 0.8939
   },
   {
    "no": "③",
    "zone": "場外",
    "gate": "Aゲート手前",
-   "shop": "pighip"
+   "shop": "pighip",
+   "x": 0.3303,
+   "y": 0.9193
   },
   {
    "no": "④",
    "zone": "場外",
    "gate": "Aゲート付近",
-   "shop": "Sports Café 92"
+   "shop": "Sports Café 92",
+   "x": 0.3946,
+   "y": 0.9342
   },
   {
    "no": "⑤",
    "zone": "場外",
    "gate": "Aゲート付近",
-   "shop": "大谷石窯ピッツァ"
+   "shop": "大谷石窯ピッツァ",
+   "x": 0.4603,
+   "y": 0.9382
   },
   {
    "no": "⑥",
    "zone": "場外",
    "gate": "Aゲート付近",
-   "shop": "玉子屋てっちゃん"
+   "shop": "玉子屋てっちゃん",
+   "x": 0.5258,
+   "y": 0.9312
   },
   {
    "no": "⑦",
    "zone": "場外",
    "gate": "A〜Bゲート間",
-   "shop": "Chronic Burger"
+   "shop": "Chronic Burger",
+   "x": 0.5895,
+   "y": 0.9133
   },
   {
    "no": "⑧",
    "zone": "場外",
    "gate": "A〜Bゲート間",
-   "shop": "日光乙女チーズ"
+   "shop": "日光乙女チーズ",
+   "x": 0.6498,
+   "y": 0.8851
   },
   {
    "no": "⑨",
    "zone": "場外",
    "gate": "Bゲート付近",
-   "shop": "月とスパイス"
+   "shop": "月とスパイス",
+   "x": 0.7053,
+   "y": 0.8471
   },
   {
    "no": "⑩",
    "zone": "場外",
    "gate": "Bゲート付近",
-   "shop": "ケバブキッチン"
+   "shop": "ケバブキッチン",
+   "x": 0.7547,
+   "y": 0.8003
   },
   {
    "no": "⑪",
    "zone": "場外",
    "gate": "Bゲート付近",
-   "shop": "ダ・ネイデ"
+   "shop": "ダ・ネイデ",
+   "x": 0.7967,
+   "y": 0.7458
   },
   {
    "no": "⑫",
    "zone": "場外",
    "gate": "Cゲート付近",
-   "shop": "ねこにレモン"
+   "shop": "ねこにレモン",
+   "x": 0.8303,
+   "y": 0.685
   },
   {
    "no": "⑬",
    "zone": "場外",
    "gate": "Cゲート付近",
-   "shop": "O.N.Y"
+   "shop": "O.N.Y",
+   "x": 0.8547,
+   "y": 0.6193
   },
   {
    "no": "⑭",
    "zone": "場外",
    "gate": "Cゲート付近",
-   "shop": "からあげかずちゃんち"
+   "shop": "からあげかずちゃんち",
+   "x": 0.8693,
+   "y": 0.5503
   },
   {
    "no": "⑮",
    "zone": "場外",
    "gate": "Cゲート付近",
-   "shop": "フードトラック 天"
+   "shop": "フードトラック 天",
+   "x": 0.8738,
+   "y": 0.4798
   },
   {
    "no": "⑯",
    "zone": "場外",
    "gate": "Cゲート付近",
-   "shop": "会茶"
+   "shop": "会茶",
+   "x": 0.868,
+   "y": 0.4093
   },
   {
    "no": "⑰",
    "zone": "場内",
    "gate": "Bゲート付近",
-   "shop": "LUANA"
+   "shop": "LUANA",
+   "x": 0.607,
+   "y": 0.7012
   },
   {
    "no": "⑱",
    "zone": "場内",
    "gate": "Bゲート付近",
-   "shop": "DordCoffee"
+   "shop": "DordCoffee",
+   "x": 0.6427,
+   "y": 0.6652
   },
   {
    "no": "⑲",
    "zone": "場内",
    "gate": "Cゲート付近",
-   "shop": "とちぎのぼんた"
+   "shop": "とちぎのぼんた",
+   "x": 0.7059,
+   "y": 0.4707
   },
   {
    "no": "⑳",
    "zone": "場内",
    "gate": "Dゲート付近",
-   "shop": "Season1"
+   "shop": "Season1",
+   "x": 0.6285,
+   "y": 0.2872
   },
   {
    "no": "㉑",
    "zone": "場内",
    "gate": "バックスタンド中央",
-   "shop": "Mogu Rico"
+   "shop": "Mogu Rico",
+   "x": 0.4882,
+   "y": 0.2131
   },
   {
    "no": "㉒",
    "zone": "場内",
    "gate": "バックスタンド中央",
-   "shop": "M's kitchen NEWS"
+   "shop": "M's kitchen NEWS",
+   "x": 0.4349,
+   "y": 0.2108
   },
   {
    "no": "㉓",
    "zone": "場内",
    "gate": "Fゲート付近",
-   "shop": "JOURNEY"
+   "shop": "JOURNEY",
+   "x": 0.2709,
+   "y": 0.2905
   },
   {
    "no": "㉔",
    "zone": "場内",
    "gate": "Hゲート付近",
-   "shop": "ドリームソウル"
+   "shop": "ドリームソウル",
+   "x": 0.2691,
+   "y": 0.676
   }
  ],
  "maps": [
   {
    "img": "assets/img/g_map_gates.webp",
-   "caption": "会場図（A〜Hゲートの位置）",
-   "role": "primary",
-   "fit": "whole"
+   "caption": "会場図（番号は販売エリア）",
+   "fit": "whole",
+   "role": "primary"
+  }
+ ],
+ "gates": [
+  {
+   "name": "A",
+   "x": 0.4658,
+   "y": 0.8757
   },
   {
-   "img": "assets/img/g_map.webp",
-   "caption": "BISTRO MAP（店舗番号①〜㉔入り）",
-   "role": "detail",
-   "fit": "zoom"
+   "name": "B",
+   "x": 0.7,
+   "y": 0.7693
+  },
+  {
+   "name": "C",
+   "x": 0.8155,
+   "y": 0.4648
+  },
+  {
+   "name": "D",
+   "x": 0.7002,
+   "y": 0.2075
+  },
+  {
+   "name": "E",
+   "x": 0.4661,
+   "y": 0.0928
+  },
+  {
+   "name": "F",
+   "x": 0.1928,
+   "y": 0.2066
+  },
+  {
+   "name": "G",
+   "x": 0.087,
+   "y": 0.4639
+  },
+  {
+   "name": "H",
+   "x": 0.1824,
+   "y": 0.7674
   }
  ]
 }
