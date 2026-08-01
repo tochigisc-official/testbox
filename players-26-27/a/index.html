@@ -132,6 +132,21 @@
   /* 広告バナーは面積を約1/4に(横幅50%・中央・左右にスペース)。スマホのみ全幅でしっかり表示 */
   .ad-bottom img{width:50%;min-width:200px;height:auto;display:block;margin:0 auto;border-radius:8px}
   @media(max-width:599px){.ad-bottom img{width:100%;min-width:0}}
+  /* ===== 過去シーズンの選手紹介 ===== */
+  .past{max-width:1376px;margin:44px auto 0;padding:0 14px}
+  .past-in{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    background:#141519;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px 18px}
+  .past-lb{display:flex;align-items:baseline;gap:9px;font-family:'Anton','Poppins',sans-serif;
+    font-size:clamp(16px,4.4vw,20px);color:var(--yellow);letter-spacing:.04em;line-height:1}
+  .past-lb small{font-family:'Hiragino Kaku Gothic ProN',sans-serif;font-size:11px;font-weight:700;
+    color:var(--muted);letter-spacing:.08em}
+  .past-sel{flex:1 1 190px;min-width:170px;background:#22242c;color:#fff;font-weight:700;font-size:14px;
+    border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:11px 12px;cursor:pointer;
+    appearance:none;-webkit-appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--yellow) 50%),linear-gradient(135deg,var(--yellow) 50%,transparent 50%);
+    background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;
+    background-repeat:no-repeat}
+  .past-sel:focus{outline:2px solid var(--yellow);outline-offset:2px}
   .fork-float{position:fixed;right:12px;bottom:12px;z-index:250;display:block;width:100px;line-height:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,.28));animation:forkidle 2.4s ease-in-out infinite}
   .fork-float:hover{animation-play-state:paused}
   @keyframes forkidle{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-1.2deg)}}
@@ -151,10 +166,10 @@
   .pn-right{display:flex;align-items:center;gap:8px;flex:0 0 auto;margin-left:10px}
   .pn-official{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#fff;text-decoration:none;
     border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 12px;letter-spacing:.04em;white-space:nowrap}
-  .pn-official svg{width:12px;height:12px}
   .pn-official:hover{background:rgba(255,255,255,.1)}
   .pn-top{flex:0 0 auto;border:0;background:#22242c;color:#fff;font-size:11px;font-weight:700;padding:7px 11px;border-radius:4px;cursor:pointer;letter-spacing:.04em}
-  @media(max-width:520px){.pn-official span{display:none}.pn-official{padding:7px 9px}}
+  /* スマホでも「公式HP」の文字は消さない(アイコンだけだと何のボタンか伝わらないため) */
+  @media(max-width:520px){.pn-official{padding:6px 9px;font-size:10.5px}.pn-tabs{gap:11px}}
   /* 選手カードのポジション(氏名の前の行・テキストのみ) */
   .info .pos-line{color:var(--yellow);font-family:'Poppins','Avenir Next',sans-serif;
     font-weight:700;font-size:11px;letter-spacing:.14em;line-height:1;margin-bottom:5px}
@@ -212,11 +227,35 @@
     <button data-sec="sec-GK" onclick="go('sec-GK')">GK</button><button data-sec="sec-DF" onclick="go('sec-DF')">DF</button><button data-sec="sec-MF" onclick="go('sec-MF')">MF</button><button data-sec="sec-FW" onclick="go('sec-FW')">FW</button><button data-sec="sec-STAFF" onclick="go('sec-STAFF')">STAFF</button>
   </div>
   <div class="pn-right">
-    <a class="pn-official" href="https://www.tochigisc.jp/" rel="noopener" aria-label="公式トップへ戻る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.4V21h14V9.4"/></svg><span>公式トップ</span></a>
+    <a class="pn-official" href="https://www.tochigisc.jp/" rel="noopener">公式HP</a>
     <button class="pn-top" onclick="toTop()">TOP ▲</button>
   </div>
 </div></nav>
 <main id="app"></main>
+<!-- 過去シーズンの選手紹介(公式サイト)へ。一覧を見終わった直後に置く -->
+<section class="past">
+  <div class="past-in">
+    <span class="past-lb">PAST SEASONS<small>過去の選手紹介</small></span>
+    <select class="past-sel" aria-label="過去シーズンの選手紹介へ移動"
+            onchange="if(this.value){location.href=this.value}">
+      <option value="">シーズンを選ぶ</option>
+      <option value="https://www.tochigisc.jp/player/2026/">2026 百年構想リーグ</option>
+      <option value="https://www.tochigisc.jp/player/2025/">2025</option>
+      <option value="https://www.tochigisc.jp/player/2024/">2024</option>
+      <option value="https://www.tochigisc.jp/player/2023/">2023</option>
+      <option value="https://www.tochigisc.jp/player/2022/">2022</option>
+      <option value="https://www.tochigisc.jp/player/2021/">2021</option>
+      <option value="https://www.tochigisc.jp/player/2020/">2020</option>
+      <option value="https://www.tochigisc.jp/player/2019/">2019</option>
+      <option value="https://www.tochigisc.jp/player/2018/">2018</option>
+      <option value="https://www.tochigisc.jp/player/2017/">2017</option>
+      <option value="https://www.tochigisc.jp/player/2016/">2016</option>
+      <option value="https://www.tochigisc.jp/player/2015/">2015</option>
+      <option value="https://www.tochigisc.jp/player/2014/">2014</option>
+      <option value="https://www.tochigisc.jp/player/2013/">2013</option>
+    </select>
+  </div>
+</section>
 <section class="ad-bottom"><a href="https://kkt-nichiyu.co.jp/" target="_blank" rel="noopener"><img src="images/common/sponsor_kkt-nichiyu.webp" alt="ニチユ物流システム／北関東ニチユ｜Logisnext ALESIS リチウムイオンバッテリー搭載 電動フォークリフト"></a></section>
 <footer>© TOCHIGI SC</footer>
 <script>
