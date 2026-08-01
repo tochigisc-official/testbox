@@ -11,16 +11,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   .hero{position:relative;max-width:1376px;margin:0 auto;
-    /* スマホもPCと同じ横一列の画像(新加入9名)。幅いっぱいに出し、
-       コピーは画像の下の黒い余白に置いて選手に被らせない */
-    background:var(--heroImgPC) center top/100% auto no-repeat, #0a0a0a;
-    aspect-ratio:1/.85;
+    background:var(--heroImg) center top/cover no-repeat, var(--navy);
+    aspect-ratio:790/996;max-height:78vh;
     display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:20%;
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
     background:linear-gradient(to top,rgba(5,5,8,.94) 0%,rgba(5,5,8,.55) 45%,rgba(5,5,8,0) 100%);
     pointer-events:none}
   @media(min-width:600px){.hero{
-    background:var(--heroImgPC) center top/cover no-repeat, #0a0a0a;
+    background:var(--heroImgPC) center top/cover no-repeat, var(--navy);
     aspect-ratio:2752/1358;max-height:82vh}
     .hero::after{height:46%}}
   .hero-body{position:relative;z-index:1;display:flex;flex-direction:row;align-items:flex-end;
@@ -40,7 +38,7 @@
   .h-l3 b{color:var(--yellow);font-weight:400}
 
   :root{
-    --heroImgSP:url(images/hero/hero_sp_lineup.webp);
+    --heroImg:url(images/hero/hero_sp.webp);
     --heroImgPC:url(images/hero/hero_pc.webp);
     --yellow:#FFEA00;
     --blue:#004D9F;
