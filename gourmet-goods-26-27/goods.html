@@ -102,8 +102,8 @@
 
   /* reveal */
   .rv{opacity:1; transform:none;}
-  .js .rv{opacity:0; transform:translateY(12px); transition:opacity .5s, transform .5s;}
-  .js .rv.in{opacity:1; transform:none;}
+  .js .rv{transition:opacity .5s, transform .5s;}
+  .js .rv.pre{opacity:0; transform:translateY(12px);}
 
   /* lightbox */
   #lb{position:fixed; inset:0; background:rgba(4,34,66,.92); display:none; align-items:center; justify-content:center; z-index:80; padding:24px;}
@@ -219,9 +219,19 @@
   document.documentElement.classList.add('js');
   (function(){
     var els=[].slice.call(document.querySelectorAll('.rv'));
-    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
-    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -6% 0px'});
-    els.forEach(function(e){io.observe(e);});
+    function showAll(){ els.forEach(function(x){ x.classList.remove("pre"); }); }
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduce || !("IntersectionObserver" in window) || document.visibilityState !== "visible"){ return; }
+    var vh = window.innerHeight;
+    els.forEach(function(x){ if(x.getBoundingClientRect().top > vh*0.9) x.classList.add("pre"); });
+    var io=new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.remove("pre"); io.unobserve(x.target); } }); },{rootMargin:"0px 0px -6% 0px"});
+    els.forEach(function(x){ if(x.classList.contains("pre")) io.observe(x); });
+    function revealInView(){ els.forEach(function(x){ if(!x.classList.contains("pre")) return; if(x.getBoundingClientRect().top < window.innerHeight*1.15){ x.classList.remove("pre"); io.unobserve(x); } }); }
+    addEventListener("scroll", revealInView, {passive:true});
+    addEventListener("resize", revealInView);
+    addEventListener("pageshow", revealInView);
+    document.addEventListener("visibilitychange", function(){ if(document.hidden) showAll(); else revealInView(); });
+    setTimeout(showAll, 5000);
   })();
   (function(){
     var lb=document.getElementById('lb'), big=lb.querySelector('.big'), nm=document.getElementById('lbnm');
