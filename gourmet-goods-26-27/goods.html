@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>オフィシャルグッズ｜栃木SC ホームゲーム 8/9 vs 金沢</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#042242; --yellow:#FFEA00; --blue:#004D9F;
+    --ink:#042242; --muted:#6a7482; --line:#e6e9ef;
+    --page:#eef0f3; --card:#ffffff; --maxw:560px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif;
+    color:var(--ink); background:var(--page); line-height:1.6; overflow-x:hidden;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; background:var(--card); min-height:100vh; position:relative;}
+
+  .proto{background:var(--navy); color:#fff; font-size:11px; text-align:center; padding:6px 10px; letter-spacing:.02em;}
+  .proto b{color:var(--yellow);}
+
+  /* header（グルメと共通シェル） */
+  header.hd{position:sticky; top:0; z-index:40; background:rgba(255,255,255,.96); backdrop-filter:saturate(1.2) blur(6px); border-bottom:1px solid var(--line);}
+  .hd-in{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 14px;}
+  .back{font-size:12.5px; color:var(--muted); font-weight:600; white-space:nowrap;}
+  .seg{display:flex; border:1.5px solid var(--navy); border-radius:999px; overflow:hidden; font-size:12.5px; font-weight:800;}
+  .seg a{padding:5px 15px; color:var(--navy); background:#fff;}
+  .seg a.on{background:var(--navy); color:#fff;}
+
+  /* page head */
+  .sec{padding:30px 16px 0;}
+  .sec.first{padding-top:22px;}
+  .sec .en{font-family:'Anton','Arial Narrow',Impact,sans-serif; font-size:12px; letter-spacing:.16em; color:var(--blue);}
+  .sec h2{font-size:20px; font-weight:900; display:inline-block; position:relative; margin-top:2px;}
+  .sec h2 .mk{position:absolute; left:-2px; right:-2px; bottom:2px; height:9px; background:var(--yellow); z-index:-1; opacity:.9;}
+  .ctx{font-size:12px; color:var(--muted); font-weight:600; margin-top:8px;}
+  .ctx b{color:var(--navy);}
+
+  /* 購入方法バー */
+  .util{margin:14px 16px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .util .row{display:flex; align-items:center; gap:10px; padding:11px 13px; font-size:12.5px;}
+  .util .row+.row{border-top:1px solid var(--line);}
+  .util .k{font-weight:800; color:var(--navy); background:var(--yellow); padding:2px 8px; border-radius:5px; font-size:11px; white-space:nowrap;}
+  .util .v{color:#33404f;} .util .v b{color:var(--navy);}
+
+  /* 商品写真面（グッズは白背景で“正確に”見せる＝グルメと逆） */
+  .ph{position:relative; overflow:hidden; background:#f7f8fa; display:flex; align-items:center; justify-content:center;}
+  .ph .demoji span{font-size:64px; filter:drop-shadow(0 6px 14px rgba(4,34,66,.12));}
+  .ph.dark{background:radial-gradient(120% 120% at 50% 30%, #1a2c44, #050f1e);}  /* ユニ等は黒背景で映える */
+  .ph.dark .demoji span{filter:drop-shadow(0 8px 18px rgba(0,0,0,.5));}
+  .ph .badge{position:absolute; top:10px; left:10px; background:var(--yellow); color:var(--navy); font-size:10.5px; font-weight:900; padding:3px 9px; border-radius:5px; letter-spacing:.08em;}
+
+  /* 新作フィーチャー（写真主役・情報は写真の“下”に黒文字で明快） */
+  .feat{margin-top:14px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff;}
+  .feat .ph{aspect-ratio:1/1;}
+  .feat .body{padding:15px 16px 17px;}
+  .feat .nm{font-size:20px; font-weight:900; letter-spacing:.01em; line-height:1.2;}
+  .feat .cp{font-size:13px; color:#4b5563; margin-top:6px;}
+  .feat .price{font-size:15px; font-weight:800; color:var(--navy); margin-top:12px;} .feat .price b{font-size:24px;}
+  .feat .price .tax{font-size:11px; color:var(--muted); font-weight:600;}
+  .sizes{display:flex; align-items:center; gap:7px; margin-top:12px; flex-wrap:wrap;}
+  .sizes .lb{font-size:11px; font-weight:800; color:var(--muted); letter-spacing:.08em;}
+  .sizes .sz{font-size:12px; font-weight:800; color:var(--navy); border:1.4px solid var(--navy); border-radius:7px; padding:3px 9px;}
+  .btn{display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; background:var(--yellow); color:var(--navy); font-weight:900; font-size:14px; padding:12px; border-radius:10px;}
+  .btn.ghost{background:#fff; color:var(--navy); border:1.6px solid var(--navy);}
+
+  /* ラインナップ（白背景ギャラリー・キャプションは写真の下＝グルメと逆） */
+  .gallery{display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:14px 16px 0;}
+  .g-item{border:1px solid var(--line); border-radius:13px; overflow:hidden; background:#fff;}
+  .g-item .ph{aspect-ratio:1/1;}
+  .g-item .cap{padding:9px 11px 12px;}
+  .g-item .nm{font-size:13px; font-weight:800; line-height:1.35; min-height:2.6em;}
+  .g-item .r{display:flex; align-items:center; justify-content:space-between; margin-top:5px; gap:6px;}
+  .g-item .pr{font-size:13px; font-weight:800; color:var(--navy);} .g-item .pr b{font-size:15px;}
+  .g-item .szmini{font-size:10.5px; color:var(--muted); font-weight:700;}
+  .zoomable{cursor:zoom-in;}
+
+  /* 購入CTAブロック */
+  .buy{margin:26px 16px 0; border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+  .buy .bh{background:var(--navy); color:#fff; font-size:13px; font-weight:800; padding:11px 15px; letter-spacing:.04em;}
+  .buy .opt{padding:14px 15px;}
+  .buy .opt+.opt{border-top:1px solid var(--line);}
+  .buy .ot{font-size:14px; font-weight:900; color:var(--navy);}
+  .buy .od{font-size:12px; color:#4b5563; margin-top:3px;}
+  .buy .obtn{display:inline-block; margin-top:10px; font-size:13px; font-weight:900; color:var(--navy); background:var(--yellow); padding:9px 16px; border-radius:9px;}
+  .buy .obtn.ghost{background:#fff; border:1.5px solid var(--navy);}
+
+  /* footer */
+  footer{margin-top:32px; background:var(--navy); color:#dfe6f0; padding:22px 16px 30px;}
+  footer .fseg{display:flex; gap:10px; margin-bottom:16px;}
+  footer .fseg a{flex:1; text-align:center; border:1.5px solid rgba(255,255,255,.4); border-radius:999px; padding:9px; font-size:13px; font-weight:800; color:#fff;}
+  footer .fseg a.y{background:var(--yellow); color:var(--navy); border-color:var(--yellow);}
+  footer .flinks{font-size:12px; display:flex; flex-direction:column; gap:8px;}
+  footer .flinks a{color:#cdd7e6; text-decoration:underline;}
+  footer .note{font-size:10.5px; color:#8ea0b8; margin-top:16px; line-height:1.7;}
+
+  /* reveal */
+  .rv{opacity:1; transform:none;}
+  .js .rv{opacity:0; transform:translateY(12px); transition:opacity .5s, transform .5s;}
+  .js .rv.in{opacity:1; transform:none;}
+
+  /* lightbox */
+  #lb{position:fixed; inset:0; background:rgba(4,34,66,.92); display:none; align-items:center; justify-content:center; z-index:80; padding:24px;}
+  #lb.on{display:flex;}
+  #lb .box{width:100%; max-width:420px;}
+  #lb .big{aspect-ratio:1/1; border-radius:14px; overflow:hidden;}
+  #lb .big .demoji span{font-size:130px;}
+  #lb .lbcap{color:#fff; text-align:center; margin-top:14px; font-weight:800; font-size:16px;}
+  #lb .lbcap small{display:block; font-weight:600; color:#c7d3e4; font-size:12px; margin-top:4px;}
+  #lb .x{position:absolute; top:16px; right:18px; color:#fff; font-size:26px; font-weight:700; cursor:pointer; line-height:1;}
+
+  @media(min-width:561px){ .wrap{box-shadow:0 0 0 1px var(--line);} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="proto">完成イメージ（金沢戦データ・スマホ主軸）｜写真は<b>ダミー枠</b>＝実写真が入ります・本番でこの帯は削除</div>
+
+  <header class="hd">
+    <div class="hd-in">
+      <a class="back" href="https://tochigisc-official.github.io/homegame_lp/20260809/index.html">← ホームゲーム</a>
+      <nav class="seg"><a href="gourmet.html">グルメ</a><a class="on" href="goods.html">グッズ</a></nav>
+    </div>
+  </header>
+
+  <!-- ページ見出し（LPの一節が展開した“続き”） -->
+  <div class="sec first">
+    <div class="en">GOODS</div>
+    <h2>オフィシャルグッズ<span class="mk"></span></h2>
+    <div class="ctx">ホームゲーム <b>8.9 SUN</b> vs ツエーゲン金沢 ／ カンセキスタジアムとちぎ</div>
+  </div>
+
+  <!-- 購入方法バー -->
+  <div class="util rv">
+    <div class="row"><span class="k">会場で買う</span><span class="v">グッズ売店（<b>会場マップ参照</b>）・当日営業</span></div>
+    <div class="row"><span class="k">オンライン</span><span class="v"><b>オフィシャルオンラインストア</b>で24時間購入OK</span></div>
+  </div>
+
+  <!-- 新作ピックアップ -->
+  <div class="sec"><div class="en">PICK UP</div><h2>新作ピックアップ<span class="mk"></span></h2></div>
+
+  <article class="feat rv">
+    <div class="ph dark zoomable" data-nm="レプリカユニフォーム" data-e="👕" data-d="1"><div class="badge">NEW</div><div class="demoji"><span>👕</span></div></div>
+    <div class="body">
+      <div class="nm">レプリカユニフォーム 2026</div>
+      <div class="cp">今季の新デザイン。胸のエンブレム、背番号の質感まで見てほしい一着。</div>
+      <div class="price">¥<b>17,600</b> <span class="tax">税込</span></div>
+      <div class="sizes"><span class="lb">SIZE</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span></div>
+      <a class="btn" href="#">オンラインストアで買う ›</a>
+    </div>
+  </article>
+
+  <!-- ラインナップ -->
+  <div class="sec"><div class="en">LINE UP</div><h2>ラインナップ<span class="mk"></span></h2></div>
+  <div class="gallery">
+    <div class="g-item rv">
+      <div class="ph dark zoomable" data-nm="レプリカユニフォーム" data-e="👕" data-d="1"><div class="demoji"><span>👕</span></div></div>
+      <div class="cap"><div class="nm">レプリカユニフォーム 2026</div><div class="r"><span class="pr">¥<b>17,600</b></span><span class="szmini">S–2XL</span></div></div>
+    </div>
+    <div class="g-item rv">
+      <div class="ph zoomable" data-nm="おなまえアクリルキーホルダー" data-e="🔑"><div class="demoji"><span>🔑</span></div></div>
+      <div class="cap"><div class="nm">おなまえアクリルキーホルダー</div><div class="r"><span class="pr">¥<b>400</b></span></div></div>
+    </div>
+    <div class="g-item rv">
+      <div class="ph zoomable" data-nm="カラーチェンジペンライト" data-e="🔦"><div class="demoji"><span>🔦</span></div></div>
+      <div class="cap"><div class="nm">カラーチェンジペンライト</div><div class="r"><span class="pr">¥<b>2,420</b></span></div></div>
+    </div>
+    <div class="g-item rv">
+      <div class="ph zoomable" data-nm="ぷっくりクリアシール" data-e="✨"><div class="demoji"><span>✨</span></div></div>
+      <div class="cap"><div class="nm">ぷっくりクリアシール</div><div class="r"><span class="pr">¥<b>715</b></span></div></div>
+    </div>
+    <div class="g-item rv">
+      <div class="ph zoomable" data-nm="選手名クールタオル" data-e="🧣"><div class="demoji"><span>🧣</span></div></div>
+      <div class="cap"><div class="nm">選手名クールタオル</div><div class="r"><span class="pr">¥<b>2,915</b></span></div></div>
+    </div>
+    <div class="g-item rv">
+      <div class="ph"><div class="demoji"><span style="opacity:.28">🛍</span></div></div>
+      <div class="cap"><div class="nm" style="color:#9aa4b1">商品準備中</div><div class="r"><span class="pr" style="color:#b3bbc6">¥—</span></div></div>
+    </div>
+  </div>
+
+  <!-- 購入CTA -->
+  <div class="buy rv">
+    <div class="bh">購入方法</div>
+    <div class="opt">
+      <div class="ot">会場グッズ売店で買う</div>
+      <div class="od">スタジアム内のグッズ売店で販売。場所は会場マップでご確認ください（営業時間は当日告知）。</div>
+      <a class="obtn ghost" href="#">会場マップで見る ›</a>
+    </div>
+    <div class="opt">
+      <div class="ot">オンラインストアで買う</div>
+      <div class="od">来場できない方・当日買い逃した方はこちら。24時間いつでも購入できます。</div>
+      <a class="obtn" href="#">オンラインストアへ ›</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="fseg"><a href="gourmet.html">グルメ</a><a class="y" href="goods.html">グッズ</a></div>
+    <div class="flinks">
+      <a href="https://tochigisc-official.github.io/homegame_lp/20260809/index.html">← ホームゲームトップへ戻る</a>
+      <a href="https://www.tochigisc.jp">栃木SC 公式サイト</a>
+    </div>
+    <p class="note">掲載内容は変更になる場合があります。最新情報は公式の当日告知をご確認ください。／ ※これは制作中の完成イメージです。写真はダミー枠で、実素材に差し替わります。</p>
+  </footer>
+
+</div>
+
+<!-- lightbox -->
+<div id="lb"><span class="x">×</span><div class="box"><div class="big ph"><div class="demoji"><span>👕</span></div></div><div class="lbcap" id="lbnm">レプリカユニフォーム<small>タップで拡大・実際は生地やプリントの質感が見えます</small></div></div></div>
+
+<script>
+  document.documentElement.classList.add('js');
+  (function(){
+    var els=[].slice.call(document.querySelectorAll('.rv'));
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+  (function(){
+    var lb=document.getElementById('lb'), big=lb.querySelector('.big'), nm=document.getElementById('lbnm');
+    document.querySelectorAll('.zoomable').forEach(function(z){
+      z.addEventListener('click',function(){
+        big.className='big ph'+(z.dataset.d?' dark':'');
+        big.innerHTML='<div class="demoji"><span>'+(z.dataset.e||'🛍')+'</span></div>';
+        nm.innerHTML=(z.dataset.nm||'')+'<small>タップで拡大・実際は生地やプリントの質感が見えます</small>';
+        lb.classList.add('on');
+      });
+    });
+    lb.addEventListener('click',function(){lb.classList.remove('on');});
+  })();
+</script>
+</body>
+</html>
