@@ -11,10 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   .hero{position:relative;max-width:1376px;margin:0 auto;
-    background:var(--heroImg) center top/cover no-repeat, var(--navy);
-    aspect-ratio:790/996;max-height:78vh;
+    /* スマホは新加入9名を2段に組み直した専用画像(PC版と同じ顔ぶれが全員入る) */
+    background:var(--heroImgSP) center top/cover no-repeat, var(--navy);
+    aspect-ratio:1509/1980;max-height:74vh;
     display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26%;
     background:linear-gradient(to top,rgba(5,5,8,.94) 0%,rgba(5,5,8,.55) 45%,rgba(5,5,8,0) 100%);
     pointer-events:none}
   @media(min-width:600px){.hero{
@@ -38,7 +39,7 @@
   .h-l3 b{color:var(--yellow);font-weight:400}
 
   :root{
-    --heroImg:url(images/hero/hero_sp.webp);
+    --heroImgSP:url(images/hero/hero_sp_lineup.webp);
     --heroImgPC:url(images/hero/hero_pc.webp);
     --yellow:#FFEA00;
     --blue:#004D9F;
