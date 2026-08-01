@@ -132,7 +132,7 @@
   /* 広告バナーは面積を約1/4に(横幅50%・中央・左右にスペース)。スマホのみ全幅でしっかり表示 */
   .ad-bottom img{width:50%;max-width:420px;min-width:200px;height:auto;display:block;margin:0 auto;border-radius:8px}
   @media(max-width:599px){.ad-bottom img{width:72%;max-width:280px;min-width:0}}
-  /* ===== 過去シーズンの選手紹介 ===== */
+  /* ===== シーズン一覧(公式サイトの各シーズンへ) ===== */
   .past{max-width:1376px;margin:44px auto 0;padding:0 14px}
   .past-in{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
     background:#141519;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px 18px}
@@ -233,11 +233,11 @@
   </div>
 </div></nav>
 <main id="app"></main>
-<!-- 過去シーズンの選手紹介(公式サイト)へ。一覧を見終わった直後に置く -->
+<!-- 各シーズンの選手紹介(公式サイト)へ。一覧を見終わった直後に置く -->
 <section class="past">
   <div class="past-in">
-    <span class="past-lb">PAST SEASONS<small>過去の選手紹介</small></span>
-    <select class="past-sel" aria-label="過去シーズンの選手紹介へ移動"
+    <span class="past-lb">SEASONS<small>シーズン一覧</small></span>
+    <select class="past-sel" aria-label="シーズンを選んで選手紹介へ移動"
             onchange="if(this.value){location.href=this.value}">
       <option value="">シーズンを選ぶ</option>
       <option value="https://www.tochigisc.jp/player/2026/">百年構想</option>
