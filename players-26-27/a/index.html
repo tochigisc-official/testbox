@@ -2,6 +2,17 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<!-- Google アナリティクス(GA4: G-LEQRZNTS0L)。公開ページ(github.io)でのみ計測し、ローカル確認はカウントしない -->
+<script>
+if(location.hostname.endsWith('github.io')){
+  var _ga=document.createElement('script');_ga.async=true;_ga.src='https://www.googletagmanager.com/gtag/js?id=G-LEQRZNTS0L';
+  document.head.appendChild(_ga);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-LEQRZNTS0L');
+}
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>栃木SC 26/27 SEASON SQUAD ｜ 選手・監督一覧</title>
@@ -105,6 +116,12 @@
   }
   .info{padding:10px 11px 13px}
   .name-ja{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+  /* 選手カードだけに出る「押せる」印。スタッフカードには付けない */
+  .name-ja .go{margin-left:auto;color:var(--yellow);font-size:20px;line-height:1;font-weight:700;transform:translateY(2px)}
+  /* 一覧の冒頭に置くタップ案内(スマホで押せると分からないため) */
+  .tapnote{max-width:1376px;margin:14px auto 0;padding:0 14px;color:#b9bec7;font-size:clamp(12px,3.2vw,13.5px);
+    line-height:1.7;display:flex;align-items:center;gap:7px}
+  .tapnote::before{content:'›';color:var(--yellow);font-size:19px;font-weight:700;line-height:1}
   .name-ja .num{
     font-family:'Poppins','Avenir Next','Helvetica Neue',sans-serif;
     font-weight:700;
@@ -238,6 +255,7 @@
     <button class="pn-top" onclick="toTop()">TOP ▲</button>
   </div>
 </div></nav>
+<p class="tapnote">選手をタップすると、プロフィールとQ&amp;Aが見られます</p>
 <main id="app"></main>
 <!-- 各シーズンの選手紹介(公式サイト)へ。一覧を見終わった直後に置く -->
 <section class="past">
@@ -362,7 +380,7 @@ for(const [sec,players] of Object.entries(DATA)){
         <div class="band">${p.en}</div>
         <div class="info">
           <div class="pos-line">${sec}</div>
-          <div class="name-ja"><span class="kanji">${p.ja}</span></div>
+          <div class="name-ja"><span class="kanji">${p.ja}</span><span class="go">›</span></div>
           <dl class="prof">
             ${p.from?`<dt>出身</dt><dd>${p.from}</dd>`:""}
           </dl>
