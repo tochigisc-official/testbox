@@ -22,8 +22,7 @@
    "area": "⑬",
    "e": "🍧",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19540_6a69c362-64fc-49dd-84b5-4bd6857d3f39.jpg",
-   "hero": true,
-   "gate": "Cゲート付近"
+   "hero": true
   },
   {
    "id": "i2",
@@ -35,8 +34,7 @@
    "area": "⑬",
    "e": "🍗",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19542_6a684be5-1d68-430e-8cdb-4316857d3f39.jpg",
-   "hero": true,
-   "gate": "Cゲート付近"
+   "hero": true
   },
   {
    "id": "i3",
@@ -48,8 +46,7 @@
    "area": "⑦",
    "e": "🍔",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19563_6a69c4df-2d84-4f10-9e3c-4d3b857d3f39.jpg",
-   "hero": true,
-   "gate": "A〜Bゲート間"
+   "hero": true
   },
   {
    "id": "i4",
@@ -61,8 +58,7 @@
    "area": "㉓",
    "e": "🌭",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19589_6a69ba41-e7bc-4f24-a99a-2005857d3f39.jpg",
-   "hero": true,
-   "gate": "Fゲート付近"
+   "hero": true
   },
   {
    "id": "i5",
@@ -74,8 +70,7 @@
    "area": "⑭",
    "e": "🍗",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19544_6a684be7-76d8-43ba-b3cb-4316857d3f39.jpg",
-   "hero": false,
-   "gate": "Cゲート付近"
+   "hero": false
   },
   {
    "id": "i6",
@@ -87,8 +82,7 @@
    "area": "⑮",
    "e": "🍢",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19546_6a69c4de-29b0-4659-8dcf-4d3b857d3f39.jpg",
-   "hero": false,
-   "gate": "Cゲート付近"
+   "hero": false
   },
   {
    "id": "i7",
@@ -100,8 +94,7 @@
    "area": "⑯",
    "e": "🧋",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19548_6a684be8-a730-4eab-9e78-4316857d3f39.jpg",
-   "hero": false,
-   "gate": "Cゲート付近"
+   "hero": false
   },
   {
    "id": "i8",
@@ -113,8 +106,7 @@
    "area": "⑥",
    "e": "🌽",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19553_6a69b9f1-e3cc-41d3-915d-25e4857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート付近"
+   "hero": false
   },
   {
    "id": "i9",
@@ -126,8 +118,7 @@
    "area": "㉑",
    "e": "🐙",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19561_6a69b9f2-a110-470b-8a7a-25e4857d3f39.jpg",
-   "hero": false,
-   "gate": "バックスタンド中央"
+   "hero": false
   },
   {
    "id": "i10",
@@ -139,8 +130,7 @@
    "area": "①",
    "e": "🍢",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19551_6a69b9f2-b3c4-4f4f-ad02-25e4857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート手前"
+   "hero": false
   },
   {
    "id": "i11",
@@ -152,8 +142,7 @@
    "area": "②",
    "e": "🌮",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19555_6a69b9f3-5114-4f85-9c58-25e4857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート手前"
+   "hero": false
   },
   {
    "id": "i12",
@@ -165,8 +154,7 @@
    "area": "③",
    "e": "🍚",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19637_6a69c841-bf94-4713-bcaf-418a857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート手前"
+   "hero": false
   },
   {
    "id": "i13",
@@ -178,8 +166,7 @@
    "area": "③",
    "e": "🍢",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19637_6a69c841-bf94-4713-bcaf-418a857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート手前"
+   "hero": false
   },
   {
    "id": "i14",
@@ -191,8 +178,7 @@
    "area": "④",
    "e": "🍲",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19557_6a69b9f3-f81c-40cd-831f-25e4857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート付近"
+   "hero": false
   },
   {
    "id": "i15",
@@ -204,8 +190,7 @@
    "area": "⑤",
    "e": "🍗",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19559_6a69b9f4-58c8-4f0c-9331-25e4857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート付近"
+   "hero": false
   },
   {
    "id": "i16",
@@ -217,8 +202,7 @@
    "area": "⑨",
    "e": "🍗",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19565_6a69c4df-65ec-4753-a914-4d3b857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i17",
@@ -230,8 +214,7 @@
    "area": "⑩",
    "e": "🥙",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19567_6a684fe8-3200-4d74-a886-5868857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i18",
@@ -243,8 +226,7 @@
    "area": "⑪",
    "e": "🍚",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19569_6a684fea-7dec-42c9-90d9-5868857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i19",
@@ -256,8 +238,7 @@
    "area": "⑪",
    "e": "🌭",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19571_6a69ba3e-63ac-49dd-ba0f-2005857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i20",
@@ -269,8 +250,7 @@
    "area": "⑮",
    "e": "🍢",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19573_6a69ce07-11c8-4d52-be9d-6a1d857d3f39.jpg",
-   "hero": false,
-   "gate": "Cゲート付近"
+   "hero": false
   },
   {
    "id": "i21",
@@ -282,8 +262,7 @@
    "area": "⑯",
    "e": "🍗",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19575_6a69ce08-5878-469f-b5a5-6a1d857d3f39.jpg",
-   "hero": false,
-   "gate": "Cゲート付近"
+   "hero": false
   },
   {
    "id": "i22",
@@ -295,8 +274,7 @@
    "area": "⑱",
    "e": "🍖",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19577_6a69ba3f-c0a8-4f14-a7b0-2005857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i23",
@@ -308,8 +286,7 @@
    "area": "⑲",
    "e": "🍡",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19579_6a69ba3f-3e8c-44a2-9c97-2005857d3f39.jpg",
-   "hero": false,
-   "gate": "Cゲート付近"
+   "hero": false
   },
   {
    "id": "i24",
@@ -321,8 +298,7 @@
    "area": "⑳",
    "e": "🥟",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19581_6a69ba40-78d0-4645-afff-2005857d3f39.jpg",
-   "hero": false,
-   "gate": "Dゲート付近"
+   "hero": false
   },
   {
    "id": "i25",
@@ -334,8 +310,7 @@
    "area": "㉑",
    "e": "🍖",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19583_6a69ba40-5dac-4955-a3e4-2005857d3f39.jpg",
-   "hero": false,
-   "gate": "バックスタンド中央"
+   "hero": false
   },
   {
    "id": "i26",
@@ -347,8 +322,7 @@
    "area": "㉒",
    "e": "🍗",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19585_6a69ba41-2b0c-4aef-9baa-2005857d3f39.jpg",
-   "hero": false,
-   "gate": "バックスタンド中央"
+   "hero": false
   },
   {
    "id": "i27",
@@ -360,8 +334,7 @@
    "area": "㉓",
    "e": "🥖",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19587_6a684ff2-04a0-45b5-98b9-5868857d3f39.jpg",
-   "hero": false,
-   "gate": "Fゲート付近"
+   "hero": false
   },
   {
    "id": "i28",
@@ -373,8 +346,7 @@
    "area": "㉓",
    "e": "🥖",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19587_6a684ff2-04a0-45b5-98b9-5868857d3f39.jpg",
-   "hero": false,
-   "gate": "Fゲート付近"
+   "hero": false
   },
   {
    "id": "i29",
@@ -386,8 +358,7 @@
    "area": "㉔",
    "e": "🍗",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19591_6a69ba42-da98-465c-ab34-2005857d3f39.jpg",
-   "hero": false,
-   "gate": "Hゲート付近"
+   "hero": false
   },
   {
    "id": "i30",
@@ -399,8 +370,7 @@
    "area": "①",
    "e": "🍜",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19640_6a69ce08-77b4-4eb0-98ba-6a1d857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート手前"
+   "hero": false
   },
   {
    "id": "i31",
@@ -412,8 +382,7 @@
    "area": "②",
    "e": "🍚",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19642_6a69c843-6f4c-44a2-9e53-418a857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート手前"
+   "hero": false
   },
   {
    "id": "i32",
@@ -425,8 +394,7 @@
    "area": "③",
    "e": "🍚",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19644_6a69c845-d6dc-4d57-983b-418a857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート手前"
+   "hero": false
   },
   {
    "id": "i33",
@@ -438,8 +406,7 @@
    "area": "④",
    "e": "🍝",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19646_6a69c846-bd6c-4843-94c1-418a857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート付近"
+   "hero": false
   },
   {
    "id": "i34",
@@ -451,8 +418,7 @@
    "area": "⑤",
    "e": "🍕",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19648_6a69c847-2b88-45ed-a191-418a857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート付近"
+   "hero": false
   },
   {
    "id": "i35",
@@ -464,8 +430,7 @@
    "area": "⑥",
    "e": "🍳",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19650_6a69cc01-6d1c-4025-bacc-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "Aゲート付近"
+   "hero": false
   },
   {
    "id": "i36",
@@ -477,8 +442,7 @@
    "area": "⑧",
    "e": "🍨",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19652_6a69ce0a-c604-40c8-bf24-6a1d857d3f39.jpg",
-   "hero": false,
-   "gate": "A〜Bゲート間"
+   "hero": false
   },
   {
    "id": "i37",
@@ -490,8 +454,7 @@
    "area": "⑨",
    "e": "🍛",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19654_6a69cc03-5d10-45e9-b780-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i38",
@@ -503,8 +466,7 @@
    "area": "⑫",
    "e": "🍋",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19656_6a69cc04-112c-411b-a506-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "Cゲート付近"
+   "hero": false
   },
   {
    "id": "i39",
@@ -516,8 +478,7 @@
    "area": "⑰",
    "e": "🍎",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19658_6a69cc05-617c-4033-9dc5-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i40",
@@ -529,8 +490,7 @@
    "area": "⑱",
    "e": "☕",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19660_6a69cc07-4bf8-4c4c-81ad-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "Bゲート付近"
+   "hero": false
   },
   {
    "id": "i41",
@@ -542,8 +502,7 @@
    "area": "㉑",
    "e": "🍛",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19662_6a69cc08-87bc-4c98-ad8e-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "バックスタンド中央"
+   "hero": false
   },
   {
    "id": "i42",
@@ -555,8 +514,7 @@
    "area": "㉒",
    "e": "🥪",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19664_6a69cc09-8614-4d11-b9e8-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "バックスタンド中央"
+   "hero": false
   },
   {
    "id": "i43",
@@ -568,15 +526,13 @@
    "area": "㉔",
    "e": "🍚",
    "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19666_6a69cc0a-5e6c-4a19-8c41-6353857d3f39.jpg",
-   "hero": false,
-   "gate": "Hゲート付近"
+   "hero": false
   }
  ],
  "areas": [
   {
    "no": "①",
    "zone": "場外",
-   "gate": "Aゲート手前",
    "shop": "SMILE KITCHEN",
    "x": 0.2119,
    "y": 0.8585
@@ -584,7 +540,6 @@
   {
    "no": "②",
    "zone": "場外",
-   "gate": "Aゲート手前",
    "shop": "Feel Good Tacos",
    "x": 0.2689,
    "y": 0.8939
@@ -592,7 +547,6 @@
   {
    "no": "③",
    "zone": "場外",
-   "gate": "Aゲート手前",
    "shop": "pighip",
    "x": 0.3303,
    "y": 0.9193
@@ -600,7 +554,6 @@
   {
    "no": "④",
    "zone": "場外",
-   "gate": "Aゲート付近",
    "shop": "Sports Café 92",
    "x": 0.3946,
    "y": 0.9342
@@ -608,7 +561,6 @@
   {
    "no": "⑤",
    "zone": "場外",
-   "gate": "Aゲート付近",
    "shop": "大谷石窯ピッツァ",
    "x": 0.4603,
    "y": 0.9382
@@ -616,7 +568,6 @@
   {
    "no": "⑥",
    "zone": "場外",
-   "gate": "Aゲート付近",
    "shop": "玉子屋てっちゃん",
    "x": 0.5258,
    "y": 0.9312
@@ -624,7 +575,6 @@
   {
    "no": "⑦",
    "zone": "場外",
-   "gate": "A〜Bゲート間",
    "shop": "Chronic Burger",
    "x": 0.5895,
    "y": 0.9133
@@ -632,7 +582,6 @@
   {
    "no": "⑧",
    "zone": "場外",
-   "gate": "A〜Bゲート間",
    "shop": "日光乙女チーズ",
    "x": 0.6498,
    "y": 0.8851
@@ -640,7 +589,6 @@
   {
    "no": "⑨",
    "zone": "場外",
-   "gate": "Bゲート付近",
    "shop": "月とスパイス",
    "x": 0.7053,
    "y": 0.8471
@@ -648,7 +596,6 @@
   {
    "no": "⑩",
    "zone": "場外",
-   "gate": "Bゲート付近",
    "shop": "ケバブキッチン",
    "x": 0.7547,
    "y": 0.8003
@@ -656,7 +603,6 @@
   {
    "no": "⑪",
    "zone": "場外",
-   "gate": "Bゲート付近",
    "shop": "ダ・ネイデ",
    "x": 0.7967,
    "y": 0.7458
@@ -664,7 +610,6 @@
   {
    "no": "⑫",
    "zone": "場外",
-   "gate": "Cゲート付近",
    "shop": "ねこにレモン",
    "x": 0.8303,
    "y": 0.685
@@ -672,7 +617,6 @@
   {
    "no": "⑬",
    "zone": "場外",
-   "gate": "Cゲート付近",
    "shop": "O.N.Y",
    "x": 0.8547,
    "y": 0.6193
@@ -680,7 +624,6 @@
   {
    "no": "⑭",
    "zone": "場外",
-   "gate": "Cゲート付近",
    "shop": "からあげかずちゃんち",
    "x": 0.8693,
    "y": 0.5503
@@ -688,7 +631,6 @@
   {
    "no": "⑮",
    "zone": "場外",
-   "gate": "Cゲート付近",
    "shop": "フードトラック 天",
    "x": 0.8738,
    "y": 0.4798
@@ -696,7 +638,6 @@
   {
    "no": "⑯",
    "zone": "場外",
-   "gate": "Cゲート付近",
    "shop": "会茶",
    "x": 0.868,
    "y": 0.4093
@@ -704,66 +645,58 @@
   {
    "no": "⑰",
    "zone": "場内",
-   "gate": "Bゲート付近",
    "shop": "LUANA",
-   "x": 0.607,
-   "y": 0.7012
+   "x": 0.6318,
+   "y": 0.7497
   },
   {
    "no": "⑱",
    "zone": "場内",
-   "gate": "Bゲート付近",
    "shop": "DordCoffee",
-   "x": 0.6427,
-   "y": 0.6652
+   "x": 0.6862,
+   "y": 0.6949
   },
   {
    "no": "⑲",
    "zone": "場内",
-   "gate": "Cゲート付近",
    "shop": "とちぎのぼんた",
-   "x": 0.7059,
-   "y": 0.4707
+   "x": 0.756,
+   "y": 0.5138
   },
   {
    "no": "⑳",
    "zone": "場内",
-   "gate": "Dゲート付近",
    "shop": "Season1",
-   "x": 0.6285,
-   "y": 0.2872
+   "x": 0.6925,
+   "y": 0.2819
   },
   {
    "no": "㉑",
    "zone": "場内",
-   "gate": "バックスタンド中央",
    "shop": "Mogu Rico",
-   "x": 0.4882,
-   "y": 0.2131
+   "x": 0.5009,
+   "y": 0.1598
   },
   {
    "no": "㉒",
    "zone": "場内",
-   "gate": "バックスタンド中央",
    "shop": "M's kitchen NEWS",
-   "x": 0.4349,
-   "y": 0.2108
+   "x": 0.4264,
+   "y": 0.1565
   },
   {
    "no": "㉓",
    "zone": "場内",
-   "gate": "Fゲート付近",
    "shop": "JOURNEY",
-   "x": 0.2709,
-   "y": 0.2905
+   "x": 0.2069,
+   "y": 0.2864
   },
   {
    "no": "㉔",
    "zone": "場内",
-   "gate": "Hゲート付近",
    "shop": "ドリームソウル",
-   "x": 0.2691,
-   "y": 0.676
+   "x": 0.205,
+   "y": 0.6795
   }
  ],
  "maps": [
