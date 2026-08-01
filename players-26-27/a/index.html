@@ -127,6 +127,13 @@
   .pnr-l2{font-weight:700;font-size:12.5px;color:#c7ccd2;letter-spacing:.02em}
   .pnr-logis{color:#8aa0b3}
   .pnr-alesis{color:#fff}
+  /* 追従するフォークリフト(北関東ニチユ Logisnext ALESIS) */
+  .fork-float{position:fixed;right:12px;bottom:12px;z-index:250;display:block;width:100px;line-height:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,.28));animation:forkidle 2.4s ease-in-out infinite}
+  .fork-float:hover{animation-play-state:paused}
+  @keyframes forkidle{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-1.2deg)}}
+  .fork-float img{width:100%;height:auto;display:block}
+  @media(min-width:900px){.fork-float{width:140px;right:20px;bottom:20px}}
+  @media(prefers-reduced-motion:reduce){.fork-float{animation:none}}
   /* 北関東ニチユ(クラブパートナー)のバナー。画像1枚にリンクを張るだけ */
   .kkt{margin:40px auto 0;padding:0 14px;text-align:center}
   .kkt img{width:min(72%,280px);height:auto;border-radius:8px}
@@ -258,6 +265,7 @@
 </section>
 <div class="kkt"><a href="https://kkt-nichiyu.co.jp/" target="_blank" rel="noopener"><img src="images/common/kkt-nichiyu.webp" alt="ニチユ物流システム／北関東ニチユ｜Logisnext ALESIS リチウムイオンバッテリー搭載 電動フォークリフト"></a></div>
 <footer>© TOCHIGI SC</footer>
+<a class="fork-float" href="https://kkt-nichiyu.co.jp/" target="_blank" rel="noopener" aria-label="北関東ニチユ Logisnext ALESIS"><img src="images/common/fork.webp" alt="Logisnext ALESIS 電動フォークリフト｜北関東ニチユ"></a>
 <script>
 const IMG = "images/";
 const DATA = {
