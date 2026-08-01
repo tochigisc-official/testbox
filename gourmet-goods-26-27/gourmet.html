@@ -78,12 +78,15 @@
      毎試合は JSON の areas を直すだけでよく、画像編集は不要。 */
   .mapstage{position:relative; line-height:0;}
   .pin{position:absolute; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center;
-       width:4.6%; aspect-ratio:1; border-radius:50%; background:var(--red); color:#fff;
-       font-family:var(--jp); font-weight:900; line-height:1; letter-spacing:0;
-       box-shadow:0 1px 3px rgba(0,0,0,.35); border:1.5px solid #fff;}
-  .pin span{font-size:clamp(7px, 1.9vw, 13px);}
+       width:5.2%; aspect-ratio:1; border-radius:50%; background:var(--red); color:#fff;
+       box-shadow:0 1px 3px rgba(0,0,0,.3); border:1.5px solid #fff;}
+  /* 丸数字（①）は二重丸になり、環境によって斜体で描画されるため使わない。
+     ピンの円＋算用数字で表示する。 */
+  .pin b{font: 900 clamp(8px, 2.1vw, 14px)/1 'Helvetica Neue', Arial, sans-serif;
+         font-style:normal; font-variant-numeric:tabular-nums; letter-spacing:-.02em;
+         transform:translateY(.02em);}
   .pin.in{background:var(--blue);}
-  #lb .mapstage .pin span{font-size:clamp(9px,2.4vw,18px);}
+  #lb .mapstage .pin b{font-size:clamp(10px,2.6vw,19px);}
   .area .mcap{display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 10px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted); font-weight:700;}
   .area .mcap b{color:var(--blue); white-space:nowrap;}
   .gatelist{margin-top:16px; display:flex; flex-direction:column; gap:12px;}
@@ -226,13 +229,21 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
     }).join('');
   })();
 
+  // 丸数字（①㉑…）→ 算用数字（1, 21…）。ピンの中では二重丸を避けるため数字だけを使う。
+  function numOf(s){
+    var c=(s||'').charCodeAt(0);
+    if(c>=0x2460 && c<=0x2473) return String(c-0x2460+1);   // ①〜⑳
+    if(c>=0x3251 && c<=0x325F) return String(c-0x3251+21);  // ㉑〜㉟
+    return s;
+  }
+
   // 番号ピンのHTML（会場図に重ねる）
   function pinsHTML(){
     if(!DATA.areas) return '';
     return DATA.areas.filter(function(a){ return typeof a.x==='number' && typeof a.y==='number'; })
       .map(function(a){
         return '<i class="pin'+(a.zone==='場内'?' in':'')+'" style="left:'+(a.x*100).toFixed(2)+'%;top:'+(a.y*100).toFixed(2)+'%" '+
-               'title="'+esc(a.no+' '+(a.shop||''))+'"><span>'+a.no+'</span></i>';
+               'title="'+esc(a.no+' '+(a.shop||''))+'"><b>'+numOf(a.no)+'</b></i>';
       }).join('');
   }
 
