@@ -25,9 +25,11 @@
   .seg a{padding:5px 15px; color:var(--navy); background:#fff;} .seg a.on{background:var(--navy); color:#fff;}
 
   .sec{padding:30px 16px 0;} .sec.first{padding-top:22px;}
-  /* ビストロトッキー（スタジアムのフードエリアのブランド）。SVGなので拡大しても劣化しない */
-  .brandmark img{width:200px; max-width:58%; height:auto;}
+  /* ビストロトッキー（スタジアムのフードエリアのブランド）。
+     黄色地＋ネイビーのロゴで1セット。指定色 #F4D14D。SVGなので拡大しても劣化しない。 */
   .brandmark{margin-bottom:16px;}
+  .brandmark .box{display:inline-block; background:#F4D14D; padding:13px 17px; width:236px; max-width:66%;}
+  .brandmark img{width:100%; height:auto;}
   .sec .en{font-family:'Anton','Arial Narrow',Impact,sans-serif; font-size:13.5px; letter-spacing:.16em; color:var(--blue);}
   .sec h2{font-size:25px; font-weight:900; display:inline-block; position:relative; margin-top:2px;}
   .sec h2 .mk{position:absolute; left:-2px; right:-2px; bottom:2px; height:9px; background:var(--yellow); z-index:-1; opacity:.9;}
@@ -263,7 +265,7 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
   (function(){
     var el=document.getElementById('brandmark');
     if(!el || !DATA.brand || !DATA.brand.logo){ if(el) el.remove(); return; }
-    el.innerHTML='<img src="'+esc(DATA.brand.logo)+'" alt="'+esc(DATA.brand.name+'（'+(DATA.brand.sub||'')+'）')+'">';
+    el.innerHTML='<span class="box"><img src="'+esc(DATA.brand.logo)+'" alt="'+esc(DATA.brand.name+'（'+(DATA.brand.sub||'')+'）')+'"></span>';
   })();
 
   // 丸数字（①㉑…）→ 算用数字（1, 21…）。ピンの中では二重丸を避けるため数字だけを使う。
