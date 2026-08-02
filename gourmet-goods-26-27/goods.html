@@ -153,7 +153,10 @@ a{color:inherit; text-decoration:none;}
 .acc-btn{display:inline-flex; align-items:center; gap:5px; margin-top:6px; padding:0;
          background:none; border:0; font:inherit; font-size:13px; font-weight:800;
          color:var(--blue); cursor:pointer;}
-.acc-btn .chev{font-family:var(--disp); font-weight:400; transition:transform .2s;}
+/* ▶ は開くと▼に回る。文字を読まなくても開閉が分かるようにするため。
+   小さい三角なので、回転の中心がずれないよう inline-block で幅を持たせる。 */
+.acc-btn .chev{display:inline-block; font-size:9px; line-height:1;
+               transition:transform .2s;}
 .acc-btn[aria-expanded="true"] .chev{transform:rotate(90deg);}
 .acc-body{margin-top:6px;}
 .js .acc-body[hidden]{display:none;}
@@ -193,6 +196,9 @@ a{color:inherit; text-decoration:none;}
   /* 2列は行ごとに高さを揃える（align-items を start にしない）。
      左右で高さが違うと、同じ並びなのに不揃いに見えるため。 */
   .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; padding:10px 16px 0;}
+  /* ただし、どれか1枚を開いているあいだは揃えない。開いた側に合わせて
+     隣のカードまで伸び、そこに大きな空白ができてしまうため。 */
+  .grid.has-open{align-items:start;}
   .item{background:#fff; border:1px solid var(--card-bd); border-radius:var(--card-r); overflow:hidden;
         box-shadow:var(--card-sh); display:flex; flex-direction:column;
         text-align:left; width:100%; font:inherit; color:inherit; padding:0;}
@@ -230,9 +236,15 @@ a{color:inherit; text-decoration:none;}
   /* --- 開いた中身 --- */
   .detail .ds{font-size:13.5px; color:#4b5563; line-height:1.75; margin-top:8px;}
   .detail .spec{margin-top:10px; border-top:1px solid var(--line);}
-  .detail .spec .r{display:flex; gap:10px; padding:6px 0; border-bottom:1px solid var(--line); font-size:12.5px;}
-  .detail .spec .r .k{flex:0 0 4.5em; color:var(--muted); font-weight:700;}
+  /* 2列カードの中は幅が150px前後しかない。ラベルと値を横に並べると値が
+     1文字ずつ折り返すので、ラベルを上に積む。 */
+  .detail .spec .r{display:flex; flex-direction:column; gap:1px; padding:6px 0;
+                   border-bottom:1px solid var(--line); font-size:12.5px;}
+  .detail .spec .r .k{color:var(--muted); font-weight:700; font-size:11.5px;}
   .detail .spec .r .v{color:#33404f; min-width:0;}
+  /* おすすめは1枚が広いので、ラベルと値を横に並べたほうが読みやすい */
+  .picks .detail .spec .r{flex-direction:row; gap:10px;}
+  .picks .detail .spec .r .k{flex:0 0 5em; font-size:12.5px;}
   .detail .pnote{margin-top:9px; font-size:12.5px; font-weight:700; color:var(--navy);}
 
   /* おすすめ。1列（PCは2列）で大きく見せ、説明は最初から開いておく。
@@ -373,7 +385,7 @@ function yen(n){ return '¥' + Number(n).toLocaleString('ja-JP'); }
     html+='<div class="row"><span class="k">お支払い</span><span class="v">'+
       (p.lead? '<b>'+esc(p.lead)+'</b>' : '')+
       (p.short? '<span class="sub">'+esc(p.short)+'</span>' : '')+
-      (inner? '<button class="acc-btn" type="button" aria-expanded="false">決済方法をみる<span class="chev">›</span></button>'+
+      (inner? '<button class="acc-btn" type="button" aria-expanded="false">決済方法をみる<span class="chev">▶</span></button>'+
               '<div class="acc-body" hidden>'+inner+'</div>' : '')+
       '</span></div>';
   }
@@ -389,6 +401,9 @@ document.addEventListener('click', function(e){
   var body = b.nextElementSibling;
   if(body && body.classList.contains('acc-body')) body.hidden = open;
   if(b.dataset.openLabel) b.firstChild.nodeValue = open ? b.dataset.closedLabel : b.dataset.openLabel;
+  // 開いているカードがある行だけ高さ揃えを外す（隣に空白ができないように）
+  var grid = b.closest('.grid');
+  if(grid) grid.classList.toggle('has-open', !!grid.querySelector('.acc-btn[aria-expanded="true"]'));
 });
 
 // ブランド帯（トッキースクエア）。ロゴが未着のあいだは帯そのものを出さない。
@@ -441,13 +456,12 @@ function cardHtml(it, alwaysOpen){
   if(it.allPlayers) tags+='<span class="tag players">全選手展開</span>';
   if(it.gacha)      tags+='<span class="tag gacha">ガチャ</span>';
 
-  // 何が入っているかを言葉にする。「くわしく見る」だと中身が想像できない。
-  var label = (it.spec && Object.keys(it.spec).length) ? 'サイズ・素材をみる' : '商品の説明をみる';
-
+  // 文字は短く。何も出さないとカードが押せることが伝わらず、
+  // 素材・サイズ（買う判断の材料）が誰にも開かれないまま終わる。
   var body = alwaysOpen
     ? '<div class="detail">'+bodyHtml(it)+'</div>'
     : '<button class="acc-btn" type="button" aria-expanded="false" '+
-        'data-open-label="とじる" data-closed-label="'+label+'">'+label+'<span class="chev">›</span></button>'+
+        'data-open-label="とじる" data-closed-label="くわしく">くわしく<span class="chev">▶</span></button>'+
       '<div class="acc-body detail" hidden>'+bodyHtml(it)+'</div>';
 
   return '<div class="item" data-id="'+esc(it.id)+'">'+
