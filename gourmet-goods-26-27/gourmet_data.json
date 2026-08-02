@@ -748,5 +748,10 @@
    "x": 0.1824,
    "y": 0.7674
   }
- ]
+ ],
+ "brand": {
+  "name": "BISTRO TOCKEY",
+  "sub": "栃木SC フードエリア",
+  "logo": "assets/img/bistro_tockey.svg"
+ }
 }
