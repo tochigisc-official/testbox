@@ -704,7 +704,8 @@
    "img": "assets/img/g_map_gates.webp",
    "caption": "会場図（番号は販売エリア）",
    "fit": "whole",
-   "role": "primary"
+   "role": "primary",
+   "onimage": "ホームゲームの開放ゲートは A・C・G"
   }
  ],
  "gates": [
