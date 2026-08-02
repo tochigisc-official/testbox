@@ -114,21 +114,10 @@
      番号とお店を突き合わせながら読めるようにするため。 */
   .area .maparea{margin-top:14px; position:sticky; top:var(--hdH,96px); z-index:20; background:#fff;
                  box-shadow:0 6px 12px -8px rgba(4,34,66,.25);}
-  /* スマホ：固定中は図を縮めてリストを多く見せる（ピンは%指定なので一緒に縮む） */
-  .area .maparea .mapbox{transition:width .18s ease;}
-  .area .maparea.stuck .mapbox{width:68%; margin:0 auto;}
-  .area .maparea.stuck .mcap{display:none;}
-
-  /* PC：会場図を左、店リストを右に置いて同時に見られるようにする */
+  /* PC：会場図を大きく見せたいので固定はせず、通常の流れで表示する。
+     画面が広く、図とリストを行き来するコストが小さいため。 */
   @media(min-width:561px){
-    .area .areainner{display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
-                     gap:18px; align-items:start; padding:0 16px;}
-    .area .maparea{margin-top:0; box-shadow:none;}
-    .area .maparea.stuck .mapbox{width:100%;}   /* 左右分割なので縮めない */
-    .area .maparea.stuck .mcap{display:flex;}
-    .gatelist{margin-top:0;}
-    .gatelist .gz{margin-left:0; margin-right:0;}
-    .gatelist .row{padding-left:0; padding-right:0;}
+    .area .maparea{position:static; box-shadow:none;}
   }
   .area .mapbox{background:#fff;}
   .area .mapbox img{display:block; width:100%; height:auto;}
@@ -371,18 +360,6 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
       document.querySelectorAll('.sec, .area').forEach(function(e){ e.style.scrollMarginTop=(h+8)+'px'; });
     }
     set(); addEventListener('resize', set); addEventListener('load', set);
-  })();
-
-  // 会場図が上部に固定されている間だけ .stuck を付ける（スマホでは図を縮める）
-  (function(){
-    var m=document.querySelector('.area .maparea'); if(!m) return;
-    function upd(){
-      var hdH=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdH'))||96;
-      m.classList.toggle('stuck', Math.round(m.getBoundingClientRect().top) <= hdH+1);
-    }
-    addEventListener('scroll', upd, {passive:true});
-    addEventListener('resize', upd);
-    upd();
   })();
 
   // ページ内移動：今見ている節をナビでハイライトする
