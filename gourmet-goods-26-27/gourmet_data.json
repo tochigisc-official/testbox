@@ -754,7 +754,9 @@
     "name": "BISTRO TOCKEY",
     "sub": "栃木SC フードエリア",
     "logo": "assets/img/bistro_tockey.svg",
-    "bg": "#F4D14D"
+    "bg": "#F4D14D",
+    "logoW": "124px",
+    "logoMax": "38%"
   },
   "payment": {
     "lead": "キャッシュレスでお会計もスムーズ",

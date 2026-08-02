@@ -319,9 +319,11 @@
     "写真はすべて公式サイトへの直リンク。担当者から元データを預かってWebP化する（グルメと同じ課題）。"
   ],
   "brand": {
-    "name": "TOCKEY SQUARE",
+    "name": "TOCKEY SQUARE @スタジアム",
     "sub": "栃木SC オフィシャルショップ",
-    "logo": "",
-    "bg": "#F4D14D"
+    "logo": "assets/img/tockey_square.svg",
+    "bg": "#F4D14D",
+    "logoW": "320px",
+    "logoMax": "88%"
   }
 }
