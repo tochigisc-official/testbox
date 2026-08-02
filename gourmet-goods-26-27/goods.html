@@ -129,6 +129,36 @@ a{color:inherit; text-decoration:none;}
     font-variant-numeric:tabular-nums; line-height:1;}
 .no.in{background:var(--pin-in-bg); color:var(--pin-in-fg);}
 
+/* --- ブランド帯（ビストロトッキー／トッキースクエア）-------------
+   左右いっぱいの帯にする。ブロックで置くと「画像を貼った」ように見えるため。
+   帯色は店ごとに違うのでデータ側（brand.bg）から与える。 */
+.brandmark .box{display:block; padding:9px 16px;}
+.brandmark img{width:124px; max-width:38%; height:auto;}
+
+/* --- 実用情報（営業時間・売店・お支払い）------------------------
+   枠で囲わず罫線だけ。一覧や販売エリアと様式を揃える。 */
+.util{margin:18px 0 0;}
+.util .row{display:flex; align-items:flex-start; gap:10px; padding:11px 16px; font-size:14.5px;
+           border-top:1px solid var(--line);}
+.util .row:last-child{border-bottom:1px solid var(--line);}
+.util .k{flex:0 0 auto; font-weight:800; color:var(--navy); background:var(--yellow);
+         padding:2px 8px; border-radius:5px; font-size:12.5px; white-space:nowrap; margin-top:2px;}
+.util .v{color:#33404f; min-width:0;} .util .v b{color:var(--navy);}
+.util a.link{color:var(--blue); font-weight:700; text-decoration:underline;}
+.util .v .sub{display:block; margin-top:3px; font-size:13px; color:var(--muted);}
+
+/* --- アコーディオン ---------------------------------------------
+   ページを開いた瞬間は要点だけを見せ、細かい説明はしまっておく。
+   閉じているのが既定。JSが無効なら開いた状態のまま出す（読めなくしない）。 */
+.acc-btn{display:inline-flex; align-items:center; gap:5px; margin-top:6px; padding:0;
+         background:none; border:0; font:inherit; font-size:13px; font-weight:800;
+         color:var(--blue); cursor:pointer;}
+.acc-btn .chev{font-family:var(--disp); font-weight:400; transition:transform .2s;}
+.acc-btn[aria-expanded="true"] .chev{transform:rotate(90deg);}
+.acc-body{margin-top:6px;}
+.js .acc-body[hidden]{display:none;}
+.acc-body p{font-size:13.5px; color:#4b5563; line-height:1.75; margin-top:5px;}
+
 /* --- スクロール表示 --------------------------------------------
    既定は「見えている」状態。画面外の要素にだけ JS が .pre を付けて隠す。
    こうしておけば JS が止まってもページが白紙にならない。 */
@@ -157,33 +187,15 @@ a{color:inherit; text-decoration:none;}
           white-space:nowrap; padding:1px 0; border-bottom:2px solid transparent; transition:color .15s;}
   .jump a.on{color:var(--yellow); border-bottom-color:var(--yellow);}
 
-  /* 実用情報（売店・お支払い）。グルメと同じ罫線だけの体裁 */
-  .util{margin:18px 0 0;}
-  .util .row{display:flex; align-items:flex-start; gap:10px; padding:11px 16px; font-size:14.5px; border-top:1px solid var(--line);}
-  .util .row:last-child{border-bottom:1px solid var(--line);}
-  .util .k{flex:0 0 auto; font-weight:800; color:var(--navy); background:var(--yellow); padding:2px 8px; border-radius:5px; font-size:12.5px; white-space:nowrap; margin-top:2px;}
-  .util .v{color:#33404f;} .util .v b{color:var(--navy);} .util a.link{color:var(--blue); font-weight:700; text-decoration:underline;}
-  .util .v .sub{display:block; margin-top:3px; font-size:13px; color:var(--muted);}
-  .util .v .sub.warn{color:var(--navy); font-weight:700;}
-
-  /* 写真面。読み込めないときは薄いグレーのまま（食べ物と違い暖色は合わない） */
-  .ph{position:relative; overflow:hidden; background:#f2f4f7;}
-  .ph .pimg{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; z-index:1;}
-  /* グッズ写真は白背景の商品撮影。切れると困るので cover ではなく contain で全体を見せる */
-
-  /* 区分の小見出し（夏のナイトゲームに／身につけて応援する など） */
-  .catline{margin:22px 20px 2px; font-size:15px; font-weight:900; color:var(--navy);
-           background:linear-gradient(transparent 58%, var(--yellow) 58% 94%, transparent 94%);
-           display:inline-block; padding:0 3px;}
-
   /* ===== 商品カード =====
-     一覧では images[0] の1枚だけを出す。ここで複数枚を見せると一覧が壊れる。
-     タップするとカードが横いっぱいに広がり、中の写真をスワイプで全部見られる。 */
-  .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; padding:10px 16px 0; align-items:start;}
+     写真は一覧でもスワイプできる。複数枚あることは点の数で分かるので、
+     「写真2枚」のような枚数表示はしない。 */
+  /* 2列は行ごとに高さを揃える（align-items を start にしない）。
+     左右で高さが違うと、同じ並びなのに不揃いに見えるため。 */
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; padding:10px 16px 0;}
   .item{background:#fff; border:1px solid var(--card-bd); border-radius:var(--card-r); overflow:hidden;
-        box-shadow:var(--card-sh); display:flex; flex-direction:column; cursor:pointer;
+        box-shadow:var(--card-sh); display:flex; flex-direction:column;
         text-align:left; width:100%; font:inherit; color:inherit; padding:0;}
-  .item .ph{aspect-ratio:1/1;}
   .item .bd{padding:10px 12px 12px; display:flex; flex-direction:column; flex:1;}
   .item .nm{font-size:15px; font-weight:800; line-height:1.35;}
   /* グッズの価格はグルメと逆で明快に出す。買うかどうかの判断に直結するため（指示書7.4） */
@@ -192,21 +204,8 @@ a{color:inherit; text-decoration:none;}
   .tag{font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:4px; white-space:nowrap;}
   .tag.players{background:var(--yellow); color:var(--navy);}
   .tag.gacha{background:var(--navy); color:#fff;}
-  /* 写真がまだあることだけ知らせる。枚数は出すが、一覧では見せない */
-  .item .more{margin-top:auto; padding-top:9px; font-size:12px; font-weight:700; color:var(--muted);
-              display:flex; align-items:center; gap:5px;}
-  .item .more .chev{font-family:var(--disp); color:var(--blue);}
-
-  /* --- 開いた状態 --------------------------------------------------
-     グリッドの1行を丸ごと使う。2列のまま大きくすると写真が小さくなり、
-     「大きくなった」感じにならないため。 */
-  .item.open{grid-column:1 / -1; cursor:default;}
-  .item.open .ph{display:none;}            /* サムネはスワイプ面に置き換わる */
-  .item.open .more{display:none;}
-  .item .detail{display:none;}
-  .item.open .detail{display:block;}
-  .item.open .nm{font-size:20px;}
-  .item.open .pr{font-size:19px;}
+  /* 開閉のきっかけ。文字は短く、商品名より弱く。カードの底に揃える */
+  .item .acc-btn{margin-top:auto; padding-top:10px; font-size:12.5px;}
 
   /* --- スワイプで見る写真面 ----------------------------------------
      JSに頼らず、CSSのスクロールスナップで動かす。指で横に送れる。
@@ -216,33 +215,34 @@ a{color:inherit; text-decoration:none;}
                 -webkit-overflow-scrolling:touch; scrollbar-width:none;}
   .swipe .track::-webkit-scrollbar{display:none;}
   .swipe .slide{flex:0 0 100%; scroll-snap-align:center; position:relative; aspect-ratio:1/1;}
+  /* グッズ写真は白背景の商品撮影。切れると困るので cover ではなく contain で全体を見せる */
   .swipe .slide img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain;}
   /* 写真が何を伝えているか（3色展開・中に6本入る等）を写真の上に添える。
-     めくって初めて分かる情報を、めくる前に言葉でも拾えるようにする。 */
+     めくって初めて分かる情報を、めくる前にも言葉で拾えるようにする。 */
   .swipe .cap{position:absolute; left:0; right:0; bottom:0; z-index:2;
               background:linear-gradient(transparent, rgba(4,34,66,.82));
-              color:#fff; font-size:12.5px; font-weight:700; padding:20px 12px 9px;}
-  .swipe .dots{display:flex; justify-content:center; gap:6px; padding:9px 0 4px;}
+              color:#fff; font-size:11.5px; font-weight:700; padding:18px 10px 8px;}
+  /* 点は「まだ写真がある」ことの合図でもある。枚数を文字で書かずに済む */
+  .swipe .dots{display:flex; justify-content:center; gap:6px; padding:8px 0 6px;}
   .swipe .dots i{width:6px; height:6px; border-radius:50%; background:rgba(4,34,66,.22); transition:background .2s, width .2s;}
   .swipe .dots i.on{width:16px; border-radius:3px; background:var(--navy);}
-  .swipe .hint{text-align:center; font-size:11.5px; color:var(--muted); font-weight:700; padding-bottom:8px;}
 
-  /* --- 開いたカードの中身 --- */
-  .detail .ds{font-size:13.5px; color:#4b5563; line-height:1.75; margin-top:10px;}
-  .detail .spec{margin-top:12px; border-top:1px solid var(--line);}
-  .detail .spec .r{display:flex; gap:10px; padding:7px 0; border-bottom:1px solid var(--line); font-size:13px;}
-  .detail .spec .r .k{flex:0 0 5.5em; color:var(--muted); font-weight:700;}
-  .detail .spec .r .v{color:#33404f;}
-  .detail .pnote{margin-top:11px; font-size:13px; font-weight:700; color:var(--navy);}
-  .detail .close{margin-top:14px; display:inline-flex; align-items:center; gap:6px;
-                 font-size:13.5px; font-weight:800; color:var(--blue);}
+  /* --- 開いた中身 --- */
+  .detail .ds{font-size:13.5px; color:#4b5563; line-height:1.75; margin-top:8px;}
+  .detail .spec{margin-top:10px; border-top:1px solid var(--line);}
+  .detail .spec .r{display:flex; gap:10px; padding:6px 0; border-bottom:1px solid var(--line); font-size:12.5px;}
+  .detail .spec .r .k{flex:0 0 4.5em; color:var(--muted); font-weight:700;}
+  .detail .spec .r .v{color:#33404f; min-width:0;}
+  .detail .pnote{margin-top:9px; font-size:12.5px; font-weight:700; color:var(--navy);}
 
-  /* おすすめ。一覧と同じカードだが1枚を大きく見せる */
-  .picks{padding:6px 16px 0; display:grid; grid-template-columns:1fr; gap:16px; align-items:start;}
+  /* おすすめ。1列（PCは2列）で大きく見せ、説明は最初から開いておく。
+     おすすめは「これを買おう」と決めてもらう場所なので、タップを挟まない。 */
+  .picks{padding:6px 16px 0; display:grid; grid-template-columns:1fr; gap:16px;}
   @media(min-width:561px){ .picks{grid-template-columns:1fr 1fr;} }
-  .picks .item .ph{aspect-ratio:4/3;}
   .picks .item .nm{font-size:19px;}
   .picks .item .pr{font-size:17px;}
+  .picks .item .ds{font-size:14px;}
+  .picks .swipe .cap{font-size:12.5px; padding:20px 12px 9px;}
 
   /* オンラインストアへの案内はこのページに置かない。
      在庫の調整があり「売り切れてもオンラインで買える」と読ませてしまうため。
@@ -279,6 +279,8 @@ a{color:inherit; text-decoration:none;}
       <a href="#shopSec">売店</a>
     </nav>
   </header>
+
+  <div class="brandmark" id="brandmark"></div>
 
   <div class="head first">
     <span class="hicon"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span>
@@ -323,7 +325,7 @@ a{color:inherit; text-decoration:none;}
 </a>
 
 <script>
-const DATA = {"_readme":["グッズ詳細ページの唯一の正データ。HTMLを手で書き換えないこと。","出典＝栃木SC公式ニュース『【8/9金沢戦】グッズ情報』 https://www.tochigisc.jp/news/1857","","images の考え方（重要）:","  images[0] が必ず一覧カードのサムネイルになる。","  role は『その写真が何を伝えるか』。枚数ではなく役割で扱う。","    main   … 商品そのもの","    lineup … 色やサイズの展開が一覧で分かる（どれを選ぶかが決まる）","    detail … 質感・仕様の寄り（モノの良さが伝わる）","    use    … 使えることの証明（当日どう役に立つかが分かる）","  use の note だけはカードに文字でも出す。写真を開かなくても効くため。","","オンラインストアへの案内はページに載せない。在庫の調整があり、「売り切れてもオンラインで買える」と読ませてしまうため。このページの目的は当日スタジアムの売店で買ってもらうこと。（参考URL: https://www.rakuten.ne.jp/gold/monmiya/tochigi-sc/）"],"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエーゲン金沢","venue":"カンセキスタジアムとちぎ"},"shop":{"name":"場外 グッズ売店","gate":"Aゲート","hours":"16:00〜21:00","note":"ガチャは準備でき次第の販売開始です。"},"payment":{"lead":"キャッシュレスでお会計もスムーズ","body":"クレジットカード・スマホ決済・電子マネーがそのまま使えます。","note":"当日場内の専用ブースでは、現金をチャージして使えるプリペイドカードもご用意しています。","caution":"スタジアムでの現金でのお支払いはできませんので、ご注意ください。","guideUrl":"#","gachaNote":"ガチャのみキャッシュレス対象外です。現金をご用意ください。"},"categories":[{"key":"hot","label":"夏のナイトゲームに"},{"key":"wear","label":"身につけて応援する"},{"key":"player","label":"推しと一緒に"},{"key":"keep","label":"持ち帰って楽しむ"}],"items":[{"id":"cooltowel","name":"選手名クールタオル","price":2915,"cat":"hot","hero":true,"allPlayers":true,"desc":"推し選手と一緒に夏のスタジアムを楽しもう！首に掛けやすいサイズで、暑い日の観戦やイベントなど幅広いシーンで活躍します。","spec":{"size":"幅960×高さ300mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19506_6a630f3c-3d7c-4e29-b9f7-0a0b857d3f39.jpg","role":"main"}]},{"id":"penlight","name":"2026/27ペンライト","price":2420,"cat":"hot","hero":true,"desc":"14色に切り替え可能なLEDライトで、スタジアムを栃木SCカラーに染め、選手たちへ熱い声援を届けましょう。","spec":{"size":"約H250×Φ11mm","note":"単4形電池×3本使用（テスト用電池付属）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19511_6a66ceef-a118-485e-b14c-02e5857d3f39.jpg","role":"main"}]},{"id":"armcover","name":"アームカバー","price":2420,"cat":"hot","hero":true,"desc":"接触冷感素材を使用した、暑い季節にぴったりのアームカバー。UPF50+で紫外線から腕をしっかりガードします。","spec":{"color":"ホワイト／ブラック","size":"長さ43cm・腕側周り29cm・手首側周り18cm","material":"ポリエステル、ポリウレタン（接触冷感・UPF50+）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19519_6a66cef0-c648-4a8d-b74f-02e5857d3f39.jpg","role":"main"}]},{"id":"coolerbag","name":"保冷バッグ","price":4400,"cat":"hot","hero":true,"desc":"観戦はもちろん、毎日のお買い物やレジャーにも活躍する保冷バッグ。普段使いしやすいカジュアルなデザインです。","spec":{"size":"幅240×高さ240×奥行150mm","material":"厚手トロマット、ポリエステル（裏地アルミ）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"main"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"use","note":"500mlペットボトルが6本入ります"}]},{"id":"towelmuffler","name":"タオルマフラー","price":1925,"cat":"hot","desc":"応援の定番アイテム。暑い時期には何本あっても助かります。","spec":{"size":"高さ200×幅1,100mm","material":"綿100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19521_6a699b0b-4a90-4577-99ca-5cdb857d3f39.jpg","role":"main"}]},{"id":"uniform_replica","name":"レプリカユニフォーム","price":17600,"cat":"wear","desc":"幾重にも重なる「T」のラインで、挑戦を積み重ねながら前進してきた軌跡を表現。その先にはJ2昇格へ向かう力強い上昇の矢印が浮かび上がるデザイン。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"uniform_authentic","name":"オーセンティックユニフォーム","price":20350,"cat":"wear","desc":"選手が実際に着用するモデルと同じ仕様。デザインはレプリカと共通です。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"tee_raglan","name":"ラグランTシャツ","price":4290,"cat":"wear","desc":"カレッジ風デザインを取り入れた、普段使いしやすい一着。試合観戦はもちろん、デイリーユースにもおすすめです。","spec":{"size":"M／L／XL"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19515_6a6819e0-e980-4f0e-886a-5ebe857d3f39.jpg","role":"main"}]},{"id":"shirt_linerib","name":"ラインリブシャツ","price":3520,"cat":"wear","desc":"「SC」をスタイリッシュなロゴ風にデザインしたプリントが印象的。襟元と袖口のラインリブがアクセントです。","spec":{"material":"ポリエステル100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19517_6a6819e0-1714-482e-8585-5ebe857d3f39.jpg","role":"main"}]},{"id":"cap_newhattan","name":"NEWHATTANキャップ","price":3410,"cat":"wear","desc":"人気ブランド「NEWHATTAN」の定番キャップに栃木SCデザインをプラス。観戦から普段のコーディネートまで幅広く活躍します。","spec":{"color":"カーキ／ネイビー／ブルーグレー"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"detail"}]},{"id":"cap_flatvisor","name":"フラットバイザーキャップ","price":6600,"cat":"wear","desc":"フラットバイザーのシルエットが魅力。カジュアルなスタイルに合わせやすく、日常使いにもおすすめです。","spec":{"color":"ブラック／ダークネイビー／スプルース"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"detail"}]},{"id":"acrylic_keyholder","name":"アクリルキーホルダー","price":1210,"cat":"player","allPlayers":true,"desc":"クールな宣材写真を使用し、アンティーク調の額縁風デザインで高級感のある仕上がりに。お気に入りの選手をいつでも身近に持ち歩けます。","spec":{"size":"幅66×高さ68mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19503_6a630f3b-e9ac-4821-9db4-0a0b857d3f39.jpg","role":"main"}]},{"id":"gacha_name","name":"おなまえアクリルキーホルダー","price":400,"cat":"player","allPlayers":true,"gacha":true,"desc":"全選手展開で、選手名をデザインしたアクリルキーホルダー。推し選手の名前をアピールしたり、コレクションとしても楽しめるガチャ限定アイテムです。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19513_6a66cef4-9710-46bd-9bd1-02e5857d3f39.jpg","role":"main"}]},{"id":"gacha_omamori","name":"お守りアクリルキーホルダー","price":400,"cat":"player","allPlayers":true,"gacha":true,"desc":"勝利への願いを込めた、お守り風デザインのアクリルキーホルダー。全選手展開なので、お気に入りの選手を集めたり、応援のお供にも。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19526_6a6821e0-f300-47b8-a483-716f857d3f39.jpg","role":"main"}]},{"id":"yearbook","name":"2026/27イヤーブック","price":1650,"cat":"keep","desc":"トップチームの全選手・スタッフをはじめ、アカデミーやチアーズまで、栃木SCファミリーを網羅した一冊。全48ページ・フルカラー。","spec":{"size":"A4サイズ"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19499_6a6824e6-7a00-4e80-a9f4-7a67857d3f39.jpg","role":"main"}]},{"id":"calendar","name":"2026/27卓上カレンダー","price":2530,"cat":"keep","desc":"試合スケジュールと選手の誕生日を掲載。デスクやお部屋に飾れば、毎日栃木SCを身近に感じながらシーズンを楽しめます。2026年8月〜2027年7月対応。","spec":{"size":"幅297×高さ105mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19501_6a630f3a-28ac-45e9-8425-0a0b857d3f39.jpg","role":"main"}]},{"id":"clearseal","name":"ぷっくりクリアシール","price":715,"cat":"keep","desc":"トッキーやエンブレムなどをデザインした、トレンドのぷっくりクリアシール。スマホやノート、パソコンを栃木SC仕様にデコレーションできます。","spec":{"size":"95×200mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19509_6a66ceef-399c-4516-a309-02e5857d3f39.jpg","role":"main"}]}],"_todo":["お守りアクリルキーホルダーの価格：公式ニュース本文に記載がなく、おなまえ（400円）と同じガチャのため400円と仮置き。要確認。","ラインリブシャツのサイズ展開：公式ニュース本文に記載なし。要確認。","オーセンティックユニフォームの写真：レプリカと同じ画像を暫定で使用。専用写真があれば差し替え。","写真はすべて公式サイトへの直リンク。担当者から元データを預かってWebP化する（グルメと同じ課題）。"]};
+const DATA = {"_readme":["グッズ詳細ページの唯一の正データ。HTMLを手で書き換えないこと。","出典＝栃木SC公式ニュース『【8/9金沢戦】グッズ情報』 https://www.tochigisc.jp/news/1857","","images の考え方（重要）:","  images[0] が必ず一覧カードのサムネイルになる。","  role は『その写真が何を伝えるか』。枚数ではなく役割で扱う。","    main   … 商品そのもの","    lineup … 色やサイズの展開が一覧で分かる（どれを選ぶかが決まる）","    detail … 質感・仕様の寄り（モノの良さが伝わる）","    use    … 使えることの証明（当日どう役に立つかが分かる）","  use の note だけはカードに文字でも出す。写真を開かなくても効くため。","","オンラインストアへの案内はページに載せない。在庫の調整があり、「売り切れてもオンラインで買える」と読ませてしまうため。このページの目的は当日スタジアムの売店で買ってもらうこと。（参考URL: https://www.rakuten.ne.jp/gold/monmiya/tochigi-sc/）","","区分（カテゴリー）は設けない。毎試合ラインナップが変わるため、区分の割り当てが運用の手間になる。items の並び順がそのまま掲載順。","brand.logo が空のあいだはブランド帯を出さない。トッキースクエアのロゴを 20_素材 に置いてパスを入れると表示される。"],"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエーゲン金沢","venue":"カンセキスタジアムとちぎ"},"shop":{"name":"場外 グッズ売店","gate":"Aゲート","hours":"16:00〜21:00","note":"ガチャは準備でき次第の販売開始です。"},"payment":{"lead":"キャッシュレスでお会計もスムーズ","short":"スタジアム内のお支払いはキャッシュレスのみです。","body":"クレジットカード・スマホ決済・電子マネーがそのまま使えます。現金はご利用いただけません。","note":"現金をお持ちの方は、当日場内の専用ブースでプリペイドカードをご用意しています。","guideUrl":"#","gachaNote":"ガチャのみキャッシュレス対象外です。現金をご用意ください。"},"items":[{"id":"cooltowel","name":"選手名クールタオル","price":2915,"hero":true,"allPlayers":true,"desc":"推し選手と一緒に夏のスタジアムを楽しもう！首に掛けやすいサイズで、暑い日の観戦やイベントなど幅広いシーンで活躍します。","spec":{"size":"幅960×高さ300mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19506_6a630f3c-3d7c-4e29-b9f7-0a0b857d3f39.jpg","role":"main"}]},{"id":"penlight","name":"2026/27ペンライト","price":2420,"hero":true,"desc":"14色に切り替え可能なLEDライトで、スタジアムを栃木SCカラーに染め、選手たちへ熱い声援を届けましょう。","spec":{"size":"約H250×Φ11mm","note":"単4形電池×3本使用（テスト用電池付属）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19511_6a66ceef-a118-485e-b14c-02e5857d3f39.jpg","role":"main"}]},{"id":"armcover","name":"アームカバー","price":2420,"hero":true,"desc":"接触冷感素材を使用した、暑い季節にぴったりのアームカバー。UPF50+で紫外線から腕をしっかりガードします。","spec":{"color":"ホワイト／ブラック","size":"長さ43cm・腕側周り29cm・手首側周り18cm","material":"ポリエステル、ポリウレタン（接触冷感・UPF50+）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19519_6a66cef0-c648-4a8d-b74f-02e5857d3f39.jpg","role":"main"}]},{"id":"coolerbag","name":"保冷バッグ","price":4400,"hero":true,"desc":"観戦はもちろん、毎日のお買い物やレジャーにも活躍する保冷バッグ。普段使いしやすいカジュアルなデザインです。","spec":{"size":"幅240×高さ240×奥行150mm","material":"厚手トロマット、ポリエステル（裏地アルミ）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"main"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"use","note":"500mlペットボトルが6本入ります"}]},{"id":"towelmuffler","name":"タオルマフラー","price":1925,"desc":"応援の定番アイテム。暑い時期には何本あっても助かります。","spec":{"size":"高さ200×幅1,100mm","material":"綿100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19521_6a699b0b-4a90-4577-99ca-5cdb857d3f39.jpg","role":"main"}]},{"id":"uniform_replica","name":"レプリカユニフォーム","price":17600,"desc":"幾重にも重なる「T」のラインで、挑戦を積み重ねながら前進してきた軌跡を表現。その先にはJ2昇格へ向かう力強い上昇の矢印が浮かび上がるデザイン。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"uniform_authentic","name":"オーセンティックユニフォーム","price":20350,"desc":"選手が実際に着用するモデルと同じ仕様。デザインはレプリカと共通です。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"tee_raglan","name":"ラグランTシャツ","price":4290,"desc":"カレッジ風デザインを取り入れた、普段使いしやすい一着。試合観戦はもちろん、デイリーユースにもおすすめです。","spec":{"size":"M／L／XL"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19515_6a6819e0-e980-4f0e-886a-5ebe857d3f39.jpg","role":"main"}]},{"id":"shirt_linerib","name":"ラインリブシャツ","price":3520,"desc":"「SC」をスタイリッシュなロゴ風にデザインしたプリントが印象的。襟元と袖口のラインリブがアクセントです。","spec":{"material":"ポリエステル100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19517_6a6819e0-1714-482e-8585-5ebe857d3f39.jpg","role":"main"}]},{"id":"cap_newhattan","name":"NEWHATTANキャップ","price":3410,"desc":"人気ブランド「NEWHATTAN」の定番キャップに栃木SCデザインをプラス。観戦から普段のコーディネートまで幅広く活躍します。","spec":{"color":"カーキ／ネイビー／ブルーグレー"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"detail"}]},{"id":"cap_flatvisor","name":"フラットバイザーキャップ","price":6600,"desc":"フラットバイザーのシルエットが魅力。カジュアルなスタイルに合わせやすく、日常使いにもおすすめです。","spec":{"color":"ブラック／ダークネイビー／スプルース"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"detail"}]},{"id":"acrylic_keyholder","name":"アクリルキーホルダー","price":1210,"allPlayers":true,"desc":"クールな宣材写真を使用し、アンティーク調の額縁風デザインで高級感のある仕上がりに。お気に入りの選手をいつでも身近に持ち歩けます。","spec":{"size":"幅66×高さ68mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19503_6a630f3b-e9ac-4821-9db4-0a0b857d3f39.jpg","role":"main"}]},{"id":"gacha_name","name":"おなまえアクリルキーホルダー","price":400,"allPlayers":true,"gacha":true,"desc":"全選手展開で、選手名をデザインしたアクリルキーホルダー。推し選手の名前をアピールしたり、コレクションとしても楽しめるガチャ限定アイテムです。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19513_6a66cef4-9710-46bd-9bd1-02e5857d3f39.jpg","role":"main"}]},{"id":"gacha_omamori","name":"お守りアクリルキーホルダー","price":400,"allPlayers":true,"gacha":true,"desc":"勝利への願いを込めた、お守り風デザインのアクリルキーホルダー。全選手展開なので、お気に入りの選手を集めたり、応援のお供にも。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19526_6a6821e0-f300-47b8-a483-716f857d3f39.jpg","role":"main"}]},{"id":"yearbook","name":"2026/27イヤーブック","price":1650,"desc":"トップチームの全選手・スタッフをはじめ、アカデミーやチアーズまで、栃木SCファミリーを網羅した一冊。全48ページ・フルカラー。","spec":{"size":"A4サイズ"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19499_6a6824e6-7a00-4e80-a9f4-7a67857d3f39.jpg","role":"main"}]},{"id":"calendar","name":"2026/27卓上カレンダー","price":2530,"desc":"試合スケジュールと選手の誕生日を掲載。デスクやお部屋に飾れば、毎日栃木SCを身近に感じながらシーズンを楽しめます。2026年8月〜2027年7月対応。","spec":{"size":"幅297×高さ105mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19501_6a630f3a-28ac-45e9-8425-0a0b857d3f39.jpg","role":"main"}]},{"id":"clearseal","name":"ぷっくりクリアシール","price":715,"desc":"トッキーやエンブレムなどをデザインした、トレンドのぷっくりクリアシール。スマホやノート、パソコンを栃木SC仕様にデコレーションできます。","spec":{"size":"95×200mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19509_6a66ceef-399c-4516-a309-02e5857d3f39.jpg","role":"main"}]}],"_todo":["お守りアクリルキーホルダーの価格：公式ニュース本文に記載がなく、おなまえ（400円）と同じガチャのため400円と仮置き。要確認。","ラインリブシャツのサイズ展開：公式ニュース本文に記載なし。要確認。","オーセンティックユニフォームの写真：レプリカと同じ画像を暫定で使用。専用写真があれば差し替え。","写真はすべて公式サイトへの直リンク。担当者から元データを預かってWebP化する（グルメと同じ課題）。"],"brand":{"name":"TOCKEY SQUARE","sub":"栃木SC オフィシャルショップ","logo":"","bg":"#F4D14D"}};
 
 
 document.documentElement.className += ' js';
@@ -350,6 +352,9 @@ function yen(n){ return '¥' + Number(n).toLocaleString('ja-JP'); }
 })();
 
 // 売店・お支払い
+// お支払いは、ページを開いた瞬間に長い説明が出ないようにする。
+// 見えているのは「スムーズ」という利点と「キャッシュレスのみ」という一行だけ。
+// 決済手段の詳細を知りたい人だけがアコーディオンを開く。
 (function(){
   var el=document.getElementById('utilBar'); if(!el) return;
   var s=DATA.shop||{}, p=DATA.payment||{}, html='';
@@ -359,21 +364,45 @@ function yen(n){ return '¥' + Number(n).toLocaleString('ja-JP'); }
       (s.note? '<span class="sub">'+esc(s.note)+'</span>':'')+
       '</span></div>';
   }
-  if(p.lead || p.body){
+  if(p.lead || p.short || p.body){
+    var inner='';
+    if(p.body)      inner+='<p>'+esc(p.body)+'</p>';
+    if(p.note)      inner+='<p>'+esc(p.note)+'</p>';
+    if(p.gachaNote) inner+='<p>'+esc(p.gachaNote)+'</p>';
+    if(p.guideUrl)  inner+='<p><a class="link" href="'+esc(p.guideUrl)+'">決済のくわしくは観戦ガイドへ</a></p>';
     html+='<div class="row"><span class="k">お支払い</span><span class="v">'+
-      (p.lead? '<b>'+esc(p.lead)+'</b>。' : '')+
-      (p.body? esc(p.body) : '')+
-      (p.note? '<span class="sub">'+esc(p.note)+'</span>' : '')+
-      (p.gachaNote? '<span class="sub">'+esc(p.gachaNote)+'</span>' : '')+
-      // 現金が使えないことは最後に一度はっきり書く。
-      (p.caution? '<span class="sub warn">'+esc(p.caution)+'</span>' : '')+
+      (p.lead? '<b>'+esc(p.lead)+'</b>' : '')+
+      (p.short? '<span class="sub">'+esc(p.short)+'</span>' : '')+
+      (inner? '<button class="acc-btn" type="button" aria-expanded="false">決済方法をみる<span class="chev">›</span></button>'+
+              '<div class="acc-body" hidden>'+inner+'</div>' : '')+
       '</span></div>';
   }
   el.innerHTML=html;
 })();
 
+// アコーディオン。ページ全体で使うので1か所にまとめる。
+document.addEventListener('click', function(e){
+  var b = e.target.closest ? e.target.closest('.acc-btn') : null;
+  if(!b) return;
+  var open = b.getAttribute('aria-expanded') === 'true';
+  b.setAttribute('aria-expanded', open ? 'false' : 'true');
+  var body = b.nextElementSibling;
+  if(body && body.classList.contains('acc-body')) body.hidden = open;
+  if(b.dataset.openLabel) b.firstChild.nodeValue = open ? b.dataset.closedLabel : b.dataset.openLabel;
+});
+
+// ブランド帯（トッキースクエア）。ロゴが未着のあいだは帯そのものを出さない。
+(function(){
+  var el=document.getElementById('brandmark'), b=DATA.brand;
+  if(!el) return;
+  if(!b || !b.logo){ el.remove(); return; }
+  el.innerHTML='<span class="box" style="background:'+esc(b.bg||'#F4D14D')+'">'+
+    '<img src="'+esc(b.logo)+'" alt="'+esc(b.name||'')+'"></span>';
+})();
+
 // ===== 商品カード =====
-// 一覧は images[0] の1枚だけ。開くと中でスワイプして全部見られる。
+// 写真は一覧でもスワイプできる。複数枚あることは点の数で分かるので、
+// 「写真2枚」のような枚数表示はしない。
 var SPEC_LABEL = { color:'カラー', size:'サイズ', material:'素材', note:'ほか' };
 
 function slideHtml(img, name){
@@ -383,21 +412,17 @@ function slideHtml(img, name){
   '</div>';
 }
 
-function cardHtml(it){
+function swipeHtml(it){
   var imgs = it.images||[];
-  var first = imgs[0]||{};
-  var tags='';
-  if(it.allPlayers) tags+='<span class="tag players">全選手展開</span>';
-  if(it.gacha)      tags+='<span class="tag gacha">ガチャ</span>';
+  return '<div class="swipe">'+
+    '<div class="track">'+imgs.map(function(im){ return slideHtml(im, it.name); }).join('')+'</div>'+
+    (imgs.length>1
+      ? '<div class="dots">'+imgs.map(function(_,i){ return '<i class="'+(i?'':'on')+'"></i>'; }).join('')+'</div>'
+      : '')+
+  '</div>';
+}
 
-  // 開いた中身：スワイプ面 → 説明 → 仕様 → 閉じる
-  var swipe='<div class="swipe">'+
-      '<div class="track">'+imgs.map(function(im){ return slideHtml(im, it.name); }).join('')+'</div>'+
-      (imgs.length>1 ? '<div class="dots">'+imgs.map(function(_,i){ return '<i class="'+(i?'':'on')+'"></i>'; }).join('')+'</div>'+
-                       '<div class="hint">横にスワイプして写真を見る</div>'
-                     : '')+
-    '</div>';
-
+function bodyHtml(it){
   var spec='';
   if(it.spec){
     var rows=Object.keys(it.spec).filter(function(k){ return it.spec[k]; }).map(function(k){
@@ -405,23 +430,33 @@ function cardHtml(it){
     }).join('');
     if(rows) spec='<div class="spec">'+rows+'</div>';
   }
+  var pnote = it.allPlayers ? '<p class="pnote">全選手展開です。推しの選手は売店で選べます。</p>' : '';
+  return '<p class="ds">'+esc(it.desc||'')+'</p>'+spec+pnote;
+}
 
-  var pnote='';
-  if(it.allPlayers) pnote='<p class="pnote">全選手展開です。推しの選手は売店で選べます。</p>';
+// open=true のカードは説明を最初から出す（おすすめ用）。
+// 一覧はアコーディオンにして、カードの高さを揃えたまま置く。
+function cardHtml(it, alwaysOpen){
+  var tags='';
+  if(it.allPlayers) tags+='<span class="tag players">全選手展開</span>';
+  if(it.gacha)      tags+='<span class="tag gacha">ガチャ</span>';
 
-  return '<div class="item" data-id="'+esc(it.id)+'" role="button" tabindex="0" aria-expanded="false">'+
-    '<div class="ph">'+(first.src? '<img class="pimg" src="'+esc(first.src)+'" alt="'+esc(it.name)+'" loading="lazy">':'')+'</div>'+
+  // 何が入っているかを言葉にする。「くわしく見る」だと中身が想像できない。
+  var label = (it.spec && Object.keys(it.spec).length) ? 'サイズ・素材をみる' : '商品の説明をみる';
+
+  var body = alwaysOpen
+    ? '<div class="detail">'+bodyHtml(it)+'</div>'
+    : '<button class="acc-btn" type="button" aria-expanded="false" '+
+        'data-open-label="とじる" data-closed-label="'+label+'">'+label+'<span class="chev">›</span></button>'+
+      '<div class="acc-body detail" hidden>'+bodyHtml(it)+'</div>';
+
+  return '<div class="item" data-id="'+esc(it.id)+'">'+
+    swipeHtml(it)+
     '<div class="bd">'+
       '<div class="nm">'+esc(it.name)+'</div>'+
       '<div class="pr">'+yen(it.price)+'</div>'+
       (tags? '<div class="tags">'+tags+'</div>' : '')+
-      '<div class="more">'+(imgs.length>1 ? '写真'+imgs.length+'枚' : 'くわしく見る')+'<span class="chev">›</span></div>'+
-      '<div class="detail">'+
-        swipe+
-        '<p class="ds">'+esc(it.desc||'')+'</p>'+
-        spec+ pnote+
-        '<div class="close">▲ 閉じる</div>'+
-      '</div>'+
+      body+
     '</div>'+
   '</div>';
 }
@@ -429,51 +464,16 @@ function cardHtml(it){
 (function(){
   var items = DATA.items||[];
 
-  // おすすめ
+  // おすすめ。ここは「これを買おう」と決めてもらう場所なので、説明を開いて出す。
   var picks = items.filter(function(i){ return i.hero; });
-  document.getElementById('picks').innerHTML = picks.map(cardHtml).join('');
+  document.getElementById('picks').innerHTML = picks.map(function(i){ return cardHtml(i, true); }).join('');
 
-  // 一覧は区分ごと。おすすめに出た品もここに必ず載せる（全商品を通しで見られるように）
-  var byCat={}; items.forEach(function(i){ (byCat[i.cat]=byCat[i.cat]||[]).push(i); });
-  var cats = (DATA.categories||[]).filter(function(c){ return byCat[c.key]; });
-  var used = {};
-  var html = cats.map(function(c){
-    c.items = byCat[c.key]; c.items.forEach(function(i){ used[i.id]=1; });
-    return '<div class="catline">'+esc(c.label)+'</div>'+
-           '<div class="grid">'+c.items.map(cardHtml).join('')+'</div>';
-  }).join('');
-  // 区分が未設定の品を落とさない。データの取りこぼしが黙って消えないようにする。
-  var rest = items.filter(function(i){ return !used[i.id]; });
-  if(rest.length) html += '<div class="catline">そのほか</div><div class="grid">'+rest.map(cardHtml).join('')+'</div>';
-  document.getElementById('list').innerHTML = html;
+  // 一覧は区分を作らず、全商品を掲載順にそのまま並べる。
+  // 毎試合ラインナップが変わるので、区分の割り当てが運用の手間になるため。
+  document.getElementById('list').innerHTML =
+    '<div class="grid">'+items.map(function(i){ return cardHtml(i, false); }).join('')+'</div>';
 
   var cnt=document.getElementById('cnt'); if(cnt) cnt.textContent = '全'+items.length+'品';
-})();
-
-// 開閉。開いているカードは1つだけにする（複数開くと現在地を見失う）
-(function(){
-  function close(el){ el.classList.remove('open'); el.setAttribute('aria-expanded','false'); }
-  function toggle(el){
-    if(el.classList.contains('open')){ close(el); return; }
-    var open=document.querySelector('.item.open'); if(open) close(open);
-    el.classList.add('open'); el.setAttribute('aria-expanded','true');
-    // 開いたカードの頭が追従ヘッダーに隠れないところまで送る
-    var top = el.getBoundingClientRect().top + window.pageYOffset - 96;
-    window.scrollTo({ top: top, behavior:'smooth' });
-  }
-  document.addEventListener('click', function(e){
-    var el = e.target.closest ? e.target.closest('.item') : null;
-    if(!el) return;
-    // 開いた中の写真をスワイプするときに閉じてしまわないようにする
-    if(el.classList.contains('open') && !e.target.closest('.close')) return;
-    toggle(el);
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key!=='Enter' && e.key!==' ') return;
-    var el = e.target.closest ? e.target.closest('.item') : null;
-    if(!el) return;
-    e.preventDefault(); toggle(el);
-  });
 })();
 
 // スワイプ位置に合わせて点を更新。スクロールそのものはCSSがやっている。
