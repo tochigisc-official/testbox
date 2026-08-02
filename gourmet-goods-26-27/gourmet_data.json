@@ -754,5 +754,11 @@
   "name": "BISTRO TOCKEY",
   "sub": "栃木SC フードエリア",
   "logo": "assets/img/bistro_tockey.svg"
+ },
+ "payment": {
+  "lead": "完全キャッシュレス",
+  "body": "クレジットカード・スマホ決済・電子マネーがそのまま使えます。現金はご利用いただけません。",
+  "note": "現金の方は、当日場内の専用ブースでプリペイドカードをご用意しています。",
+  "guideUrl": "#"
  }
 }
