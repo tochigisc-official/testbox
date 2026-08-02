@@ -701,7 +701,7 @@
   ],
   "maps": [
     {
-      "img": "assets/img/g_map_gates.webp",
+      "img": "assets/img/g_map_gates_01.webp",
       "caption": "会場図（番号は販売エリア）",
       "fit": "whole",
       "role": "primary",
