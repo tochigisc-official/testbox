@@ -27,9 +27,9 @@
   .sec{padding:30px 16px 0;} .sec.first{padding-top:22px;}
   /* ビストロトッキー（スタジアムのフードエリアのブランド）。
      黄色地＋ネイビーのロゴで1セット。指定色 #F4D14D。SVGなので拡大しても劣化しない。 */
-  .brandmark{margin-bottom:16px;}
-  .brandmark .box{display:inline-block; background:#F4D14D; padding:13px 17px; width:236px; max-width:66%;}
-  .brandmark img{width:100%; height:auto;}
+  /* 左右いっぱいの帯にする。ブロックで置くと「画像を貼った」ように見えるため。 */
+  .brandmark .box{display:block; background:#F4D14D; padding:15px 16px;}
+  .brandmark img{width:238px; max-width:70%; height:auto;}
   .sec .en{font-family:'Anton','Arial Narrow',Impact,sans-serif; font-size:13.5px; letter-spacing:.16em; color:var(--blue);}
   .sec h2{font-size:25px; font-weight:900; display:inline-block; position:relative; margin-top:2px;}
   .sec h2 .mk{position:absolute; left:-2px; right:-2px; bottom:2px; height:9px; background:var(--yellow); z-index:-1; opacity:.9;}
@@ -65,18 +65,19 @@
   /* ギャラリー：写真＋下に「名前・価格・説明文（原文）・店/エリア」を全表示 */
   /* 一覧：写真を主役にするため枠を外し、余白を詰めて写真を大きく取る。
      文字は 商品名＞価格＞説明＞店/番号 の順に弱めて階層をつくる。 */
-  .gallery{display:grid; grid-template-columns:1fr 1fr; gap:22px 11px; padding:16px 12px 0;}
+  /* 行の間隔を、写真と本文の間隔より大きく取る。
+     こうしないと本文がどちらの写真のものか分からなくなる。 */
+  .gallery{display:grid; grid-template-columns:1fr 1fr; gap:34px 11px; padding:16px 12px 0;}
   .g-item{background:#fff; display:flex; flex-direction:column;}
   .g-item .ph{aspect-ratio:1/1; border-radius:10px;}
-  /* 説明文の長さが違っても、店名・番号の行が横並びで揃うようにする */
-  .g-item .bd{padding:9px 2px 0; display:flex; flex-direction:column; flex:1;}
+  .g-item .bd{padding:9px 2px 0;}
   .g-item .nm{font-size:15px; font-weight:800; line-height:1.35; letter-spacing:-.01em;}
   /* 価格は控えめに。大きく出すと安売り感が出て食欲が下がる（指示書7.4） */
   .g-item .pr{font-size:13px; font-weight:700; color:#6a7482; margin-top:4px;}
   .g-item .ds{font-size:12.5px; color:#5b6472; margin-top:6px; line-height:1.55;}
   /* 販売場所：番号は会場図・店リストと同じ色分けバッジ（赤=場外／青=場内）。
      店名は控えめのまま。同じ店の商品が並ぶとき店名が目立つと繰り返しがうるさくなるため。 */
-  .g-item .mt{display:flex; align-items:center; gap:6px; margin-top:auto; padding-top:8px;}
+  .g-item .mt{display:flex; align-items:center; gap:6px; margin-top:8px;}
   .g-item .mt .no{flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
        width:18px; height:18px; border-radius:50%; background:var(--red); color:#fff;
        font: 900 10.5px/1 'Helvetica Neue', Arial, sans-serif; font-style:normal;
@@ -172,8 +173,9 @@
     </div>
   </header>
 
+  <div class="brandmark" id="brandmark"></div>
+
   <div class="sec first">
-    <div class="brandmark" id="brandmark"></div>
     <div class="en">GOURMET</div>
     <h2>スタジアムグルメ<span class="mk"></span></h2>
     <div class="ctx">ホームゲーム <b>8.9 SUN</b> vs ツエーゲン金沢 ／ カンセキスタジアムとちぎ</div>
