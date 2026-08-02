@@ -36,10 +36,11 @@
   .sec .cnt{font-size:13px; color:var(--muted); font-weight:700; margin-left:8px;}
   .ctx{font-size:13.5px; color:var(--muted); font-weight:600; margin-top:8px;} .ctx b{color:var(--navy);}
 
-  .util{margin:14px 16px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
-  .util .row{display:flex; align-items:center; gap:10px; padding:11px 13px; font-size:14.5px;}
-  .util .row+.row{border-top:1px solid var(--line);}
-  .util .k{font-weight:800; color:var(--navy); background:var(--yellow); padding:2px 8px; border-radius:5px; font-size:12.5px; white-space:nowrap;}
+  /* 実用情報は枠で囲わず罫線だけ。他の節（一覧・販売エリア）と様式を揃える。 */
+  .util{margin:18px 0 0;}
+  .util .row{display:flex; align-items:flex-start; gap:10px; padding:11px 16px; font-size:14.5px; border-top:1px solid var(--line);}
+  .util .row:last-child{border-bottom:1px solid var(--line);}
+  .util .k{flex:0 0 auto; font-weight:800; color:var(--navy); background:var(--yellow); padding:2px 8px; border-radius:5px; font-size:12.5px; white-space:nowrap; margin-top:2px;}
   .util .v{color:#33404f;} .util .v b{color:var(--navy);} .util a.link{color:var(--blue); font-weight:700; text-decoration:underline;}
 
   /* 写真面：実写真(外部URL)。読めない時は絵文字＋暖色にフォールバック */
