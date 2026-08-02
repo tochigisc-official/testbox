@@ -182,7 +182,8 @@
   /* PCではホームゲームLP（.device）と同じ器・同じ影にする。
      LPのリンクから来たときに幅が変わって違和感が出ないようにするため。 */
   @media(min-width:561px){
-    body{padding:40px 16px 60px;}
+    /* 上に余白を作らない。追従ヘッダーが画面最上部に接するようにするため。 */
+    body{padding:0 16px 60px;}
     .wrap{min-height:0; box-shadow:0 2px 20px rgba(4,34,66,.08);}
   }
 </style>
