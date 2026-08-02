@@ -113,7 +113,7 @@
    "name": "大玉揚げたこ焼き",
    "price": "¥700",
    "desc": "揚げたこ焼きアツアツパワーで勝利を後押し",
-   "shop": "Mogu Rico",
+   "shop": "MoguRico",
    "zone": "場内",
    "area": "㉑",
    "e": "🐙",
@@ -401,7 +401,7 @@
    "name": "フレッシュトマトとツナのパスタ",
    "price": "¥750",
    "desc": "旬のトマト、ツナでさっぱりと！",
-   "shop": "Sports Cafe92",
+   "shop": "Sports Café 92",
    "zone": "場外",
    "area": "④",
    "e": "🍝",
@@ -673,7 +673,7 @@
   {
    "no": "㉑",
    "zone": "場内",
-   "shop": "Mogu Rico",
+   "shop": "MoguRico",
    "x": 0.5009,
    "y": 0.1598
   },
