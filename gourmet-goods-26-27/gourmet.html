@@ -7,30 +7,157 @@
 <title>スタジアムグルメ｜栃木SC ホームゲーム 8/9 vs 金沢</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<!-- ホームゲームLP本体と同じ3書体。和文を端末まかせにすると、Windowsで
+     游ゴシックに落ちてLPと別書体のページに見えるため、必ず読み込む。 -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#042242; --yellow:#FFEA00; --blue:#004D9F; --red:#DB0025; --ink:#042242; --muted:#6a7482; --line:#e6e9ef; --page:#EDEFF2; --card:#fff; --maxw:680px;}
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{-webkit-text-size-adjust:100%;}
-  body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif; color:var(--ink); background:var(--page); line-height:1.6; overflow-x:hidden;}
-  img{max-width:100%; display:block;} a{color:inherit; text-decoration:none;}
-  .wrap{max-width:var(--maxw); margin:0 auto; background:var(--card); min-height:100vh; position:relative;}
+/* ===========================================================
+   共通トンマナ層 ─ ホームゲームLP本体から抜き出した「見た目の土台」
+   -----------------------------------------------------------
+   【役割】
+   グルメ／グッズ詳細ページは、ホームゲームLPの1つの節を展開した
+   派生ページである。別サイトに見えてはいけない。
+   そのため、色・書体・見出しの組み方・カードの体裁といった
+   「同じサイトだと分かる部分」は、ここ1か所だけで定義する。
+
+   【出どころ】
+   すべて homegame_lp/20260809/index.html の実装値をそのまま写している。
+   数値を勝手に変えないこと。変えるならLP本体と同時に変える。
+
+   【使い方】
+   build_gourmet.mjs がテンプレートの __TONE__ 目印にこの中身を差し込む。
+   ページは1枚のHTMLとして完結する（CSSファイルの読み込み事故が起きない）。
+   ※この目印をコメント内に「スラッシュ＋アスタリスク」の形で書かないこと。
+     CSSのコメントは入れ子にできず、そこでコメントが終わってしまう。
+
+   【Webフォント】
+   Anton / Poppins / Noto Sans JP の読み込みは各テンプレートの <head> に置く。
+   ここはCSSなので <link> を書けない。3書体そろって初めてLPと同じ見た目になる。
+   =========================================================== */
+
+:root{
+  /* --- ブランド色（LP本体と同一）。ここに無い色を足さない --- */
+  --yellow:#FFEA00; --blue:#004D9F; --navy:#042242; --white:#FFFFFF;
+  --ink:#042242; --paper:#FFFCE8;
+  --line:#E4E8EE;
+  --muted:#6a7482;
+
+  /* --- 書体（LP本体と同一）--- */
+  --disp:'Anton',sans-serif;          /* 英字見出し。ページの顔 */
+  --latin:'Poppins',sans-serif;       /* 英字の小さい文字・価格 */
+  --jp:'Noto Sans JP',sans-serif;     /* 和文。端末依存にしない */
+
+  /* --- 器 --- */
+  --page:#EDEFF2; --maxw:680px;
+
+  /* --- カード（LP本体 .rail .card と同一）--- */
+  --card-r:16px; --card-bd:#E7EAF0; --card-sh:0 4px 16px rgba(4,34,66,.12);
+  --r-btn:6px;
+
+  /* --- 番号バッジ：場外／場内の区別 -------------------------
+     LP本体に赤は1色も使われていないため、赤（#DB0025）は廃止した。
+     ネイビー塗り＝場外、黄色塗り＝場内。スタジアムの中に入ると
+     チームカラーになる、という対応で覚えられる。
+     どちらもLP本体にある配色（.hero .op-jp / .sp-body .tag）。 */
+  --pin-out-bg:var(--navy);   --pin-out-fg:#fff;     --pin-out-bd:#fff;
+  --pin-in-bg:var(--yellow);  --pin-in-fg:var(--navy); --pin-in-bd:var(--navy);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
+body{
+  font-family:var(--jp); color:var(--ink); background:#fff;
+  -webkit-font-smoothing:antialiased;
+  font-size:16px; line-height:1.8;   /* LP本体と同じ行間。詰めない */
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+
+/* --- 器：LP本体の .device と同じ挙動 ---------------------------
+   スマホ＝白の全幅。PC＝グレー地に680pxの紙が浮く。
+   LPから来たときに幅と佇まいが変わらないようにするため。 */
+.wrap{max-width:var(--maxw); margin:0 auto; background:#fff; position:relative;}
+@media(min-width:601px){
+  body{background:var(--page); padding:0 16px 60px;}
+  .wrap{box-shadow:0 2px 20px rgba(4,34,66,.08);}
+}
+
+/* --- 見出し：LP本体の .head と同じ組み方 -----------------------
+   英字（Anton・31px・ネイビー）が主役で1行目に立ち、
+   その下にアイコン＋和文＋黄色マーカー。この順序がLPの顔。
+   英字を小さな飾りに落とすと、途端に別サイトに見える。 */
+.head{padding:15px 20px 10px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.head .disp{
+  width:100%; order:-1;
+  font-family:var(--disp); font-weight:400; font-size:31px; line-height:1;
+  letter-spacing:.03em; color:var(--navy); margin-bottom:7px; text-transform:uppercase;
+}
+.head .hicon{flex:none; width:30px; height:30px; color:var(--navy);}
+.head .hicon svg{width:30px; height:30px; stroke:currentColor; stroke-width:1.7; fill:none;
+                 stroke-linecap:round; stroke-linejoin:round;}
+.head h2{font-size:22px; font-weight:900; line-height:1.3; color:var(--navy);
+         display:inline-block; position:relative;}
+/* 黄色マーカーは文字を包んで引く（下線ではなく蛍光ペン）。文字数に追従する */
+.head h2 .mk{background:linear-gradient(transparent 60%, var(--yellow) 60% 92%, transparent 92%);
+             padding:0 2px;}
+.head .cnt{font-size:13px; color:var(--muted); font-weight:700;}
+.subbrand{font-family:var(--latin); color:var(--navy); font-size:12px; font-weight:700;
+          letter-spacing:.1em; margin-left:10px; align-self:baseline; padding-top:8px; white-space:nowrap;}
+.slead{color:#333; font-size:14px; padding:6px 20px 0;}
+
+/* --- 節の区切り：中央に黄色の短い棒（LP本体 .sec-div）--- */
+.sec-div{position:relative; height:1px; background:var(--line); margin:26px 20px 8px;}
+.sec-div::before{content:""; position:absolute; left:50%; top:-1.5px; transform:translateX(-50%);
+                 width:40px; height:4px; border-radius:2px; background:var(--yellow);}
+
+/* --- 帯（LP本体と同じ4種）--- */
+.band-white{background:#fff;}
+.band-soft{background:#F7F9FC;}
+.band-paper{background:var(--paper);}
+.band-yellow{background:var(--yellow);}
+
+/* --- カード：LP本体 .rail .card と同一の体裁 --- */
+.card{background:#fff; border:1px solid var(--card-bd); border-radius:var(--card-r);
+      overflow:hidden; box-shadow:var(--card-sh); display:flex; flex-direction:column;}
+
+/* --- 番号バッジ（会場図のピン・店リストの番号で共用）-----------
+   丸数字（①）は環境によって二重丸や斜体で描画されるため使わない。
+   円＋算用数字で描く。数字の幅を揃えるため tabular-nums を指定。 */
+.no{flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:50%; background:var(--pin-out-bg); color:var(--pin-out-fg);
+    font-family:'Helvetica Neue',Arial,sans-serif; font-weight:900; font-style:normal;
+    font-variant-numeric:tabular-nums; line-height:1;}
+.no.in{background:var(--pin-in-bg); color:var(--pin-in-fg);}
+
+/* --- スクロール表示 --------------------------------------------
+   既定は「見えている」状態。画面外の要素にだけ JS が .pre を付けて隠す。
+   こうしておけば JS が止まってもページが白紙にならない。 */
+.rv{opacity:1; transform:none;}
+.js .rv{transition:opacity .5s, transform .5s;}
+.js .rv.pre{opacity:0; transform:translateY(12px);}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .rv.pre{opacity:1; transform:none; transition:none;}}
+
+/* ===== ここから下はグルメ詳細ページ固有の指定 =====
+   色・書体・見出し・カード・番号バッジは共通トンマナ層（tone.css）が持つ。
+   ここで上書きすると、グッズページとの間にズレが生まれるので足さない。 */
   .proto{background:var(--navy); color:#fff; font-size:11px; text-align:center; padding:6px 10px;}
   .proto b{color:var(--yellow);}
 
-  header.hd{position:sticky; top:0; z-index:40; background:rgba(255,255,255,.96); backdrop-filter:saturate(1.2) blur(6px); border-bottom:1px solid var(--line);}
+  /* 追従ヘッダー。LP本体の .qnav と同じ「ネイビー地＋黄色の下線3px」にする。
+     LPで最も目に残る形なので、これがあるだけで同じサイトの続きだと分かる。 */
+  header.hd{position:sticky; top:0; z-index:40; background:var(--navy); border-bottom:3px solid var(--yellow);}
   .hd-in{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 14px;}
-  .back{font-size:14.5px; color:var(--muted); font-weight:600; white-space:nowrap;}
-  .seg{display:flex; border:1.5px solid var(--navy); border-radius:999px; overflow:hidden; font-size:14px; font-weight:800;}
-  .seg a{padding:5px 15px; color:var(--navy); background:#fff;} .seg a.on{background:var(--navy); color:#fff;}
-  /* ページ内移動。塗りのピルが2段続くと重いので、見出しと同じ黄色マーカーで
-     現在地を示す。ページ内に既にある表現を使い、新しい形を増やさない。 */
+  .back{font-size:14.5px; color:#fff; font-weight:700; white-space:nowrap;}
+  .seg{display:flex; border:1.5px solid rgba(255,255,255,.55); border-radius:999px; overflow:hidden; font-size:14px; font-weight:800;}
+  .seg a{padding:5px 15px; color:#fff; background:transparent;}
+  .seg a.on{background:var(--yellow); color:var(--navy);}
+  /* ページ内移動。ネイビー地の上では黄色マーカーが読めないので、
+     現在地は黄色の文字＋下線で示す。LPの .qnav a:hover と同じ考え方。 */
   .jump{display:flex; align-items:center; gap:20px; padding:0 16px 9px;}
-  .jump a{position:relative; z-index:0; font-size:13.5px; font-weight:800; color:#9aa4b1;
-          white-space:nowrap; padding:1px 0; transition:color .15s;}
-  .jump a.on{color:var(--navy);}
-  .jump a.on::before{content:""; position:absolute; left:-3px; right:-3px; bottom:1px; height:7px;
-          background:var(--yellow); z-index:-1; opacity:.9;}
+  .jump a{font-size:13.5px; font-weight:800; color:rgba(255,255,255,.72);
+          white-space:nowrap; padding:1px 0; border-bottom:2px solid transparent; transition:color .15s;}
+  .jump a.on{color:var(--yellow); border-bottom-color:var(--yellow);}
   /* ページ上部へ戻るボタン。ナビの端に置くと役割が違うものが混ざるため、
      右下に独立して置く。少しスクロールしてから現れる。 */
   /* 表示の切り替えは display で行う。opacity/visibility は環境によって
@@ -44,17 +171,16 @@
   .fab svg{width:22px; height:22px; fill:currentColor; display:block;}
   @media(min-width:561px){ .fab{right:calc(50% - var(--maxw)/2 + 16px);} }
 
+  /* 節間の余白だけページ側で決める。LP本体は帯の色で節が分かれるが、
+     このページは白一色なので余白で分ける。見出しの組み方自体は共通層のまま。 */
+  .head{padding-top:28px;} .head.first{padding-top:18px;}
   .sec{padding:30px 16px 0;} .sec.first{padding-top:22px;}
   /* ビストロトッキー（スタジアムのフードエリアのブランド）。
      黄色地＋ネイビーのロゴで1セット。指定色 #F4D14D。SVGなので拡大しても劣化しない。 */
   /* 左右いっぱいの帯にする。ブロックで置くと「画像を貼った」ように見えるため。 */
   .brandmark .box{display:block; background:#F4D14D; padding:9px 16px;}
   .brandmark img{width:124px; max-width:38%; height:auto;}
-  .sec .en{font-family:'Anton','Arial Narrow',Impact,sans-serif; font-size:13.5px; letter-spacing:.16em; color:var(--blue);}
-  .sec h2{font-size:25px; font-weight:900; display:inline-block; position:relative; margin-top:2px;}
-  .sec h2 .mk{position:absolute; left:-2px; right:-2px; bottom:2px; height:9px; background:var(--yellow); z-index:-1; opacity:.9;}
-  .sec .cnt{font-size:13px; color:var(--muted); font-weight:700; margin-left:8px;}
-  .ctx{font-size:13.5px; color:var(--muted); font-weight:600; margin-top:8px;} .ctx b{color:var(--navy);}
+  .ctx{font-size:13.5px; color:var(--muted); font-weight:600; padding:2px 20px 0;} .ctx b{color:var(--navy);}
 
   /* 実用情報は枠で囲わず罫線だけ。他の節（一覧・販売エリア）と様式を揃える。 */
   .util{margin:18px 0 0;}
@@ -76,8 +202,8 @@
   /* 写真は各店がスマホで撮影する前提。大きく出すほど粗が目立つため、
      4:5(縦長)をやめて 1:1 にし、PCでは2列にして1枚あたりを小さくする。 */
   .picks{padding:6px 16px 0; display:grid; grid-template-columns:1fr; gap:16px;}
-  .feat{background:#fff; border:1px solid #E7EAF0; border-radius:16px; overflow:hidden;
-        box-shadow:0 2px 12px rgba(4,34,66,.08); display:flex; flex-direction:column;}
+  .feat{background:#fff; border:1px solid var(--card-bd); border-radius:var(--card-r); overflow:hidden;
+        box-shadow:var(--card-sh); display:flex; flex-direction:column;}
   .feat .ph{aspect-ratio:1/1;}
   .feat .cap{display:flex; flex-direction:column; flex:1;}
   .feat .meta{margin-top:auto;}
@@ -88,11 +214,8 @@
   .feat .meta{display:flex; align-items:center; gap:9px; margin-top:13px; flex-wrap:wrap;}
   /* おすすめも価格は控えめに。主役は料理写真と商品名 */
   .feat .price{font-size:15px; font-weight:700; color:#6a7482;}
-  .feat .no{flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
-       width:20px; height:20px; border-radius:50%; background:var(--red); color:#fff;
-       font: 900 11.5px/1 'Helvetica Neue', Arial, sans-serif; font-style:normal;
-       font-variant-numeric:tabular-nums;}
-  .feat .no.in{background:var(--blue);}
+  /* 色分けは共通層の .no / .no.in が持つ。ここでは大きさだけ決める */
+  .feat .no{width:20px; height:20px; font-size:11.5px;}
   .feat .shop{font-size:13px; color:#9aa4b1; font-weight:600;}
   .feat .maplink{font-size:13.5px; color:var(--blue); font-weight:700; margin-left:auto; text-decoration:underline; white-space:nowrap;}
 
@@ -102,30 +225,29 @@
   /* 写真と本文を1枚のカードに収める。境界がある方が、どの写真の説明かが
      確実に伝わる。体裁はLP本体のカードに合わせる。 */
   .gallery{display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; padding:16px 16px 0;}
-  .g-item{background:#fff; border:1px solid #E7EAF0; border-radius:14px; overflow:hidden;
-          box-shadow:0 2px 10px rgba(4,34,66,.06); display:flex; flex-direction:column;}
+  .g-item{background:#fff; border:1px solid var(--card-bd); border-radius:var(--card-r); overflow:hidden;
+          box-shadow:var(--card-sh); display:flex; flex-direction:column;}
   .g-item .ph{aspect-ratio:1/1;}
   .g-item .bd{padding:10px 11px 12px; display:flex; flex-direction:column; flex:1;}
   .g-item .nm{font-size:15px; font-weight:800; line-height:1.35; letter-spacing:-.01em;}
   /* 価格は控えめに。大きく出すと安売り感が出て食欲が下がる（指示書7.4） */
   .g-item .pr{font-size:13px; font-weight:700; color:#6a7482; margin-top:4px;}
   .g-item .ds{font-size:12.5px; color:#5b6472; margin-top:6px; line-height:1.55;}
-  /* 販売場所：番号は会場図・店リストと同じ色分けバッジ（赤=場外／青=場内）。
+  /* 販売場所：番号は会場図・店リストと同じ色分けバッジ（ネイビー=場外／黄=場内）。
      店名は控えめのまま。同じ店の商品が並ぶとき店名が目立つと繰り返しがうるさくなるため。 */
   .g-item .mt{display:flex; align-items:center; gap:6px; margin-top:auto; padding-top:9px;}
-  .g-item .mt .no{flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
-       width:18px; height:18px; border-radius:50%; background:var(--red); color:#fff;
-       font: 900 10.5px/1 'Helvetica Neue', Arial, sans-serif; font-style:normal;
-       font-variant-numeric:tabular-nums;}
-  .g-item .mt .no.in{background:var(--blue);}
+  .g-item .mt .no{width:18px; height:18px; font-size:10.5px;}
   .g-item .mt .sh{font-size:12px; color:#9aa4b1; font-weight:600; line-height:1.3;}
   .zoomable{cursor:zoom-in;}
 
   /* 販売エリアはカードで囲わず節として置き、会場図は左右いっぱいに使う */
   .area{margin:30px 0 0; scroll-margin-top:72px;}
-  .area h3{font-size:17px; font-weight:900; margin:0 16px 7px;}
-  .area p{font-size:14.5px; color:#4b5563; margin:0 16px;}
-  .area p .lgo{color:var(--red);} .area p .lgi{color:var(--blue);}
+  .area p{font-size:14.5px; color:#4b5563; padding:0 20px;}
+  /* 凡例は色名を文字で書かず、実物と同じバッジを見せる。
+     「赤＝場外」と書くと色覚や環境で伝わらないことがあるため。 */
+  .area .legend{display:flex; align-items:center; gap:7px; flex-wrap:wrap; font-weight:700; color:var(--navy);}
+  .area .legend .no{width:19px; height:19px; font-size:11px;}
+  .area .legend .sp{display:inline-block; width:6px;}
   /* 会場図を貼り付けたまま店リストをスクロールさせる。
      番号とお店を突き合わせながら読めるようにするため。 */
   .area .maparea{margin-top:14px; position:sticky; top:var(--hdH,96px); z-index:20; background:#fff;
@@ -147,27 +269,27 @@
            padding:5px 8px; line-height:1.4; color:var(--navy); font-weight:800;
            font-size:clamp(9.5px, 2.5vw, 13px);}
   .pin{position:absolute; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center;
-       width:5.2%; aspect-ratio:1; border-radius:50%; background:var(--red); color:#fff;
-       box-shadow:0 1px 3px rgba(0,0,0,.3); border:1.5px solid #fff;}
+       width:5.2%; aspect-ratio:1; border-radius:50%;
+       background:var(--pin-out-bg); color:var(--pin-out-fg);
+       box-shadow:0 1px 3px rgba(0,0,0,.3); border:1.5px solid var(--pin-out-bd);}
   /* 丸数字（①）は二重丸になり、環境によって斜体で描画されるため使わない。
      ピンの円＋算用数字で表示する。 */
   .pin b{font: 900 clamp(8px, 2.1vw, 14px)/1 'Helvetica Neue', Arial, sans-serif;
          font-style:normal; font-variant-numeric:tabular-nums; letter-spacing:-.02em;
          transform:translateY(.02em);}
-  .pin.in{background:var(--blue);}
+  .pin.in{background:var(--pin-in-bg); color:var(--pin-in-fg); border-color:var(--pin-in-bd);}
   /* 店舗一覧もカードで囲わない。場外／場内で分け、番号順に並べる */
   .gatelist{margin-top:20px; display:flex; flex-direction:column; gap:18px;}
-  .gatelist .gz{font-size:13px; font-weight:900; color:var(--navy); background:var(--yellow); display:inline-block; padding:2px 9px; border-radius:5px; margin:0 16px 8px;}
+  /* 区分見出しは黄色のベタ塗りをやめ、見出しと同じ黄色マーカーにする。
+     場内バッジが黄色の丸になったため、塗りが2種あると見分けがつかなくなる。 */
+  .gatelist .gz{display:inline-block; margin:0 20px 8px; font-size:13.5px; font-weight:900; color:var(--navy);
+                background:linear-gradient(transparent 58%, var(--yellow) 58% 94%, transparent 94%); padding:0 3px;}
   .gatelist .row{display:flex; gap:9px; padding:10px 16px; border-top:1px solid var(--line);}
   .gatelist .row:last-child{border-bottom:1px solid var(--line);}
   .gatelist .shopnm{font-size:14.5px; font-weight:800; color:var(--navy); line-height:1.35;}
   .gatelist .menu{font-size:13px; color:#5b6472; line-height:1.6; margin-top:2px;}
-  /* リストの番号は会場図のピンと同じ見た目に揃える（赤=場外／青=場内） */
-  .gatelist .no{flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
-       width:21px; height:21px; margin-top:1px; border-radius:50%; background:var(--red); color:#fff;
-       font: 900 12px/1 'Helvetica Neue', Arial, sans-serif; font-style:normal;
-       font-variant-numeric:tabular-nums;}
-  .gatelist .no.in{background:var(--blue);}
+  /* リストの番号は会場図のピンと同じ見た目に揃える（ネイビー=場外／黄=場内） */
+  .gatelist .no{width:21px; height:21px; margin-top:1px; font-size:12px;}
 
   footer{margin-top:32px; background:var(--navy); color:#dfe6f0; padding:22px 16px 30px;}
   footer .fseg{display:flex; gap:10px; margin-bottom:16px;}
@@ -176,11 +298,7 @@
   footer .flinks{font-size:13.5px; display:flex; flex-direction:column; gap:8px;} footer .flinks a{color:#cdd7e6; text-decoration:underline;}
   footer .note{font-size:12px; color:#8ea0b8; margin-top:16px; line-height:1.7;}
 
-  /* スクロール表示。既定は「見えている」状態で、画面外の要素にだけ JS が .pre を付けて隠す。
-     こうしておくと、JSが止まっても・IntersectionObserverが発火しなくても白紙にならない。 */
-  .rv{opacity:1; transform:none;}
-  .js .rv{transition:opacity .5s, transform .5s;}
-  .js .rv.pre{opacity:0; transform:translateY(12px);}
+  /* スクロール表示（.rv）の定義は共通トンマナ層にある */
 
   #lb{position:fixed; inset:0; background:rgba(4,34,66,.92); display:none; align-items:center; justify-content:center; z-index:80; padding:24px;}
   #lb.on{display:flex;} #lb .box{width:100%; max-width:420px;}
@@ -192,13 +310,8 @@
   #lb .lbcap small{display:block; font-weight:600; color:#c7d3e4; font-size:13.5px; margin-top:4px;}
   #lb .x{position:absolute; top:16px; right:18px; color:#fff; font-size:26px; font-weight:700; cursor:pointer;}
 
-  /* PCではホームゲームLP（.device）と同じ器・同じ影にする。
-     LPのリンクから来たときに幅が変わって違和感が出ないようにするため。 */
-  @media(min-width:561px){
-    /* 上に余白を作らない。追従ヘッダーが画面最上部に接するようにするため。 */
-    body{padding:0 16px 60px;}
-    .wrap{min-height:0; box-shadow:0 2px 20px rgba(4,34,66,.08);}
-  }
+  /* PCの器（グレー地＋680pxの紙＋影）は共通トンマナ層が持つ。
+     LP本体と同じ 601px で切り替わる。ここでは何も足さない。 */
 </style>
 </head>
 <body>
@@ -219,23 +332,40 @@
 
   <div class="brandmark" id="brandmark"></div>
 
-  <div class="sec first">
-    <div class="en">GOURMET</div>
-    <h2>スタジアムグルメ<span class="mk"></span></h2>
-    <div class="ctx">ホームゲーム <b>8.9 SUN</b> vs ツエーゲン金沢 ／ カンセキスタジアムとちぎ</div>
+  <!-- 見出しはLP本体の .head と同じ組み方（英字を大きく → アイコン＋和文＋黄マーカー）。
+       このページはLPグルメ節の展開なので、LPの当該節と同じ語・同じアイコンを使う。 -->
+  <div class="head first">
+    <span class="hicon"><svg viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11"/><path d="M16 3c-1.5 0-2.5 2-2.5 4.5S14.5 12 16 12v9"/></svg></span>
+    <span class="disp">STADIUM GOURMET</span>
+    <h2><span class="mk">スタジアムグルメ</span></h2>
+    <span class="subbrand">BISTRO TOCKEY</span>
   </div>
+  <div class="ctx">ホームゲーム <b>8.9 SUN</b> vs ツエーゲン金沢 ／ カンセキスタジアムとちぎ</div>
 
   <div class="util rv" id="utilBar"></div>
 
-  <div class="sec" id="pickSec"><div class="en">PICK UP</div><h2>今節のおすすめ<span class="mk"></span></h2></div>
+  <div class="head" id="pickSec">
+    <span class="hicon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z"/></svg></span>
+    <span class="disp">PICK UP</span>
+    <h2><span class="mk">今節のおすすめ</span></h2>
+  </div>
   <div class="picks" id="picks"></div>
 
-  <div class="sec" id="menuSec"><div class="en">ALL MENU</div><h2>メニュー<span class="mk"></span><span class="cnt" id="cnt"></span></h2></div>
+  <div class="head" id="menuSec">
+    <span class="hicon"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
+    <span class="disp">ALL MENU</span>
+    <h2><span class="mk">メニュー</span></h2>
+    <span class="cnt" id="cnt"></span>
+  </div>
   <div class="gallery" id="gallery"></div>
 
   <div class="area rv" id="areaSec">
-    <h3>販売エリア</h3>
-    <p><b class="lgo">赤＝場外</b>／<b class="lgi">青＝場内</b></p>
+    <div class="head">
+      <span class="hicon"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span>
+      <span class="disp">STADIUM MAP</span>
+      <h2><span class="mk">販売エリア</span></h2>
+    </div>
+    <p class="legend"><span class="no">1</span>場外<span class="sp"></span><span class="no in">2</span>場内</p>
     <div class="areainner">
       <div class="maparea" id="mapWrap"></div>
       <div class="gatelist" id="gatelist"></div>
