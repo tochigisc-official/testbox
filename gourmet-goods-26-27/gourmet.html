@@ -133,7 +133,6 @@
            background:rgba(255,255,255,.92); border:1px solid rgba(4,34,66,.14); border-radius:6px;
            padding:5px 8px; line-height:1.4; color:var(--navy); font-weight:800;
            font-size:clamp(9.5px, 2.5vw, 13px);}
-  #lb .mapstage .mapnote{font-size:clamp(11px, 2.8vw, 16px);}
   .pin{position:absolute; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center;
        width:5.2%; aspect-ratio:1; border-radius:50%; background:var(--red); color:#fff;
        box-shadow:0 1px 3px rgba(0,0,0,.3); border:1.5px solid #fff;}
@@ -143,9 +142,6 @@
          font-style:normal; font-variant-numeric:tabular-nums; letter-spacing:-.02em;
          transform:translateY(.02em);}
   .pin.in{background:var(--blue);}
-  #lb .mapstage .pin b{font-size:clamp(10px,2.6vw,19px);}
-  .area .mcap{display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px 16px; font-size:12.5px; color:var(--muted); font-weight:700;}
-  .area .mcap b{color:var(--blue); white-space:nowrap;}
   /* 店舗一覧もカードで囲わない。場外／場内で分け、番号順に並べる */
   .gatelist{margin-top:20px; display:flex; flex-direction:column; gap:18px;}
   .gatelist .gz{font-size:13px; font-weight:900; color:var(--navy); background:var(--yellow); display:inline-block; padding:2px 9px; border-radius:5px; margin:0 16px 8px;}
@@ -175,16 +171,7 @@
 
   #lb{position:fixed; inset:0; background:rgba(4,34,66,.92); display:none; align-items:center; justify-content:center; z-index:80; padding:24px;}
   #lb.on{display:flex;} #lb .box{width:100%; max-width:420px;}
-  #lb.wide{padding:12px;}
-  #lb.wide .box{max-width:100%;}
   /* 横長マップ：原寸で表示し、指でずらして読めるようにする（縮小して読めなくしない） */
-  #lb.wide .big{aspect-ratio:auto; background:#fff; overflow:auto; -webkit-overflow-scrolling:touch; max-height:76vh; border-radius:10px;}
-  /* fit=whole：図の全体を見せる（縮小しても読める図） */
-  #lb.wide .big .mapstage{position:relative; width:100%;}
-  #lb.wide .big img{position:static; display:block; width:100%; height:auto; max-width:100%; max-height:76vh; object-fit:contain; background:#fff;}
-  /* fit=zoom：細かい図はスマホ（縦画面）で高さいっぱいに拡大し、横は指でずらす */
-  #lb.wide.zoom .big img{width:auto; height:76vh; max-width:none;}
-  @media(min-width:820px){ #lb.wide.zoom .big img{height:auto; width:100%; max-width:100%;} }
   #lb .big{position:relative; aspect-ratio:4/5; border-radius:14px; overflow:hidden; background:linear-gradient(150deg,#e9c9a7,#b9743f);}
   #lb .big .demoji{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;} #lb .big .demoji span{font-size:120px;}
   #lb .big img{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#0a1a2e;}
@@ -300,14 +287,13 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
     if(!maps.length) return;
     w.innerHTML = maps.map(function(m){
       return '<div class="mapbox">'+
-        '<div class="zoomable" data-mapimg="'+esc(m.img)+'" data-fit="'+esc(m.fit||'whole')+'" data-nm="'+esc(m.caption||'会場マップ')+'">'+
+        '<div>'+
           '<div class="mapstage">'+
             '<img src="'+esc(m.img)+'" alt="'+esc(m.caption||'会場マップ')+'" loading="lazy">'+
             pinsHTML()+
             (m.onimage ? '<span class="mapnote">'+esc(m.onimage)+'</span>' : '')+
           '</div>'+
         '</div>'+
-        '<div class="mcap"><span>'+esc(m.caption||'')+'</span><b>タップで拡大 ›</b></div>'+
       '</div>';
     }).join('');
   })();
@@ -429,23 +415,10 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
         ev.preventDefault();
         var sec=document.getElementById('areaSec');
         if(sec) sec.scrollIntoView({block:'start'});
-        var mi=document.querySelector('[data-mapimg]');
-        if(mi) mi.click();
         return;
       }
       var z=ev.target.closest('.zoomable');
       if(!z){ if(ev.target.closest('#lb')){ lb.classList.remove('on','wide','zoom'); } return; }
-      var mapimg=z.dataset.mapimg;
-      if(mapimg){
-        var zoom = z.dataset.fit === 'zoom';
-        lb.classList.add('wide');
-        lb.classList.toggle('zoom', zoom);
-        big.innerHTML='<div class="mapstage"><img src="'+mapimg+'" alt="" onerror="this.remove()">'+pinsHTML()+'</div>';
-        nm.innerHTML=(z.dataset.nm||'会場マップ')+'<small>'+(zoom?'指で左右にずらして見られます':'タップで閉じる')+'</small>';
-        lb.classList.add('on');
-        return;
-      }
-      lb.classList.remove('wide','zoom');
       var img=z.dataset.img;
       big.innerHTML = '<div class="demoji"><span>'+(z.dataset.e||'🍽')+'</span></div>'+(img?'<img src="'+img+'" onerror="this.remove()">':'');
       nm.innerHTML=(z.dataset.nm||'')+'<small>タップで拡大</small>';
