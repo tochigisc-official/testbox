@@ -35,13 +35,13 @@
      右下に独立して置く。少しスクロールしてから現れる。 */
   /* 表示の切り替えは display で行う。opacity/visibility は環境によって
      効かないことがあり、以前ページが白紙になった原因でもあった。 */
-  .fab{position:fixed; right:16px; bottom:18px; z-index:60; display:none;
-       flex-direction:column; align-items:center; justify-content:center; gap:1px;
-       width:50px; height:50px; border-radius:50%; background:var(--navy); color:#fff;
-       box-shadow:0 3px 12px rgba(4,34,66,.3);}
+  .fab{position:fixed; right:14px; bottom:16px; z-index:60; display:none;
+       align-items:center; justify-content:center; width:46px; height:46px; border-radius:8px;
+       background:rgba(255,255,255,.72); border:1px solid rgba(4,34,66,.16); color:var(--navy);
+       -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+       box-shadow:0 2px 8px rgba(4,34,66,.12);}
   .fab.show{display:flex;}
-  .fab svg{width:18px; height:18px; fill:currentColor; display:block;}
-  .fab span{font: 800 9px/1 'Helvetica Neue', Arial, sans-serif; letter-spacing:.06em;}
+  .fab svg{width:22px; height:22px; fill:currentColor; display:block;}
   @media(min-width:561px){ .fab{right:calc(50% - var(--maxw)/2 + 16px);} }
 
   .sec{padding:30px 16px 0;} .sec.first{padding-top:22px;}
@@ -254,8 +254,10 @@
 </div>
 
 <a href="#top" class="fab" id="fab" aria-label="ページ上部へ戻る">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5.5 5 13h4.2v5.5h5.6V13H19z"/></svg>
-  <span>TOP</span>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="5" y="3.6" width="14" height="2.2" rx="1.1"/>
+    <path d="M12 8.2 5.6 15h4v5.4h4.8V15h4z"/>
+  </svg>
 </a>
 
 <div id="lb"><span class="x">×</span><div class="box"><div class="big"><div class="demoji"><span>🍧</span></div></div><div class="lbcap" id="lbnm"></div></div></div>
@@ -398,7 +400,7 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
   // 「上へ戻る」ボタンは、少しスクロールしてから現れる
   (function(){
     var fab=document.getElementById('fab'); if(!fab) return;
-    function upd(){ fab.classList.toggle('show', window.scrollY > window.innerHeight*0.8); }
+    function upd(){ fab.classList.toggle('show', window.scrollY > window.innerHeight); }
     addEventListener('scroll', upd, {passive:true}); addEventListener('resize', upd); upd();
     fab.addEventListener('click', function(ev){
       ev.preventDefault();
