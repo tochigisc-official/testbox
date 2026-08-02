@@ -49,36 +49,43 @@
   .ph .demoji span{font-size:52px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.18));}
   .ph .pimg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;}
 
-  .picks{padding:6px 16px 0; display:flex; flex-direction:column; gap:12px;}
-  .feat{position:relative; border-radius:2px; overflow:hidden;}
+  /* おすすめもカードにする。写真の上に文字を重ねると料理の下半分が隠れるため、
+     文字は写真の下に置き、写真は全部見せる。カードの体裁はLP本体と同じ。 */
+  .picks{padding:6px 16px 0; display:flex; flex-direction:column; gap:16px;}
+  .feat{background:#fff; border:1px solid #E7EAF0; border-radius:16px; overflow:hidden;
+        box-shadow:0 2px 12px rgba(4,34,66,.08);}
   .feat .ph{aspect-ratio:4/5;}
-  .feat .grad{position:absolute; inset:0; z-index:2; background:linear-gradient(to top, rgba(4,34,66,.90) 0%, rgba(4,34,66,.32) 42%, rgba(4,34,66,0) 68%);}
-  .feat .cap{position:absolute; left:0; right:0; bottom:0; z-index:3; padding:0 18px 18px; color:#fff;}
-  .feat .nm{font-size:27px; font-weight:900; line-height:1.15;}
-  .feat .cp{font-size:15px; color:#eef2f7; margin-top:6px; max-width:92%;}
-  .feat .meta{display:flex; align-items:center; gap:9px; margin-top:12px; flex-wrap:wrap;}
+  .feat .cap{padding:14px 16px 16px;}
+  .feat .nm{font-size:23px; font-weight:900; line-height:1.25;}
+  .feat .cp{font-size:14.5px; color:#5b6472; margin-top:7px; line-height:1.6;}
+  .feat .meta{display:flex; align-items:center; gap:9px; margin-top:13px; flex-wrap:wrap;}
   /* おすすめも価格は控えめに。主役は料理写真と商品名 */
-  .feat .price{font-size:15px; font-weight:700; color:#dbe3ee;}
-  .feat .chip{font-size:12.5px; font-weight:800; color:var(--navy); background:var(--yellow); border-radius:999px; padding:3px 10px;}
-  .feat .shop{font-size:13px; color:#cdd8e6; font-weight:600;}
-  .feat .maplink{font-size:13.5px; color:#fff; font-weight:700; margin-left:auto; text-decoration:underline; white-space:nowrap;}
+  .feat .price{font-size:15px; font-weight:700; color:#6a7482;}
+  .feat .no{flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
+       width:20px; height:20px; border-radius:50%; background:var(--red); color:#fff;
+       font: 900 11.5px/1 'Helvetica Neue', Arial, sans-serif; font-style:normal;
+       font-variant-numeric:tabular-nums;}
+  .feat .no.in{background:var(--blue);}
+  .feat .shop{font-size:13px; color:#9aa4b1; font-weight:600;}
+  .feat .maplink{font-size:13.5px; color:var(--blue); font-weight:700; margin-left:auto; text-decoration:underline; white-space:nowrap;}
 
   /* ギャラリー：写真＋下に「名前・価格・説明文（原文）・店/エリア」を全表示 */
   /* 一覧：写真を主役にするため枠を外し、余白を詰めて写真を大きく取る。
      文字は 商品名＞価格＞説明＞店/番号 の順に弱めて階層をつくる。 */
-  /* 行の間隔を、写真と本文の間隔より大きく取る。
-     こうしないと本文がどちらの写真のものか分からなくなる。 */
-  .gallery{display:grid; grid-template-columns:1fr 1fr; gap:34px 11px; padding:16px 12px 0;}
-  .g-item{background:#fff; display:flex; flex-direction:column;}
-  .g-item .ph{aspect-ratio:1/1; border-radius:10px;}
-  .g-item .bd{padding:9px 2px 0;}
+  /* 写真と本文を1枚のカードに収める。境界がある方が、どの写真の説明かが
+     確実に伝わる。体裁はLP本体のカードに合わせる。 */
+  .gallery{display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; padding:16px 16px 0;}
+  .g-item{background:#fff; border:1px solid #E7EAF0; border-radius:14px; overflow:hidden;
+          box-shadow:0 2px 10px rgba(4,34,66,.06); display:flex; flex-direction:column;}
+  .g-item .ph{aspect-ratio:1/1;}
+  .g-item .bd{padding:10px 11px 12px; display:flex; flex-direction:column; flex:1;}
   .g-item .nm{font-size:15px; font-weight:800; line-height:1.35; letter-spacing:-.01em;}
   /* 価格は控えめに。大きく出すと安売り感が出て食欲が下がる（指示書7.4） */
   .g-item .pr{font-size:13px; font-weight:700; color:#6a7482; margin-top:4px;}
   .g-item .ds{font-size:12.5px; color:#5b6472; margin-top:6px; line-height:1.55;}
   /* 販売場所：番号は会場図・店リストと同じ色分けバッジ（赤=場外／青=場内）。
      店名は控えめのまま。同じ店の商品が並ぶとき店名が目立つと繰り返しがうるさくなるため。 */
-  .g-item .mt{display:flex; align-items:center; gap:6px; margin-top:8px;}
+  .g-item .mt{display:flex; align-items:center; gap:6px; margin-top:auto; padding-top:9px;}
   .g-item .mt .no{flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
        width:18px; height:18px; border-radius:50%; background:var(--red); color:#fff;
        font: 900 10.5px/1 'Helvetica Neue', Arial, sans-serif; font-style:normal;
@@ -226,11 +233,13 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
   document.getElementById('picks').innerHTML = DATA.items.filter(function(x){return x.hero;}).map(function(it){return ''+
     '<article class="feat rv">'+
       '<div class="ph zoomable" data-nm="'+esc(it.name)+'" data-e="'+it.e+'" data-img="'+esc(it.img||'')+'">'+phInner(it)+'</div>'+
-      '<div class="grad"></div>'+
       '<div class="cap">'+
         '<div class="nm">'+esc(it.name)+'</div>'+
         '<div class="cp">'+esc(it.desc)+'</div>'+
-        '<div class="meta"><span class="price">'+esc(it.price)+'</span><span class="chip">'+it.zone+it.area+'</span><span class="shop">'+esc(it.shop)+'</span><a class="maplink" href="#areaSec" data-map="1">会場マップで見る ›</a></div>'+
+        '<div class="meta"><span class="price">'+esc(it.price)+'</span>'+
+          '<span class="no'+(it.zone==='場内'?' in':'')+'">'+numOf(it.area)+'</span>'+
+          '<span class="shop">'+esc(it.shop)+'</span>'+
+          '<a class="maplink" href="#areaSec" data-map="1">会場マップで見る ›</a></div>'+
       '</div>'+
     '</article>';}).join('');
 
