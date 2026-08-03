@@ -133,7 +133,12 @@ a{color:inherit; text-decoration:none;}
    LP本体の .qnav と同じネイビー地。下の黄色線は、すぐ下にくる
    ブランド帯（黄色）と二重の帯に見えるため引かない。 */
 header.hd{position:sticky; top:0; z-index:40; background:var(--navy);}
-.hd-in{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 14px;}
+.hd-in{position:relative; display:flex; align-items:center; justify-content:space-between;
+       gap:10px; padding:9px 14px;}
+/* エンブレムは帯の中央。左右の要素の間に挟むと幅が足りずに押し合うので、
+   重ねて中央に置く。帯の高さは変えない。 */
+.hd-in .emblem{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+               width:26px; height:26px; pointer-events:none;}
 .back{font-size:14.5px; color:#fff; font-weight:700; white-space:nowrap;}
 
 /* グルメ⇄グッズの切り替え。枠線を引かず、薄い地の上に「つまみ」を置く形。
@@ -153,7 +158,9 @@ header.hd{position:sticky; top:0; z-index:40; background:var(--navy);}
    本文の見える面積を増やす。畳むと高さが変わり、その分だけ本文が動くが、
    その動きを「上へのスクロール」と誤って読まないよう、切り替え直後の
    短いあいだは判定を止めている（nav.js）。 */
-header.hd.nav-hidden .jump{max-height:0; opacity:0;}
+/* padding も0にする。max-height だけだと下の余白9pxが残り、
+   ヘッダーの高さが会場図の固定位置（--hdH＝上段の高さ）と9pxずれる。 */
+header.hd.nav-hidden .jump{max-height:0; padding-top:0; padding-bottom:0; opacity:0;}
 .jump a{font-size:13.5px; font-weight:800; color:rgba(255,255,255,.72);
         white-space:nowrap; padding:1px 0; border-bottom:2px solid transparent; transition:color .15s;}
 .jump a.on{color:var(--yellow); border-bottom-color:var(--yellow);}
@@ -304,6 +311,7 @@ header.hd.nav-hidden .jump{max-height:0; opacity:0;}
   <header class="hd">
     <div class="hd-in">
       <a class="back" href="https://tochigisc-official.github.io/homegame_lp/20260809/index.html">◀ ホームゲーム</a>
+      <img class="emblem" id="emblem" alt="栃木SC" src="assets/img/tsc.webp">
       <nav class="seg"><a href="gourmet.html">グルメ</a><a class="on" href="goods.html">グッズ</a></nav>
     </div>
     <nav class="jump">
@@ -326,7 +334,6 @@ header.hd.nav-hidden .jump{max-height:0; opacity:0;}
 
   <div class="head" id="pickSec">
     <span class="hicon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z"/></svg></span>
-    <span class="disp">PICK UP</span>
     <h2><span class="mk">今節のおすすめ</span></h2>
   </div>
   <div class="picks" id="picks"></div>
