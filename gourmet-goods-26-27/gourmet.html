@@ -304,13 +304,10 @@ header.hd.nav-hidden .jump{max-height:0; padding-top:0; padding-bottom:0; opacit
   /* 番号ピン：画像に焼き込まず、座標データからHTMLで重ねる。
      毎試合は JSON の areas を直すだけでよく、画像編集は不要。 */
   .mapstage{position:relative; line-height:0;}
-  /* 会場図の上に置く注釈（開放ゲートなど）。右下に置く。
-     左上は方位磁針があり、そこに重ねると方角が読めなくなるため。
+  /* 会場図の注釈（開放ゲートなど）。図の上に重ねず、すぐ下に1行で置く。
+     図に重ねると番号や方位磁針に重なり、小さくて読みにくいため。
      文言は JSON の maps[].onimage で毎試合変えられる。 */
-  .mapnote{position:absolute; right:1%; bottom:1.5%; max-width:33%;
-           background:rgba(255,255,255,.92); border:1px solid rgba(4,34,66,.14); border-radius:6px;
-           padding:4px 7px; line-height:1.35; color:var(--navy); font-weight:800;
-           font-size:clamp(9px, 2.2vw, 12px);}
+  .mapnote{margin:8px 16px 0; font-size:13px; font-weight:700; color:var(--navy); line-height:1.5;}
   .pin{position:absolute; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center;
        width:5.2%; aspect-ratio:1; border-radius:50%;
        background:var(--pin-out-bg); color:var(--pin-out-fg);
@@ -476,8 +473,10 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
           '<div class="mapstage">'+
             '<img src="'+esc(m.img)+'" alt="'+esc(m.caption||'会場マップ')+'" loading="lazy">'+
             pinsHTML()+
-            (m.onimage ? '<span class="mapnote">'+esc(m.onimage)+'</span>' : '')+
           '</div>'+
+          // 注記は図の上に重ねず、図のすぐ下に1行で置く。
+          // 図の中に置くと番号や方位磁針に重なるうえ、小さくて読みにくい。
+          (m.onimage ? '<p class="mapnote">'+esc(m.onimage)+'</p>' : '')+
         '</div>'+
       '</div>';
     }).join('');
