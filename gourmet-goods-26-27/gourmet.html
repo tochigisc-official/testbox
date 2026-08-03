@@ -224,6 +224,28 @@ footer .official:active{opacity:.7;}
 footer .em{width:30px; height:30px; margin:0 auto 6px;
            background-size:contain; background-repeat:no-repeat; background-position:center;}
 
+/* --- 下部に固定するナビ：ホームゲームLP本体の .sticky-cta と同じもの ------
+   数値・色・比率はすべて LP のテンプレート（index.template.html）から
+   そのまま写している。LP側を変えるときは、ここも同時に直す。
+   position:sticky なので、スクロール中は画面下に貼り付き、
+   ページ末尾では本文の流れの中に収まる。 */
+.sticky-cta{position:sticky; bottom:0; z-index:50; background:var(--navy);
+            padding:8px 12px; display:flex; gap:8px; align-items:stretch;
+            border-top:3px solid var(--yellow);}
+.sticky-cta a{flex:1 1 0; display:inline-flex; align-items:center; justify-content:center; gap:6px;
+              font-weight:900; font-size:14px; text-decoration:none; padding:12px 8px;
+              border-radius:10px; white-space:nowrap; min-width:0;}
+/* 画面幅に応じて文字が自動で少し縮む＝どの幅でも1行に収まる（折返し禁止） */
+.sticky-cta a.sc-nav{flex:.8 1 0; background:transparent; color:#fff;
+                     border:1.5px solid rgba(255,255,255,.55);
+                     font-size:clamp(10.5px,3.2vw,12.5px); padding:12px 2px;}
+.sticky-cta .sc-guide{background:transparent; color:#fff;
+                      border:1.5px solid rgba(255,255,255,.55);
+                      font-size:clamp(11px,3.4vw,13px); padding:12px 4px;}
+.sticky-cta .sc-ticket{flex:1.25 1 0; background:var(--yellow); color:var(--navy);
+                       font-size:clamp(11.5px,3.6vw,14px);}
+@media(max-width:420px){ .sticky-cta{gap:6px; padding:8px 8px;} }
+
 /* ===== ここから下はグルメ詳細ページ固有の指定 =====
    色・書体・見出し・カード・番号バッジは共通トンマナ層（tone.css）が持つ。
    ここで上書きすると、グッズページとの間にズレが生まれるので足さない。 */
@@ -235,7 +257,7 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
      右下に独立して置く。少しスクロールしてから現れる。 */
   /* 表示の切り替えは display で行う。opacity/visibility は環境によって
      効かないことがあり、以前ページが白紙になった原因でもあった。 */
-  .fab{position:fixed; right:14px; bottom:16px; z-index:60; display:none;
+  .fab{position:fixed; right:14px; bottom:82px; z-index:60; display:none;
        align-items:center; justify-content:center; width:46px; height:46px; border-radius:8px;
        background:rgba(255,255,255,.72); border:1px solid rgba(4,34,66,.16); color:var(--navy);
        -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
@@ -364,6 +386,10 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
 
   /* PCの器（グレー地＋680pxの紙＋影）は共通トンマナ層が持つ。
      LP本体と同じ 601px で切り替わる。ここでは何も足さない。 */
+
+/* ヘッダー下段(ページ内メニュー)だけ自動非表示: 上段のタブ(ホームゲーム/グルメ/グッズ)は常に表示 */
+.hd .jump{transition:max-height .4s ease, opacity .4s ease; overflow:hidden; max-height:80px}
+.hd.qhide .jump{max-height:0; opacity:0}
 </style>
 </head>
 <body>
@@ -426,10 +452,14 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   <footer>
     <a class="official" href="https://www.tochigisc.jp/" target="_blank" rel="noopener">
       <div class="em" style="background-image:url(assets/img/tsc.webp)"></div>
-      <span>クラブサイトTOPへ <span class="arw">›</span></span>
+      <span>クラブ公式HP</span>
     </a>
     <div>© TOCHIGI SC</div>
   </footer>
+
+  <!-- 下部の固定ナビ。ホームゲームLP本体（index.template.html）と同じ内容 -->
+  <div class="sticky-cta"><a class="sc-nav" href="https://www.tochigisc.jp/" target="_blank" rel="noopener">公式HP</a><a class="sc-nav" href="https://tochigisc-official.github.io/players_26-27/" target="_blank" rel="noopener">選手紹介</a><a href="https://tochigisc-official.github.io/stadium-guide/?venue=kanseki" class="sc-guide">観戦ガイド</a><a href="https://www.jleague-ticket.jp/club/ts/" target="_blank" rel="noopener" class="sc-ticket">チケット購入</a></div>
+
 
 </div>
 
@@ -760,6 +790,26 @@ var NAV_LOCK_UNTIL = 0;
       lb.classList.add('on');
     });
   })();
+</script>
+<script>
+/* ヘッダー自動非表示（LPと同じタイミング: 猶予260px・0.4s） */
+(function(){
+  var hd=document.querySelector('header.hd'); if(!hd) return;
+  var GRACE=260, last=window.scrollY, anchor=null;
+  addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y<10 || y<last-2){
+      hd.classList.remove('qhide');
+      anchor=y;
+    }else if(y>last+2){
+      if(hd.getBoundingClientRect().top<=0){
+        if(anchor===null) anchor=y;
+        if(y>anchor+GRACE){ hd.classList.add('qhide'); }
+      }else{ anchor=null; }
+    }
+    last=y;
+  },{passive:true});
+})();
 </script>
 </body>
 </html>
