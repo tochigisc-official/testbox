@@ -129,6 +129,35 @@ a{color:inherit; text-decoration:none;}
     font-variant-numeric:tabular-nums; line-height:1;}
 .no.in{background:var(--pin-in-bg); color:var(--pin-in-fg);}
 
+/* --- 追従ヘッダー -----------------------------------------------
+   LP本体の .qnav と同じネイビー地。下の黄色線は、すぐ下にくる
+   ブランド帯（黄色）と二重の帯に見えるため引かない。 */
+header.hd{position:sticky; top:0; z-index:40; background:var(--navy);
+          transition:transform .22s ease;}
+/* 下へ読み進めているあいだはヘッダーごと画面外へずらし、本文の見える面積を
+   増やす。上へ戻る動きをしたらすぐ出す。
+   高さを変える方法（max-height を 0 にする等）は使わない。ヘッダーが縮むと
+   本文がその分だけ動き、それがスクロールとして通知されて畳む／戻すを
+   繰り返し、震え続けるため。transform なら配置に影響しない。 */
+header.hd.nav-hidden{transform:translateY(-100%);}
+.hd-in{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 14px;}
+.back{font-size:14.5px; color:#fff; font-weight:700; white-space:nowrap;}
+
+/* グルメ⇄グッズの切り替え。枠線を引かず、薄い地の上に「つまみ」を置く形。
+   選択中がどちらかを、線ではなく面で示す。 */
+.seg{display:flex; align-items:center; gap:2px; padding:3px;
+     background:rgba(255,255,255,.15); border-radius:999px;
+     font-size:13.5px; font-weight:800;}
+.seg a{padding:5px 14px; border-radius:999px; color:rgba(255,255,255,.72); background:transparent;
+       transition:background .15s, color .15s;}
+.seg a.on{background:var(--yellow); color:var(--navy); box-shadow:0 1px 3px rgba(0,0,0,.18);}
+
+/* ページ内移動。ネイビー地の上では黄色マーカーが読めないので、
+   現在地は黄色の文字＋下線で示す。LPの .qnav a:hover と同じ考え方。 */
+.jump{display:flex; align-items:center; gap:20px; padding:0 16px 9px;}
+.jump a{font-size:13.5px; font-weight:800; color:rgba(255,255,255,.72);
+        white-space:nowrap; padding:1px 0; border-bottom:2px solid transparent; transition:color .15s;}
+.jump a.on{color:var(--yellow); border-bottom-color:var(--yellow);}
 /* --- ブランド帯（ビストロトッキー／トッキースクエア）-------------
    左右いっぱいの帯にする。ブロックで置くと「画像を貼った」ように見えるため。
    帯色とロゴの幅は店ごとに違うのでデータ側（brand.bg / brand.logoW）から与える。
@@ -181,17 +210,11 @@ a{color:inherit; text-decoration:none;}
   .head{padding-top:28px;} .head.first{padding-top:18px;}
   .ctx{font-size:13.5px; color:var(--muted); font-weight:600; padding:2px 20px 0;} .ctx b{color:var(--navy);}
 
-  /* 追従ヘッダー：グルメと同一（LP本体の .qnav と同じネイビー＋黄下線） */
-  header.hd{position:sticky; top:0; z-index:40; background:var(--navy); border-bottom:3px solid var(--yellow);}
-  .hd-in{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 14px;}
-  .back{font-size:14.5px; color:#fff; font-weight:700; white-space:nowrap;}
-  .seg{display:flex; border:1.5px solid rgba(255,255,255,.55); border-radius:999px; overflow:hidden; font-size:14px; font-weight:800;}
-  .seg a{padding:5px 15px; color:#fff; background:transparent;}
-  .seg a.on{background:var(--yellow); color:var(--navy);}
-  .jump{display:flex; align-items:center; gap:20px; padding:0 16px 9px;}
-  .jump a{font-size:13.5px; font-weight:800; color:rgba(255,255,255,.72);
-          white-space:nowrap; padding:1px 0; border-bottom:2px solid transparent; transition:color .15s;}
-  .jump a.on{color:var(--yellow); border-bottom-color:var(--yellow);}
+  /* 追従ヘッダー・切り替えセレクター・ページ内ナビは共通トンマナ層にある */
+
+  /* 会場図。番号ピンは重ねない（図に「グッズ売場」が入っているため） */
+  .venue{margin-top:14px;}
+  .venue img{width:100%; height:auto; display:block;}
 
   /* ===== 商品カード =====
      写真は一覧でもスワイプできる。複数枚あることは点の数で分かるので、
@@ -250,8 +273,7 @@ a{color:inherit; text-decoration:none;}
   .picks .detail .spec .r .k{flex:0 0 5em; font-size:12.5px;}
   .detail .pnote{margin-top:9px; font-size:12.5px; font-weight:700; color:var(--navy);}
 
-  /* おすすめ。1列（PCは2列）で大きく見せ、説明は最初から開いておく。
-     おすすめは「これを買おう」と決めてもらう場所なので、タップを挟まない。 */
+  /* おすすめ。1列（PCは2列）で大きく見せる。開き方は一覧と同じ */
   .picks{padding:6px 16px 0; display:grid; grid-template-columns:1fr; gap:16px;}
   @media(min-width:561px){ .picks{grid-template-columns:1fr 1fr;} }
   .picks .item .nm{font-size:19px;}
@@ -291,7 +313,7 @@ a{color:inherit; text-decoration:none;}
     <nav class="jump">
       <a href="#pickSec">おすすめ</a>
       <a href="#listSec">商品一覧</a>
-      <a href="#shopSec">売店</a>
+      <a href="#venueSec">会場図</a>
     </nav>
   </header>
 
@@ -299,7 +321,7 @@ a{color:inherit; text-decoration:none;}
 
   <div class="head first">
     <span class="hicon"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span>
-    <span class="disp">STADIUM GOODS</span>
+    <span class="disp">GOODS</span>
     <h2><span class="mk">スタジアムグッズ</span></h2>
   </div>
   <div class="ctx" id="ctxLine"></div>
@@ -309,7 +331,7 @@ a{color:inherit; text-decoration:none;}
   <div class="head" id="pickSec">
     <span class="hicon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z"/></svg></span>
     <span class="disp">PICK UP</span>
-    <h2><span class="mk">今日のおすすめ</span></h2>
+    <h2><span class="mk">今節のおすすめ</span></h2>
   </div>
   <div class="picks" id="picks"></div>
 
@@ -320,6 +342,13 @@ a{color:inherit; text-decoration:none;}
     <span class="cnt" id="cnt"></span>
   </div>
   <div id="list"></div>
+
+  <div class="head" id="venueSec">
+    <span class="hicon"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span>
+    <span class="disp">MAP</span>
+    <h2><span class="mk">会場図</span></h2>
+  </div>
+  <div class="venue" id="venue"></div>
 
   <footer>
     <div class="fseg"><a href="gourmet.html">グルメ</a><a class="y" href="goods.html">グッズ</a></div>
@@ -340,10 +369,71 @@ a{color:inherit; text-decoration:none;}
 </a>
 
 <script>
-const DATA = {"_readme":["グッズ詳細ページの唯一の正データ。HTMLを手で書き換えないこと。","出典＝栃木SC公式ニュース『【8/9金沢戦】グッズ情報』 https://www.tochigisc.jp/news/1857","","images の考え方（重要）:","  images[0] が必ず一覧カードのサムネイルになる。","  role は『その写真が何を伝えるか』。枚数ではなく役割で扱う。","    main   … 商品そのもの","    lineup … 色やサイズの展開が一覧で分かる（どれを選ぶかが決まる）","    detail … 質感・仕様の寄り（モノの良さが伝わる）","    use    … 使えることの証明（当日どう役に立つかが分かる）","  use の note だけはカードに文字でも出す。写真を開かなくても効くため。","","オンラインストアへの案内はページに載せない。在庫の調整があり、「売り切れてもオンラインで買える」と読ませてしまうため。このページの目的は当日スタジアムの売店で買ってもらうこと。（参考URL: https://www.rakuten.ne.jp/gold/monmiya/tochigi-sc/）","","区分（カテゴリー）は設けない。毎試合ラインナップが変わるため、区分の割り当てが運用の手間になる。items の並び順がそのまま掲載順。","brand.logo が空のあいだはブランド帯を出さない。トッキースクエアのロゴを 20_素材 に置いてパスを入れると表示される。"],"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエーゲン金沢","venue":"カンセキスタジアムとちぎ"},"shop":{"name":"場外 グッズ売店","gate":"Aゲート","hours":"16:00〜21:00","note":"ガチャは準備でき次第の販売開始です。"},"payment":{"lead":"キャッシュレスでお会計もスムーズ","short":"スタジアム内のお支払いはキャッシュレスのみです。","body":"クレジットカード・スマホ決済・電子マネーがそのまま使えます。現金はご利用いただけません。","note":"現金をお持ちの方は、当日場内の専用ブースでプリペイドカードをご用意しています。","guideUrl":"#","gachaNote":"ガチャのみキャッシュレス対象外です。現金をご用意ください。"},"items":[{"id":"cooltowel","name":"選手名クールタオル","price":2915,"hero":true,"allPlayers":true,"desc":"推し選手と一緒に夏のスタジアムを楽しもう！首に掛けやすいサイズで、暑い日の観戦やイベントなど幅広いシーンで活躍します。","spec":{"size":"幅960×高さ300mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19506_6a630f3c-3d7c-4e29-b9f7-0a0b857d3f39.jpg","role":"main"}]},{"id":"penlight","name":"2026/27ペンライト","price":2420,"hero":true,"desc":"14色に切り替え可能なLEDライトで、スタジアムを栃木SCカラーに染め、選手たちへ熱い声援を届けましょう。","spec":{"size":"約H250×Φ11mm","note":"単4形電池×3本使用（テスト用電池付属）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19511_6a66ceef-a118-485e-b14c-02e5857d3f39.jpg","role":"main"}]},{"id":"armcover","name":"アームカバー","price":2420,"hero":true,"desc":"接触冷感素材を使用した、暑い季節にぴったりのアームカバー。UPF50+で紫外線から腕をしっかりガードします。","spec":{"color":"ホワイト／ブラック","size":"長さ43cm・腕側周り29cm・手首側周り18cm","material":"ポリエステル、ポリウレタン（接触冷感・UPF50+）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19519_6a66cef0-c648-4a8d-b74f-02e5857d3f39.jpg","role":"main"}]},{"id":"coolerbag","name":"保冷バッグ","price":4400,"hero":true,"desc":"観戦はもちろん、毎日のお買い物やレジャーにも活躍する保冷バッグ。普段使いしやすいカジュアルなデザインです。","spec":{"size":"幅240×高さ240×奥行150mm","material":"厚手トロマット、ポリエステル（裏地アルミ）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"main"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"use","note":"500mlペットボトルが6本入ります"}]},{"id":"towelmuffler","name":"タオルマフラー","price":1925,"desc":"応援の定番アイテム。暑い時期には何本あっても助かります。","spec":{"size":"高さ200×幅1,100mm","material":"綿100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19521_6a699b0b-4a90-4577-99ca-5cdb857d3f39.jpg","role":"main"}]},{"id":"uniform_replica","name":"レプリカユニフォーム","price":17600,"desc":"幾重にも重なる「T」のラインで、挑戦を積み重ねながら前進してきた軌跡を表現。その先にはJ2昇格へ向かう力強い上昇の矢印が浮かび上がるデザイン。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"uniform_authentic","name":"オーセンティックユニフォーム","price":20350,"desc":"選手が実際に着用するモデルと同じ仕様。デザインはレプリカと共通です。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"tee_raglan","name":"ラグランTシャツ","price":4290,"desc":"カレッジ風デザインを取り入れた、普段使いしやすい一着。試合観戦はもちろん、デイリーユースにもおすすめです。","spec":{"size":"M／L／XL"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19515_6a6819e0-e980-4f0e-886a-5ebe857d3f39.jpg","role":"main"}]},{"id":"shirt_linerib","name":"ラインリブシャツ","price":3520,"desc":"「SC」をスタイリッシュなロゴ風にデザインしたプリントが印象的。襟元と袖口のラインリブがアクセントです。","spec":{"material":"ポリエステル100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19517_6a6819e0-1714-482e-8585-5ebe857d3f39.jpg","role":"main"}]},{"id":"cap_newhattan","name":"NEWHATTANキャップ","price":3410,"desc":"人気ブランド「NEWHATTAN」の定番キャップに栃木SCデザインをプラス。観戦から普段のコーディネートまで幅広く活躍します。","spec":{"color":"カーキ／ネイビー／ブルーグレー"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"detail"}]},{"id":"cap_flatvisor","name":"フラットバイザーキャップ","price":6600,"desc":"フラットバイザーのシルエットが魅力。カジュアルなスタイルに合わせやすく、日常使いにもおすすめです。","spec":{"color":"ブラック／ダークネイビー／スプルース"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"detail"}]},{"id":"acrylic_keyholder","name":"アクリルキーホルダー","price":1210,"allPlayers":true,"desc":"クールな宣材写真を使用し、アンティーク調の額縁風デザインで高級感のある仕上がりに。お気に入りの選手をいつでも身近に持ち歩けます。","spec":{"size":"幅66×高さ68mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19503_6a630f3b-e9ac-4821-9db4-0a0b857d3f39.jpg","role":"main"}]},{"id":"gacha_name","name":"おなまえアクリルキーホルダー","price":400,"allPlayers":true,"gacha":true,"desc":"全選手展開で、選手名をデザインしたアクリルキーホルダー。推し選手の名前をアピールしたり、コレクションとしても楽しめるガチャ限定アイテムです。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19513_6a66cef4-9710-46bd-9bd1-02e5857d3f39.jpg","role":"main"}]},{"id":"gacha_omamori","name":"お守りアクリルキーホルダー","price":400,"allPlayers":true,"gacha":true,"desc":"勝利への願いを込めた、お守り風デザインのアクリルキーホルダー。全選手展開なので、お気に入りの選手を集めたり、応援のお供にも。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19526_6a6821e0-f300-47b8-a483-716f857d3f39.jpg","role":"main"}]},{"id":"yearbook","name":"2026/27イヤーブック","price":1650,"desc":"トップチームの全選手・スタッフをはじめ、アカデミーやチアーズまで、栃木SCファミリーを網羅した一冊。全48ページ・フルカラー。","spec":{"size":"A4サイズ"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19499_6a6824e6-7a00-4e80-a9f4-7a67857d3f39.jpg","role":"main"}]},{"id":"calendar","name":"2026/27卓上カレンダー","price":2530,"desc":"試合スケジュールと選手の誕生日を掲載。デスクやお部屋に飾れば、毎日栃木SCを身近に感じながらシーズンを楽しめます。2026年8月〜2027年7月対応。","spec":{"size":"幅297×高さ105mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19501_6a630f3a-28ac-45e9-8425-0a0b857d3f39.jpg","role":"main"}]},{"id":"clearseal","name":"ぷっくりクリアシール","price":715,"desc":"トッキーやエンブレムなどをデザインした、トレンドのぷっくりクリアシール。スマホやノート、パソコンを栃木SC仕様にデコレーションできます。","spec":{"size":"95×200mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19509_6a66ceef-399c-4516-a309-02e5857d3f39.jpg","role":"main"}]}],"_todo":["お守りアクリルキーホルダーの価格：公式ニュース本文に記載がなく、おなまえ（400円）と同じガチャのため400円と仮置き。要確認。","ラインリブシャツのサイズ展開：公式ニュース本文に記載なし。要確認。","オーセンティックユニフォームの写真：レプリカと同じ画像を暫定で使用。専用写真があれば差し替え。","写真はすべて公式サイトへの直リンク。担当者から元データを預かってWebP化する（グルメと同じ課題）。"],"brand":{"name":"TOCKEY SQUARE @スタジアム","sub":"栃木SC オフィシャルショップ","logo":"assets/img/tockey_square.svg","bg":"#F4D14D","logoW":"320px","logoMax":"88%"}};
+const DATA = {"_readme":["グッズ詳細ページの唯一の正データ。HTMLを手で書き換えないこと。","出典＝栃木SC公式ニュース『【8/9金沢戦】グッズ情報』 https://www.tochigisc.jp/news/1857","","images の考え方（重要）:","  images[0] が必ず一覧カードのサムネイルになる。","  role は『その写真が何を伝えるか』。枚数ではなく役割で扱う。","    main   … 商品そのもの","    lineup … 色やサイズの展開が一覧で分かる（どれを選ぶかが決まる）","    detail … 質感・仕様の寄り（モノの良さが伝わる）","    use    … 使えることの証明（当日どう役に立つかが分かる）","  use の note だけはカードに文字でも出す。写真を開かなくても効くため。","","オンラインストアへの案内はページに載せない。在庫の調整があり、「売り切れてもオンラインで買える」と読ませてしまうため。このページの目的は当日スタジアムの売店で買ってもらうこと。（参考URL: https://www.rakuten.ne.jp/gold/monmiya/tochigi-sc/）","","区分（カテゴリー）は設けない。毎試合ラインナップが変わるため、区分の割り当てが運用の手間になる。items の並び順がそのまま掲載順。","brand.logo が空のあいだはブランド帯を出さない。トッキースクエアのロゴを 20_素材 に置いてパスを入れると表示される。"],"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエーゲン金沢","venue":"カンセキスタジアムとちぎ"},"shop":{"name":"場外 グッズ売店","gate":"Aゲート","hours":"16:00〜21:00","note":"ガチャは準備でき次第の販売開始です。"},"payment":{"lead":"キャッシュレスでお会計もスムーズ","short":"お支払いはキャッシュレスのみです。","body":"クレジットカード・スマホ決済・電子マネーがそのまま使えます。現金はご利用いただけません。","note":"現金をお持ちの方は、当日場内の専用ブースでプリペイドカードをご用意しています。","guideUrl":"#","gachaNote":"ガチャのみキャッシュレス対象外です。現金をご用意ください。"},"items":[{"id":"cooltowel","name":"選手名クールタオル","price":2915,"hero":true,"allPlayers":true,"desc":"推し選手と一緒に夏のスタジアムを楽しもう！首に掛けやすいサイズで、暑い日の観戦やイベントなど幅広いシーンで活躍します。","spec":{"size":"幅960×高さ300mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19506_6a630f3c-3d7c-4e29-b9f7-0a0b857d3f39.jpg","role":"main"}]},{"id":"penlight","name":"2026/27ペンライト","price":2420,"hero":true,"desc":"14色に切り替え可能なLEDライトで、スタジアムを栃木SCカラーに染め、選手たちへ熱い声援を届けましょう。","spec":{"size":"約H250×Φ11mm","note":"単4形電池×3本使用（テスト用電池付属）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19511_6a66ceef-a118-485e-b14c-02e5857d3f39.jpg","role":"main"}]},{"id":"armcover","name":"アームカバー","price":2420,"hero":true,"desc":"接触冷感素材を使用した、暑い季節にぴったりのアームカバー。UPF50+で紫外線から腕をしっかりガードします。","spec":{"color":"ホワイト／ブラック","size":"長さ43cm・腕側周り29cm・手首側周り18cm","material":"ポリエステル、ポリウレタン（接触冷感・UPF50+）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19519_6a66cef0-c648-4a8d-b74f-02e5857d3f39.jpg","role":"main"}]},{"id":"coolerbag","name":"保冷バッグ","price":4400,"hero":true,"desc":"観戦はもちろん、毎日のお買い物やレジャーにも活躍する保冷バッグ。普段使いしやすいカジュアルなデザインです。","spec":{"size":"幅240×高さ240×奥行150mm","material":"厚手トロマット、ポリエステル（裏地アルミ）"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"main"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg","role":"use","note":"500mlペットボトルが6本入ります"}]},{"id":"towelmuffler","name":"タオルマフラー","price":1925,"desc":"応援の定番アイテム。暑い時期には何本あっても助かります。","spec":{"size":"高さ200×幅1,100mm","material":"綿100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19521_6a699b0b-4a90-4577-99ca-5cdb857d3f39.jpg","role":"main"}]},{"id":"uniform_replica","name":"レプリカユニフォーム","price":17600,"desc":"幾重にも重なる「T」のラインで、挑戦を積み重ねながら前進してきた軌跡を表現。その先にはJ2昇格へ向かう力強い上昇の矢印が浮かび上がるデザイン。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"uniform_authentic","name":"オーセンティックユニフォーム","price":20350,"desc":"選手が実際に着用するモデルと同じ仕様。デザインはレプリカと共通です。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg","role":"main"}]},{"id":"tee_raglan","name":"ラグランTシャツ","price":4290,"desc":"カレッジ風デザインを取り入れた、普段使いしやすい一着。試合観戦はもちろん、デイリーユースにもおすすめです。","spec":{"size":"M／L／XL"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19515_6a6819e0-e980-4f0e-886a-5ebe857d3f39.jpg","role":"main"}]},{"id":"shirt_linerib","name":"ラインリブシャツ","price":3520,"desc":"「SC」をスタイリッシュなロゴ風にデザインしたプリントが印象的。襟元と袖口のラインリブがアクセントです。","spec":{"material":"ポリエステル100%"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19517_6a6819e0-1714-482e-8585-5ebe857d3f39.jpg","role":"main"}]},{"id":"cap_newhattan","name":"NEWHATTANキャップ","price":3410,"desc":"人気ブランド「NEWHATTAN」の定番キャップに栃木SCデザインをプラス。観戦から普段のコーディネートまで幅広く活躍します。","spec":{"color":"カーキ／ネイビー／ブルーグレー"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg","role":"detail"}]},{"id":"cap_flatvisor","name":"フラットバイザーキャップ","price":6600,"desc":"フラットバイザーのシルエットが魅力。カジュアルなスタイルに合わせやすく、日常使いにもおすすめです。","spec":{"color":"ブラック／ダークネイビー／スプルース"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"lineup","note":"3色展開"},{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg","role":"detail"}]},{"id":"acrylic_keyholder","name":"アクリルキーホルダー","price":1210,"allPlayers":true,"desc":"クールな宣材写真を使用し、アンティーク調の額縁風デザインで高級感のある仕上がりに。お気に入りの選手をいつでも身近に持ち歩けます。","spec":{"size":"幅66×高さ68mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19503_6a630f3b-e9ac-4821-9db4-0a0b857d3f39.jpg","role":"main"}]},{"id":"gacha_name","name":"おなまえアクリルキーホルダー","price":400,"allPlayers":true,"gacha":true,"desc":"全選手展開で、選手名をデザインしたアクリルキーホルダー。推し選手の名前をアピールしたり、コレクションとしても楽しめるガチャ限定アイテムです。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19513_6a66cef4-9710-46bd-9bd1-02e5857d3f39.jpg","role":"main"}]},{"id":"gacha_omamori","name":"お守りアクリルキーホルダー","price":400,"allPlayers":true,"gacha":true,"desc":"勝利への願いを込めた、お守り風デザインのアクリルキーホルダー。全選手展開なので、お気に入りの選手を集めたり、応援のお供にも。","images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19526_6a6821e0-f300-47b8-a483-716f857d3f39.jpg","role":"main"}]},{"id":"yearbook","name":"2026/27イヤーブック","price":1650,"desc":"トップチームの全選手・スタッフをはじめ、アカデミーやチアーズまで、栃木SCファミリーを網羅した一冊。全48ページ・フルカラー。","spec":{"size":"A4サイズ"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19499_6a6824e6-7a00-4e80-a9f4-7a67857d3f39.jpg","role":"main"}]},{"id":"calendar","name":"2026/27卓上カレンダー","price":2530,"desc":"試合スケジュールと選手の誕生日を掲載。デスクやお部屋に飾れば、毎日栃木SCを身近に感じながらシーズンを楽しめます。2026年8月〜2027年7月対応。","spec":{"size":"幅297×高さ105mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19501_6a630f3a-28ac-45e9-8425-0a0b857d3f39.jpg","role":"main"}]},{"id":"clearseal","name":"ぷっくりクリアシール","price":715,"desc":"トッキーやエンブレムなどをデザインした、トレンドのぷっくりクリアシール。スマホやノート、パソコンを栃木SC仕様にデコレーションできます。","spec":{"size":"95×200mm"},"images":[{"src":"https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19509_6a66ceef-399c-4516-a309-02e5857d3f39.jpg","role":"main"}]}],"_todo":["お守りアクリルキーホルダーの価格：公式ニュース本文に記載がなく、おなまえ（400円）と同じガチャのため400円と仮置き。要確認。","ラインリブシャツのサイズ展開：公式ニュース本文に記載なし。要確認。","オーセンティックユニフォームの写真：レプリカと同じ画像を暫定で使用。専用写真があれば差し替え。","写真はすべて公式サイトへの直リンク。担当者から元データを預かってWebP化する（グルメと同じ課題）。"],"brand":{"name":"TOCKEY SQUARE","sub":"栃木SC オフィシャルショップ","logo":"assets/img/tockey_square.svg","bg":"#F4D14D","logoW":"240px","logoMax":"72%"},"venueMap":{"img":"assets/img/venue_map_0803.webp","alt":"カンセキスタジアムとちぎ 会場案内図（グッズ売場・グルメ・総合案内所の位置）"}};
 
 
 document.documentElement.className += ' js';
+
+/* ===========================================================
+   追従ヘッダーの共通の動き（グルメ・グッズ共用）
+   -----------------------------------------------------------
+   build_gourmet.mjs / build_goods.mjs がテンプレートの
+   __NAV__ 目印にこの中身を差し込む。
+   ページごとに書き分けると必ずズレるので、1か所にまとめている。
+   =========================================================== */
+
+// --- ページ内ナビの帯を、下に読み進めているあいだは畳む -----------
+// 本文の見える面積を増やすため。上へ戻る動きをしたら、行き先を探して
+// いる合図とみなしてすぐ出す。
+// 行き先へ飛んでいる最中は畳まない（飛んだ先で帯が消えると、
+// 今どこにいるのかが分からなくなるため）。
+var NAV_LOCK_UNTIL = 0;
+(function(){
+  var hd = document.querySelector('header.hd');
+  if(!hd) return;
+  var last = window.pageYOffset;
+
+  // 帯を畳むとヘッダーの高さが変わり、本文がその分だけ上下する。
+  // ブラウザはこれもスクロールとして通知してくるため、素直に向きを見ると
+  // 「畳む→本文が上がる→上向きと判定→戻す→本文が下がる→畳む」を
+  // 繰り返して震える。切り替えた直後の短いあいだは判定を止める。
+  function set(hidden){
+    if(hd.classList.contains('nav-hidden') === hidden) return;
+    hd.classList.toggle('nav-hidden', hidden);
+    NAV_LOCK_UNTIL = Date.now() + 320;   // ずらす動き（0.22秒）が終わるまで
+  }
+
+  addEventListener('scroll', function(){
+    var y = window.pageYOffset;
+    if(Date.now() < NAV_LOCK_UNTIL){ last = y; return; }
+    if(y < 90)             set(false);   // 最上部では必ず出す
+    else if(y > last + 8)  set(true);    // 下へ読み進めている
+    else if(y < last - 8)  set(false);   // 上へ戻っている
+    last = y;
+  }, {passive:true});
+})();
+
+// --- ページ内ナビの飛び先 ----------------------------------------
+// CSSの scroll-margin だけだと、追従ヘッダーの高さが畳んだ状態で
+// 変わるため、見出しが半分隠れた中途半端な位置で止まることがある。
+// クリック時に実際のヘッダー高さを測って、その分だけ手前に止める。
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('.jump a[href^="#"]') : null;
+    if(!a) return;
+    var t = document.querySelector(a.getAttribute('href'));
+    if(!t) return;
+    e.preventDefault();
+    var hd = document.querySelector('header.hd');
+    if(hd) hd.classList.remove('nav-hidden');
+    NAV_LOCK_UNTIL = Date.now() + 900;   // 飛んでいる最中は畳まない
+    var h = hd ? hd.offsetHeight : 0;
+    var top = t.getBoundingClientRect().top + window.pageYOffset - h - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior:'smooth' });
+  });
+})();
+
+
 
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
@@ -362,7 +452,7 @@ function yen(n){ return '¥' + Number(n).toLocaleString('ja-JP'); }
     txt+='<b>'+(+p[1])+'月'+(+p[2])+'日（'+dow+'）</b>';
   }
   if(m.opponent) txt+=(txt?' ':'')+'vs '+esc(m.opponent);
-  if(m.venue)    txt+=' @'+esc(m.venue);
+  // 会場名は書かない。ホームゲームLPから来た時点で分かっているため。
   el.innerHTML=txt;
 })();
 
@@ -408,6 +498,14 @@ document.addEventListener('click', function(e){
   var grid = b.closest('.grid');
   if(grid) grid.classList.toggle('has-open', !!grid.querySelector('.acc-btn[aria-expanded="true"]'));
 });
+
+// 会場図。グッズ売場の位置が図に入っているので、番号ピンは重ねない。
+(function(){
+  var el=document.getElementById('venue'), m=DATA.venueMap;
+  if(!el) return;
+  if(!m || !m.img){ el.remove(); var h=document.getElementById('venueSec'); if(h) h.remove(); return; }
+  el.innerHTML='<img src="'+esc(m.img)+'" alt="'+esc(m.alt||'会場図')+'" loading="lazy">';
+})();
 
 // ブランド帯（トッキースクエア）。ロゴが未着のあいだは帯そのものを出さない。
 (function(){
@@ -483,9 +581,9 @@ function cardHtml(it, alwaysOpen){
 (function(){
   var items = DATA.items||[];
 
-  // おすすめ。ここは「これを買おう」と決めてもらう場所なので、説明を開いて出す。
+  // おすすめ。開き方は一覧と同じ（「くわしく ▶」）。同じカードで挙動が違うと迷うため。
   var picks = items.filter(function(i){ return i.hero; });
-  document.getElementById('picks').innerHTML = picks.map(function(i){ return cardHtml(i, true); }).join('');
+  document.getElementById('picks').innerHTML = picks.map(function(i){ return cardHtml(i, false); }).join('');
 
   // 一覧は区分を作らず、全商品を掲載順にそのまま並べる。
   // 毎試合ラインナップが変わるので、区分の割り当てが運用の手間になるため。
