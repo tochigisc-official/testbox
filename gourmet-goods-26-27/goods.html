@@ -132,14 +132,7 @@ a{color:inherit; text-decoration:none;}
 /* --- 追従ヘッダー -----------------------------------------------
    LP本体の .qnav と同じネイビー地。下の黄色線は、すぐ下にくる
    ブランド帯（黄色）と二重の帯に見えるため引かない。 */
-header.hd{position:sticky; top:0; z-index:40; background:var(--navy);
-          transition:transform .22s ease;}
-/* 下へ読み進めているあいだはヘッダーごと画面外へずらし、本文の見える面積を
-   増やす。上へ戻る動きをしたらすぐ出す。
-   高さを変える方法（max-height を 0 にする等）は使わない。ヘッダーが縮むと
-   本文がその分だけ動き、それがスクロールとして通知されて畳む／戻すを
-   繰り返し、震え続けるため。transform なら配置に影響しない。 */
-header.hd.nav-hidden{transform:translateY(-100%);}
+header.hd{position:sticky; top:0; z-index:40; background:var(--navy);}
 .hd-in{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 14px;}
 .back{font-size:14.5px; color:#fff; font-weight:700; white-space:nowrap;}
 
@@ -154,7 +147,13 @@ header.hd.nav-hidden{transform:translateY(-100%);}
 
 /* ページ内移動。ネイビー地の上では黄色マーカーが読めないので、
    現在地は黄色の文字＋下線で示す。LPの .qnav a:hover と同じ考え方。 */
-.jump{display:flex; align-items:center; gap:20px; padding:0 16px 9px;}
+.jump{display:flex; align-items:center; gap:20px; padding:0 16px 9px;
+      overflow:hidden; transition:max-height .22s ease, opacity .18s ease; max-height:44px;}
+/* 上段（戻る・グルメ⇄グッズ）は常に出したまま、ページ内ナビの帯だけ畳んで
+   本文の見える面積を増やす。畳むと高さが変わり、その分だけ本文が動くが、
+   その動きを「上へのスクロール」と誤って読まないよう、切り替え直後の
+   短いあいだは判定を止めている（nav.js）。 */
+header.hd.nav-hidden .jump{max-height:0; opacity:0;}
 .jump a{font-size:13.5px; font-weight:800; color:rgba(255,255,255,.72);
         white-space:nowrap; padding:1px 0; border-bottom:2px solid transparent; transition:color .15s;}
 .jump a.on{color:var(--yellow); border-bottom-color:var(--yellow);}
@@ -286,9 +285,6 @@ header.hd.nav-hidden{transform:translateY(-100%);}
      このページの目的は、当日スタジアムの売店で買ってもらうこと。 */
 
   footer{margin-top:32px; background:var(--navy); color:#dfe6f0; padding:22px 16px 30px;}
-  footer .fseg{display:flex; gap:10px; margin-bottom:16px;}
-  footer .fseg a{flex:1; text-align:center; border:1.5px solid rgba(255,255,255,.4); border-radius:999px; padding:9px; font-size:14.5px; font-weight:800; color:#fff;}
-  footer .fseg a.y{background:var(--yellow); color:var(--navy); border-color:var(--yellow);}
   footer .flinks{font-size:13.5px; display:flex; flex-direction:column; gap:8px;} footer .flinks a{color:#cdd7e6; text-decoration:underline;}
   footer .note{font-size:12px; color:#8ea0b8; margin-top:16px; line-height:1.7;}
 
@@ -351,7 +347,6 @@ header.hd.nav-hidden{transform:translateY(-100%);}
   <div class="venue" id="venue"></div>
 
   <footer>
-    <div class="fseg"><a href="gourmet.html">グルメ</a><a class="y" href="goods.html">グッズ</a></div>
     <div class="flinks">
       <a href="https://tochigisc-official.github.io/homegame_lp/20260809/index.html">◀ ホームゲームトップへ戻る</a>
       <a href="https://www.tochigisc.jp">栃木SC 公式サイト</a>
