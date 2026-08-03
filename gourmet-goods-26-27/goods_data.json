@@ -327,6 +327,10 @@
     "logoMax": "72%"
   },
   "venueMap": {
+    "img": "assets/img/venue_map_b.webp",
+    "alt": "カンセキスタジアムとちぎ 会場案内図（グッズ売店・総合案内所・場外グルメエリアの位置）"
+  },
+  "_venueMapA": {
     "img": "assets/img/venue_map_0803.webp",
     "alt": "カンセキスタジアムとちぎ 会場案内図（グッズ売場・グルメ・総合案内所の位置）"
   }
