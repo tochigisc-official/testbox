@@ -15,11 +15,13 @@
   "sections": [
     {
       "key": "festival",
-      "name": "夏祭りを楽しむグルメ"
+      "name": "夏祭りを楽しむグルメ",
+      "banner": "assets/img/g_bn_festival.webp"
     },
     {
       "key": "meat",
-      "name": "ビールもすすむ肉グルメ"
+      "name": "ビールもすすむ肉グルメ",
+      "banner": "assets/img/g_bn_meat.webp"
     },
     {
       "key": "standard",
