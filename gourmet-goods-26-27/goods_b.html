@@ -272,6 +272,9 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   /* 節間の余白。グルメページと同じ扱い */
   .head{padding-top:28px;} .head.first{padding-top:18px;}
   .ctx{font-size:13.5px; color:var(--muted); font-weight:600; padding:2px 20px 0;} .ctx b{color:var(--navy);}
+  /* 見出しのすぐ下に置く断り書き。見出しと商品の間に挟まるので、
+     読み飛ばせる細さにしつつ、行間は本文なみに取って読めるようにする。 */
+  .ctx.note{font-weight:500; line-height:1.65; padding-top:6px;}
 
   /* 追従ヘッダー・切り替えセレクター・ページ内ナビは共通トンマナ層にある */
 
@@ -443,7 +446,7 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
     </div>
     <nav class="jump">
       <a href="#pickSec">おすすめ</a>
-      <a href="#listSec">商品一覧</a>
+      <a href="#listSec">ラインナップ</a>
       <a href="#venueSec">会場図</a>
       <a href="#" id="openInfo">営業時間・支払方法</a>
     </nav>
@@ -464,10 +467,13 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
 
   <div class="head" id="listSec">
     <span class="hicon"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
-    <span class="disp">ALL GOODS</span>
-    <h2><span class="mk">商品一覧</span></h2>
+    <span class="disp">LINEUP</span>
+    <h2><span class="mk">ラインナップ</span></h2>
     <span class="cnt" id="cnt"></span>
   </div>
+  <!-- 「一覧」ではないことを一行で断る。節の名前を「ラインナップ」に変えても、
+       ここに載っているものが全部だと読まれる余地は残るため。 -->
+  <p class="ctx note">グッズ売店では、ここで紹介している商品のほかにも多数取りそろえています。</p>
   <div id="list"></div>
 
   <div class="head" id="venueSec">
@@ -779,7 +785,7 @@ function sheetHtml(it){
   var items = DATA.items||[];
   document.getElementById('picks').innerHTML = items.filter(function(i){ return i.hero; }).map(cardHtml).join('');
   document.getElementById('list').innerHTML  = '<div class="grid">'+items.map(cardHtml).join('')+'</div>';
-  var cnt=document.getElementById('cnt'); if(cnt) cnt.textContent = '全'+items.length+'品';
+  var cnt=document.getElementById('cnt'); if(cnt) cnt.textContent = items.length+'品';
 })();
 
 // --- おすすめの横スライドに点を付ける ---
