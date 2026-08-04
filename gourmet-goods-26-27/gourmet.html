@@ -468,7 +468,9 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
        おすすめを別に持つと、同じ品が上下に二度出ることになる。 -->
   <div class="head" id="menuSec">
     <span class="hicon"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
-    <span class="disp">BISTRO TOCKEY MENU</span>
+    <!-- 英字見出しは置かない。すぐ上の GOURMET と大きな文字が2段続き、
+         さらに下に区分けの見出しが来るので、3段重なって落ち着かなくなる。
+         「これで全部ではない」ことは、下の断り書きの一行が担う。 -->
     <h2><span class="mk">メニュー</span></h2>
     <span class="cnt" id="cnt"></span>
   </div>
@@ -562,7 +564,7 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
     if(rest.length) html += '<div class="gallery">'+rest.map(card).join('')+'</div>';
     document.getElementById('menu').innerHTML = html;
   })();
-  document.getElementById('cnt').textContent = '全'+DATA.items.length+'品';
+  document.getElementById('cnt').textContent = DATA.items.length+'品';
 
   // 会場マップ（タップで全画面拡大）。maps に入れた枚数だけ並ぶ
   (function(){
