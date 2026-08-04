@@ -291,6 +291,9 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
      グッズページと形がずれるので、ここで上書きしない。
      実用情報（営業時間・支払方法）は本文から外し、下の .pop で持っている。 */
   .ctx{font-size:13.5px; color:var(--muted); font-weight:600; padding:2px 20px 0;} .ctx b{color:var(--navy);}
+  /* 見出しのすぐ下に置く断り書き。読み飛ばせる細さにしつつ、スマホで1行に収める。
+     幅375pxの端末で使えるのは335px。いまの文言で321pxなので、長くすると2行になる。 */
+  .ctx.note{font-weight:500; line-height:1.6; padding-top:6px;}
 
   /* 写真面：実写真(外部URL)。読めない時は絵文字＋暖色にフォールバック */
   .ph{position:relative; overflow:hidden; background:linear-gradient(150deg,#e9c9a7,#d7a273 55%,#b9743f);}
@@ -310,7 +313,7 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   .mgroup.has-bn{padding-left:0; padding-right:0;}
   .mgroup .mbn{display:block; width:100%; height:auto;}
   .mgroup .gcnt.only{padding:8px 20px 0; font-size:12.5px; color:var(--muted); font-weight:700;}
-  .mgroup .gh{font-size:17px; font-weight:900; line-height:1.4; color:var(--navy);
+  .mgroup .gh{font-size:21px; font-weight:900; line-height:1.4; color:var(--navy);
               display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
   .mgroup .gh .mk{background:linear-gradient(transparent 62%, var(--yellow) 62% 94%, transparent 94%);}
   .mgroup .gcnt{font-size:12.5px; color:var(--muted); font-weight:700;}
@@ -465,10 +468,13 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
        おすすめを別に持つと、同じ品が上下に二度出ることになる。 -->
   <div class="head" id="menuSec">
     <span class="hicon"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
-    <span class="disp">ALL MENU</span>
+    <span class="disp">BISTRO TOCKEY MENU</span>
     <h2><span class="mk">メニュー</span></h2>
     <span class="cnt" id="cnt"></span>
   </div>
+  <!-- 「ALL MENU」だと載っているものが全部だと読まれるので英字を店名に変えたうえで、
+       ここにも一行で断る。スマホ幅で1行に収まる字数にしてある -->
+  <p class="ctx note">ほかにもスタジアムならではのメニューがあります。</p>
   <div id="menu"></div>
 
   <div class="area rv" id="areaSec">
