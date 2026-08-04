@@ -162,7 +162,10 @@ header.hd{position:sticky; top:0; z-index:40; background:var(--navy);}
 
 /* ページ内移動。ネイビー地の上では黄色マーカーが読めないので、
    現在地は黄色の文字＋下線で示す。LPの .qnav a:hover と同じ考え方。 */
-.jump{display:flex; align-items:center; gap:20px; padding:0 16px 9px;
+/* 左寄せだと右側だけ余白が残り、上段（中央のグルメ⇄グッズ）と軸がずれて見える。
+   space-evenly で左右対称に散らす。gap は「最低これだけは空ける」下限として効くので、
+   幅の狭い端末では 10px まで詰まり、項目が4つでも折り返さない。 */
+.jump{display:flex; align-items:center; justify-content:space-evenly; gap:10px; padding:0 16px 9px;
       overflow:hidden; transition:max-height .22s ease, opacity .18s ease; max-height:44px;}
 /* 上段（戻る・グルメ⇄グッズ）は常に出したまま、ページ内ナビの帯だけ畳んで
    本文の見える面積を増やす。畳むと高さが変わり、その分だけ本文が動くが、
@@ -218,18 +221,13 @@ header.hd.nav-hidden .jump{max-height:0; padding-top:0; padding-bottom:0; opacit
 .js .rv.pre{opacity:0; transform:translateY(12px);}
 @media (prefers-reduced-motion:reduce){.js .rv,.js .rv.pre{opacity:1; transform:none; transition:none;}}
 
-/* --- フッター：ホームゲームLP本体と同じもの ---------------------
-   数値はすべて homegame_lp/20260809/index.html の footer から写している。
-   エンブレムの丸は、LP側がインラインで背景と枠を消しているので、
-   ここでも最初から付けない。 */
+/* --- フッター：著作権表示だけ ---------------------------------
+   色と文字サイズは homegame_lp/20260809/index.html の footer から写している。
+   LP本体にあるエンブレム＋「クラブ公式HP」は置かない。下部の固定ナビに
+   同じ行き先のボタンが常に出ており、同じ画面で二度案内することになるため。
+   その分1行になるので、上下の余白も少し詰めて帯を細くしている。 */
 footer{margin-top:32px; background:var(--navy); color:#9db4cc; text-align:center;
-       padding:14px 20px 16px; font-size:11px;}
-footer .official{display:inline-flex; flex-direction:column; align-items:center; gap:2px;
-                 color:#cfe0f2; text-decoration:none; font-size:12px; font-weight:700; margin-bottom:8px;}
-footer .official .arw{font-weight:400;}
-footer .official:active{opacity:.7;}
-footer .em{width:30px; height:30px; margin:0 auto 6px;
-           background-size:contain; background-repeat:no-repeat; background-position:center;}
+       padding:12px 20px 13px; font-size:11px;}
 
 /* --- 下部に固定するナビ：ホームゲームLP本体の .sticky-cta と同じもの ------
    数値・色・比率はすべて LP のテンプレート（index.template.html）から
@@ -282,8 +280,9 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
      このページは白一色なので余白で分ける。見出しの組み方自体は共通層のまま。 */
   .head{padding-top:28px;} .head.first{padding-top:18px;}
   .sec{padding:30px 16px 0;} .sec.first{padding-top:22px;}
-  /* ブランド帯（ビストロトッキー）と実用情報（.util）・アコーディオンの体裁は
-     共通トンマナ層にある。グッズページと形がずれるので、ここで上書きしない。 */
+  /* ブランド帯（ビストロトッキー）の体裁は共通トンマナ層にある。
+     グッズページと形がずれるので、ここで上書きしない。
+     実用情報（営業時間・支払方法）は本文から外し、下の .pop で持っている。 */
   .ctx{font-size:13.5px; color:var(--muted); font-weight:600; padding:2px 20px 0;} .ctx b{color:var(--navy);}
 
   /* 写真面：実写真(外部URL)。読めない時は絵文字＋暖色にフォールバック */
@@ -399,6 +398,29 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   /* PCの器（グレー地＋680pxの紙＋影）は共通トンマナ層が持つ。
      LP本体と同じ 601px で切り替わる。ここでは何も足さない。 */
 
+  /* --- 営業時間・支払方法のポップアップ ---------------------------
+     グッズB案と同じ扱い。本文の頭に置くと、料理を見に来た人の前に
+     実用情報が挟まって目的に届くまでが遠くなるので、必要な人だけが
+     2段目のメニューから開く形にした。行の体裁（黄色の見出しラベル）は
+     共通トンマナ層の .util と揃えてある。 */
+  .pop{position:fixed; inset:0; z-index:110; display:none;}
+  .pop.on{display:block;}
+  .pop .veil{position:absolute; inset:0; background:rgba(4,34,66,.45); opacity:0; transition:opacity .2s;}
+  .pop.in .veil{opacity:1;}
+  .pop .box{position:absolute; left:50%; top:50%; transform:translate(-50%,-46%) scale(.96);
+            width:min(92%, 420px); max-height:80%; overflow:auto; background:#fff; border-radius:16px;
+            padding:18px 18px 20px; opacity:0; transition:opacity .2s, transform .2s;}
+  .pop.in .box{transform:translate(-50%,-50%) scale(1); opacity:1;}
+  .pop h3{font-size:17px; font-weight:900; color:var(--navy); margin-bottom:10px;}
+  .pop .row{display:flex; gap:10px; padding:10px 0; border-top:1px solid var(--line); font-size:14px;}
+  .pop .row .k{flex:0 0 auto; font-weight:800; color:var(--navy); background:var(--yellow);
+               padding:2px 8px; border-radius:5px; font-size:12.5px; white-space:nowrap; height:fit-content;}
+  .pop .row .v{color:#33404f; min-width:0;} .pop .row .v b{color:var(--navy);}
+  .pop .row .v .sub{display:block; margin-top:3px; font-size:12.5px; color:var(--muted);}
+  .pop .row .v a.link{color:var(--blue); font-weight:700; text-decoration:underline;}
+  .pop .close{margin-top:14px; width:100%; padding:10px; border:0; border-radius:10px; cursor:pointer;
+              background:var(--navy); color:#fff; font-weight:700; font-size:14px;}
+
 /* ヘッダー下段(ページ内メニュー)だけ自動非表示: 上段のタブ(ホームゲーム/グルメ/グッズ)は常に表示 */
 .hd .jump{transition:max-height .4s ease, opacity .4s ease; overflow:hidden; max-height:80px}
 .hd.qhide .jump{max-height:0; opacity:0}
@@ -412,11 +434,13 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
       <a class="back" href="https://tochigisc-official.github.io/homegame_lp/20260809/index.html"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></span><span class="bt">ホームゲーム情報</span></a>
       <nav class="seg"><a class="on" href="gourmet.html">グルメ</a><a href="goods.html">グッズ</a></nav>
     </div>
-    <!-- ページ内移動。おすすめ→会場図の行き来と、末尾からの復帰に使う -->
+    <!-- ページ内移動。おすすめ→会場図の行き来と、末尾からの復帰に使う。
+         最後の1つだけはページ内移動ではなく、営業時間・支払方法を開くボタン -->
     <nav class="jump">
       <a href="#pickSec">おすすめ</a>
       <a href="#menuSec">メニュー</a>
       <a href="#areaSec">会場図</a>
+      <a href="#" id="openInfo">営業時間・支払方法</a>
     </nav>
   </header>
 
@@ -427,8 +451,6 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   <div class="head first">
     <span class="disp">GOURMET<span class="mt" id="titleMatch"></span></span>
   </div>
-
-  <div class="util rv" id="utilBar"></div>
 
   <div class="head" id="pickSec">
     <span class="hicon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z"/></svg></span>
@@ -457,11 +479,8 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
     </div>
   </div>
 
+  <!-- 著作権表示だけ。公式HPへの導線は下部の固定ナビが常に持っているので置かない -->
   <footer>
-    <a class="official" href="https://www.tochigisc.jp/" target="_blank" rel="noopener">
-      <div class="em" style="background-image:url(assets/img/tsc.webp)"></div>
-      <span>クラブ公式HP</span>
-    </a>
     <div>© TOCHIGI SC</div>
   </footer>
 
@@ -469,6 +488,13 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   <div class="sticky-cta"><a class="sc-nav" href="https://www.tochigisc.jp/" target="_blank" rel="noopener">公式HP</a><a class="sc-nav" href="https://tochigisc-official.github.io/players_26-27/" target="_blank" rel="noopener">選手紹介</a><a href="https://tochigisc-official.github.io/stadium-guide/?venue=kanseki" class="sc-guide">観戦ガイド</a><a href="https://www.jleague-ticket.jp/club/ts/" target="_blank" rel="noopener" class="sc-ticket">チケット購入</a></div>
 
 
+</div>
+
+<!-- 営業時間・支払方法。本文には置かず、2段目のメニューから開く -->
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-label="営業時間と支払方法">
+  <div class="veil" data-popclose></div>
+  <div class="box"><div id="popBody"></div>
+    <button class="close" type="button" data-popclose>とじる</button></div>
 </div>
 
 <a href="#top" class="fab" id="fab" aria-label="ページ上部へ戻る">
@@ -555,42 +581,37 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
   })();
 
   // 実用情報（営業時間・お支払い）。毎試合 JSON を直せば表示が変わる。
+  // 本文の頭には出さず、2段目のメニューからポップアップで開く（グッズB案と同じ扱い）。
+  // 開くのは必要な人だけなので、本文にあったときのアコーディオンはやめて
+  // 決済方法の詳細も最初から全部見せている。
   (function(){
-    var el=document.getElementById('utilBar'); if(!el) return;
-    var h=DATA.hours||{}, p=DATA.payment||{}, html='';
+    var pop=document.getElementById('pop'), body=document.getElementById('popBody');
+    var btn=document.getElementById('openInfo');
+    if(!pop||!btn) return;
+    var h=DATA.hours||{}, p=DATA.payment||{}, html='<h3>営業時間と支払方法</h3>';
     if(h.outside || h.inside){
       var parts=[];
       if(h.outside) parts.push('場外 <b>'+esc(h.outside)+'</b>');
       if(h.inside)  parts.push('場内 <b>'+esc(h.inside)+'</b>');
       html+='<div class="row"><span class="k">営業時間</span><span class="v">'+parts.join(' ／ ')+'</span></div>';
     }
-    // ページを開いた瞬間に長い説明が出ないようにする。見えているのは
-    // 「スムーズ」という利点と「キャッシュレスのみ」という一行だけ。
-    // 決済手段の詳細を知りたい人だけがアコーディオンを開く。
     if(p.lead || p.short || p.body){
-      var inner='';
-      if(p.body)     inner+='<p>'+esc(p.body)+'</p>';
-      if(p.note)     inner+='<p>'+esc(p.note)+'</p>';
-      if(p.guideUrl) inner+='<p><a class="link" href="'+esc(p.guideUrl)+'">決済のくわしくは観戦ガイドへ</a></p>';
       html+='<div class="row"><span class="k">お支払い</span><span class="v">'+
         (p.lead? '<b>'+esc(p.lead)+'</b>' : '')+
         (p.short? '<span class="sub">'+esc(p.short)+'</span>' : '')+
-        (inner? '<button class="acc-btn" type="button" aria-expanded="false">決済方法をみる<span class="chev">▶</span></button>'+
-                '<div class="acc-body" hidden>'+inner+'</div>' : '')+
+        (p.body? '<span class="sub">'+esc(p.body)+'</span>' : '')+
+        (p.note? '<span class="sub">'+esc(p.note)+'</span>' : '')+
+        (p.guideUrl? '<span class="sub"><a class="link" href="'+esc(p.guideUrl)+'">決済のくわしくは観戦ガイドへ</a></span>' : '')+
         '</span></div>';
     }
-    el.innerHTML=html;
+    body.innerHTML=html;
+    function open(e){ if(e) e.preventDefault();
+      pop.classList.add('on'); void pop.querySelector('.box').offsetHeight; pop.classList.add('in'); }
+    function close(){ pop.classList.remove('in'); setTimeout(function(){ pop.classList.remove('on'); },220); }
+    btn.addEventListener('click', open);
+    pop.addEventListener('click', function(e){ if(e.target.closest('[data-popclose]')) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && pop.classList.contains('on')) close(); });
   })();
-
-  // アコーディオン（お支払いの詳細）
-  document.addEventListener('click', function(e){
-    var b = e.target.closest ? e.target.closest('.acc-btn') : null;
-    if(!b) return;
-    var open = b.getAttribute('aria-expanded') === 'true';
-    b.setAttribute('aria-expanded', open ? 'false' : 'true');
-    var body = b.nextElementSibling;
-    if(body && body.classList.contains('acc-body')) body.hidden = open;
-  });
 
   // ブランドロゴ（ビストロトッキー）
   (function(){
@@ -673,7 +694,10 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
 
   // ページ内移動：今見ている節をナビでハイライトする
   (function(){
-    var links=[].slice.call(document.querySelectorAll('.jump a[href^="#"]:not(.totop)'));
+    // 「営業時間・支払方法」はポップアップを開くボタンで href="#" のため節を持たない。
+    // 混ぜると querySelector('#') で例外になり、ハイライトごと止まる。
+    var links=[].slice.call(document.querySelectorAll('.jump a[href^="#"]:not(.totop)'))
+                .filter(function(a){ return a.getAttribute('href').length>1; });
     if(!links.length) return;
     var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
     function upd(){
@@ -743,7 +767,11 @@ var NAV_LOCK_UNTIL = 0;
   document.addEventListener('click', function(e){
     var a = e.target.closest ? e.target.closest('.jump a[href^="#"]') : null;
     if(!a) return;
-    var t = document.querySelector(a.getAttribute('href'));
+    // ページ内ナビには「営業時間・支払方法」のように節を持たない href="#" のボタンも並ぶ。
+    // そのまま querySelector('#') に渡すと例外になり、ここから下が全部止まる。
+    var href = a.getAttribute('href');
+    if(!href || href.length < 2) return;
+    var t = document.querySelector(href);
     if(!t) return;
     e.preventDefault();
     var hd = document.querySelector('header.hd');

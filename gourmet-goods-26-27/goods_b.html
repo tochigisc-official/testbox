@@ -161,7 +161,10 @@ header.hd{position:sticky; top:0; z-index:40; background:var(--navy);}
 
 /* ページ内移動。ネイビー地の上では黄色マーカーが読めないので、
    現在地は黄色の文字＋下線で示す。LPの .qnav a:hover と同じ考え方。 */
-.jump{display:flex; align-items:center; gap:20px; padding:0 16px 9px;
+/* 左寄せだと右側だけ余白が残り、上段（中央のグルメ⇄グッズ）と軸がずれて見える。
+   space-evenly で左右対称に散らす。gap は「最低これだけは空ける」下限として効くので、
+   幅の狭い端末では 10px まで詰まり、項目が4つでも折り返さない。 */
+.jump{display:flex; align-items:center; justify-content:space-evenly; gap:10px; padding:0 16px 9px;
       overflow:hidden; transition:max-height .22s ease, opacity .18s ease; max-height:44px;}
 /* 上段（戻る・グルメ⇄グッズ）は常に出したまま、ページ内ナビの帯だけ畳んで
    本文の見える面積を増やす。畳むと高さが変わり、その分だけ本文が動くが、
@@ -217,18 +220,13 @@ header.hd.nav-hidden .jump{max-height:0; padding-top:0; padding-bottom:0; opacit
 .js .rv.pre{opacity:0; transform:translateY(12px);}
 @media (prefers-reduced-motion:reduce){.js .rv,.js .rv.pre{opacity:1; transform:none; transition:none;}}
 
-/* --- フッター：ホームゲームLP本体と同じもの ---------------------
-   数値はすべて homegame_lp/20260809/index.html の footer から写している。
-   エンブレムの丸は、LP側がインラインで背景と枠を消しているので、
-   ここでも最初から付けない。 */
+/* --- フッター：著作権表示だけ ---------------------------------
+   色と文字サイズは homegame_lp/20260809/index.html の footer から写している。
+   LP本体にあるエンブレム＋「クラブ公式HP」は置かない。下部の固定ナビに
+   同じ行き先のボタンが常に出ており、同じ画面で二度案内することになるため。
+   その分1行になるので、上下の余白も少し詰めて帯を細くしている。 */
 footer{margin-top:32px; background:var(--navy); color:#9db4cc; text-align:center;
-       padding:14px 20px 16px; font-size:11px;}
-footer .official{display:inline-flex; flex-direction:column; align-items:center; gap:2px;
-                 color:#cfe0f2; text-decoration:none; font-size:12px; font-weight:700; margin-bottom:8px;}
-footer .official .arw{font-weight:400;}
-footer .official:active{opacity:.7;}
-footer .em{width:30px; height:30px; margin:0 auto 6px;
-           background-size:contain; background-repeat:no-repeat; background-position:center;}
+       padding:12px 20px 13px; font-size:11px;}
 
 /* --- 下部に固定するナビ：ホームゲームLP本体の .sticky-cta と同じもの ------
    数値・色・比率はすべて LP のテンプレート（index.template.html）から
@@ -470,11 +468,8 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   </div>
   <div class="venue" id="venue"></div>
 
+  <!-- 著作権表示だけ。公式HPへの導線は下部の固定ナビが常に持っているので置かない -->
   <footer>
-    <a class="official" href="https://www.tochigisc.jp/" target="_blank" rel="noopener">
-      <div class="em" style="background-image:url(assets/img/tsc.webp)"></div>
-      <span>クラブ公式HP</span>
-    </a>
     <div>© TOCHIGI SC</div>
   </footer>
 
@@ -561,7 +556,11 @@ var NAV_LOCK_UNTIL = 0;
   document.addEventListener('click', function(e){
     var a = e.target.closest ? e.target.closest('.jump a[href^="#"]') : null;
     if(!a) return;
-    var t = document.querySelector(a.getAttribute('href'));
+    // ページ内ナビには「営業時間・支払方法」のように節を持たない href="#" のボタンも並ぶ。
+    // そのまま querySelector('#') に渡すと例外になり、ここから下が全部止まる。
+    var href = a.getAttribute('href');
+    if(!href || href.length < 2) return;
+    var t = document.querySelector(href);
     if(!t) return;
     e.preventDefault();
     var hd = document.querySelector('header.hd');
