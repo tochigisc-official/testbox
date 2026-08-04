@@ -312,11 +312,9 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
      左右に余白を残すと「画像を貼った」ように見えて、帯として読めないため。 */
   .mgroup.has-bn{padding-left:0; padding-right:0;}
   .mgroup .mbn{display:block; width:100%; height:auto;}
-  .mgroup .gcnt.only{padding:8px 20px 0; font-size:12.5px; color:var(--muted); font-weight:700;}
   .mgroup .gh{font-size:21px; font-weight:900; line-height:1.4; color:var(--navy);
               display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
   .mgroup .gh .mk{background:linear-gradient(transparent 62%, var(--yellow) 62% 94%, transparent 94%);}
-  .mgroup .gcnt{font-size:12.5px; color:var(--muted); font-weight:700;}
 
   /* ギャラリー：写真＋下に「名前・価格・説明文（原文）・店/エリア」を全表示 */
   /* 一覧：写真を主役にするため枠を外し、余白を詰めて写真を大きく取る。
@@ -472,7 +470,6 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
          さらに下に区分けの見出しが来るので、3段重なって落ち着かなくなる。
          「これで全部ではない」ことは、下の断り書きの一行が担う。 -->
     <h2><span class="mk">メニュー</span></h2>
-    <span class="cnt" id="cnt"></span>
   </div>
   <!-- 「ALL MENU」だと載っているものが全部だと読まれるので英字を店名に変えたうえで、
        ここにも一行で断る。スマホ幅で1行に収まる字数にしてある -->
@@ -554,17 +551,14 @@ const DATA = {"match":{"date":"2026-08-09","kickoff":"19:00","opponent":"ツエ�
       // バナーがある区分けは、バナー自体が見出しなので黄マーカーの文字は出さない。
       // 同じ言葉が画像と文字で二度続くため。品数だけは残す。
       var head = s.banner
-        ? '<img class="mbn" src="'+esc(s.banner)+'" alt="'+esc(s.name)+'" loading="lazy">'+
-          '<div class="gcnt only">'+list.length+'品</div>'
-        : '<h3 class="gh"><span class="mk">'+esc(s.name)+'</span>'+
-          '<span class="gcnt">'+list.length+'品</span></h3>';
+        ? '<img class="mbn" src="'+esc(s.banner)+'" alt="'+esc(s.name)+'" loading="lazy">'
+        : '<h3 class="gh"><span class="mk">'+esc(s.name)+'</span></h3>';
       return '<div class="mgroup rv'+(s.banner?' has-bn':'')+'">'+head+'</div>'+
              '<div class="gallery">'+list.map(card).join('')+'</div>';
     }).join('');
     if(rest.length) html += '<div class="gallery">'+rest.map(card).join('')+'</div>';
     document.getElementById('menu').innerHTML = html;
   })();
-  document.getElementById('cnt').textContent = DATA.items.length+'品';
 
   // 会場マップ（タップで全画面拡大）。maps に入れた枚数だけ並ぶ
   (function(){
