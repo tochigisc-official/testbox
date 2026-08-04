@@ -214,7 +214,7 @@ header.hd.nav-hidden .jump{max-height:0; padding-top:0; padding-bottom:0; opacit
    数値はすべて homegame_lp/20260809/index.html の footer から写している。
    エンブレムの丸は、LP側がインラインで背景と枠を消しているので、
    ここでも最初から付けない。 */
-footer{background:var(--navy); color:#9db4cc; text-align:center;
+footer{margin-top:32px; background:var(--navy); color:#9db4cc; text-align:center;
        padding:14px 20px 16px; font-size:11px;}
 footer .official{display:inline-flex; flex-direction:column; align-items:center; gap:2px;
                  color:#cfe0f2; text-decoration:none; font-size:12px; font-weight:700; margin-bottom:8px;}
@@ -232,15 +232,15 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
             padding:8px 12px; display:flex; gap:8px; align-items:stretch;
             border-top:3px solid var(--yellow);}
 .sticky-cta a{flex:1 1 0; display:inline-flex; align-items:center; justify-content:center; gap:6px;
-              font-weight:900; font-size:14px; text-decoration:none; padding:12px 8px;
+              font-weight:900; font-size:14px; text-decoration:none; padding:4px 8px;
               border-radius:10px; white-space:nowrap; min-width:0;}
 /* 画面幅に応じて文字が自動で少し縮む＝どの幅でも1行に収まる（折返し禁止） */
 .sticky-cta a.sc-nav{flex:.8 1 0; background:transparent; color:#fff;
                      border:1.5px solid rgba(255,255,255,.55);
-                     font-size:clamp(10.5px,3.2vw,12.5px); padding:12px 2px;}
+                     font-size:clamp(10.5px,3.2vw,12.5px); padding:4px 2px;}
 .sticky-cta .sc-guide{background:transparent; color:#fff;
                       border:1.5px solid rgba(255,255,255,.55);
-                      font-size:clamp(11px,3.4vw,13px); padding:12px 4px;}
+                      font-size:clamp(11px,3.4vw,13px); padding:4px 4px;}
 .sticky-cta .sc-ticket{flex:1.25 1 0; background:var(--yellow); color:var(--navy);
                        font-size:clamp(11.5px,3.6vw,14px);}
 @media(max-width:420px){ .sticky-cta{gap:6px; padding:8px 8px;} }
