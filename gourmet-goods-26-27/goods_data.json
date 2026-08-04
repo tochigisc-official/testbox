@@ -21,7 +21,8 @@
     "date": "2026-08-09",
     "kickoff": "19:00",
     "opponent": "ツエーゲン金沢",
-    "venue": "カンセキスタジアムとちぎ"
+    "venue": "カンセキスタジアムとちぎ",
+    "short": "金沢"
   },
   "shop": {
     "name": "場外 グッズ売店",
@@ -318,14 +319,6 @@
     "オーセンティックユニフォームの写真：レプリカと同じ画像を暫定で使用。専用写真があれば差し替え。",
     "写真はすべて公式サイトへの直リンク。担当者から元データを預かってWebP化する。"
   ],
-  "brand": {
-    "name": "TOCKEY SQUARE",
-    "sub": "栃木SC オフィシャルショップ",
-    "logo": "assets/img/tockey_square.svg",
-    "bg": "#F4D14D",
-    "logoW": "240px",
-    "logoMax": "72%"
-  },
   "venueMap": {
     "img": "assets/img/venue_map_b.webp",
     "alt": "カンセキスタジアムとちぎ 会場案内図（グッズ売店・総合案内所・場外グルメエリアの位置）"
@@ -333,5 +326,23 @@
   "_venueMapA": {
     "img": "assets/img/venue_map_0803.webp",
     "alt": "カンセキスタジアムとちぎ 会場案内図（グッズ売場・グルメ・総合案内所の位置）"
-  }
+  },
+  "heroImages": [
+    {
+      "src": "assets/img/goods_hero1.webp",
+      "alt": "スタジアムグッズ"
+    },
+    {
+      "src": "assets/img/goods_hero2.webp",
+      "alt": "スタジアムグッズ"
+    },
+    {
+      "src": "assets/img/goods_hero3.webp",
+      "alt": "スタジアムグッズ"
+    },
+    {
+      "src": "assets/img/goods_hero4.webp",
+      "alt": "スタジアムグッズ"
+    }
+  ]
 }

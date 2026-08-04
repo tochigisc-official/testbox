@@ -164,9 +164,9 @@ header.hd{position:sticky; top:0; z-index:40; background:var(--navy);}
 /* padding も0にする。max-height だけだと下の余白9pxが残り、
    ヘッダーの高さが会場図の固定位置（--hdH＝上段の高さ）と9pxずれる。 */
 header.hd.nav-hidden .jump{max-height:0; padding-top:0; padding-bottom:0; opacity:0;}
-.jump a{font-size:13.5px; font-weight:800; color:rgba(255,255,255,.72);
+.jump a{font-size:13.5px; font-weight:600; color:rgba(255,255,255,.72);
         white-space:nowrap; padding:1px 0; border-bottom:2px solid transparent; transition:color .15s;}
-.jump a.on{color:var(--yellow); border-bottom-color:var(--yellow);}
+.jump a.on{color:var(--yellow); border-bottom-color:var(--yellow); font-weight:700;}
 /* --- ブランド帯（ビストロトッキー／トッキースクエア）-------------
    左右いっぱいの帯にする。ブロックで置くと「画像を貼った」ように見えるため。
    帯色とロゴの幅は店ごとに違うのでデータ側（brand.bg / brand.logoW）から与える。
@@ -233,7 +233,7 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
             padding:8px 12px; display:flex; gap:8px; align-items:stretch;
             border-top:3px solid var(--yellow);}
 .sticky-cta a{flex:1 1 0; display:inline-flex; align-items:center; justify-content:center; gap:6px;
-              font-weight:900; font-size:14px; text-decoration:none; padding:4px 8px;
+              font-weight:600; font-size:14px; text-decoration:none; padding:4px 8px;
               border-radius:10px; white-space:nowrap; min-width:0;}
 /* 画面幅に応じて文字が自動で少し縮む＝どの幅でも1行に収まる（折返し禁止） */
 .sticky-cta a.sc-nav{flex:.8 1 0; background:transparent; color:#fff;
@@ -242,7 +242,7 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
 .sticky-cta .sc-guide{background:transparent; color:#fff;
                       border:1.5px solid rgba(255,255,255,.55);
                       font-size:clamp(11px,3.4vw,13px); padding:4px 4px;}
-.sticky-cta .sc-ticket{flex:1.25 1 0; background:var(--yellow); color:var(--navy);
+.sticky-cta .sc-ticket{flex:1.25 1 0; background:var(--yellow); color:var(--navy); font-weight:700;
                        font-size:clamp(11.5px,3.6vw,14px);}
 @media(max-width:420px){ .sticky-cta{gap:6px; padding:8px 8px;} }
 
