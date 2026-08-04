@@ -469,7 +469,6 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
     <span class="hicon"><svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span>
     <span class="disp">LINEUP</span>
     <h2><span class="mk">ラインナップ</span></h2>
-    <span class="cnt" id="cnt"></span>
   </div>
   <!-- 「一覧」ではないことを一行で断る。節の名前を「ラインナップ」に変えても、
        ここに載っているものが全部だと読まれる余地は残るため。 -->
@@ -785,7 +784,6 @@ function sheetHtml(it){
   var items = DATA.items||[];
   document.getElementById('picks').innerHTML = items.filter(function(i){ return i.hero; }).map(cardHtml).join('');
   document.getElementById('list').innerHTML  = '<div class="grid">'+items.map(cardHtml).join('')+'</div>';
-  var cnt=document.getElementById('cnt'); if(cnt) cnt.textContent = items.length+'品';
 })();
 
 // --- おすすめの横スライドに点を付ける ---
