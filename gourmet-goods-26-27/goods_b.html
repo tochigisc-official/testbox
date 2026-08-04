@@ -256,9 +256,13 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
    色・書体・見出し・カード・番号バッジは共通トンマナ層（tone.css）が持つ。
    グルメページと形がずれるので、ここで上書きしない。 */
 
-  /* 見出しの1行に試合名を入れる。ここは黄色の下線を引かない
-     （すぐ下の「今節のおすすめ」と黄色が連続して、うるさくなるため）。 */
-  .head h2 .mt{color:var(--muted); font-weight:700; margin-right:6px;}
+  /* どの試合の情報かを、英字見出しの横に小さく添える。
+     和文見出しに入れると1行が長くなるので、ここに置いて行数を減らす。
+     この見出しには黄色の下線を引かない（すぐ下の「今節のおすすめ」と
+     黄色が続いてうるさくなるため）。 */
+  .head .disp .mt{font-family:var(--jp); font-size:13px; font-weight:700; color:var(--muted);
+                  letter-spacing:0; text-transform:none; margin-left:9px;
+                  position:relative; top:-3px;}
 
   /* 節間の余白。グルメページと同じ扱い */
   .head{padding-top:28px;} .head.first{padding-top:18px;}
@@ -442,8 +446,8 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
 
   <div class="head first">
     <span class="hicon"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span>
-    <span class="disp">GOODS</span>
-    <h2><span class="mt" id="titleMatch"></span>スタジアムグッズ</h2>
+    <span class="disp">GOODS<span class="mt" id="titleMatch"></span></span>
+    <h2>スタジアムグッズ</h2>
   </div>
 
   <div class="head" id="pickSec">
@@ -661,11 +665,16 @@ function yen(n){ return '¥' + Number(n).toLocaleString('ja-JP'); }
 (function(){
   var m=DATA.match||{}, name=m.short||m.opponent||'', md='';
   if(m.date){ var p=String(m.date).split('-'); md=(+p[1])+'/'+(+p[2]); }
-  var label=(md?md+' ':'')+(name?'vs '+name:'');
+  // 戻るボタンは短く「8/9 vs 金沢」
   var bt=document.querySelector('.back .bt');
-  if(bt && label) bt.textContent=label;
+  var short=(md?md+' ':'')+(name?'vs '+name:'');
+  if(bt && short) bt.textContent=short;
+  // 見出しの横は文章的に「（8月9日金沢戦）」
   var t=document.getElementById('titleMatch');
-  if(t && label) t.textContent=label;
+  if(t && m.date){
+    var q=String(m.date).split('-');
+    t.textContent='（'+(+q[1])+'月'+(+q[2])+'日'+(name?name+'戦':'')+'）';
+  }
 })();
 
 // アコーディオン。ページ全体で使うので1か所にまとめる。
