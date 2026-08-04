@@ -28,6 +28,18 @@
   ],
   "items": [
     {
+      "id": "i8",
+      "name": "焼きとうもろこし玉子串",
+      "price": "¥650",
+      "desc": "ダシ醤油玉子焼きにコーンをのせ炙りました",
+      "shop": "玉子屋てっちゃん",
+      "zone": "場外",
+      "area": "⑥",
+      "e": "🌽",
+      "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19553_6a69b9f1-e3cc-41d3-915d-25e4857d3f39.jpg",
+      "section": "festival"
+    },
+    {
       "id": "i1",
       "name": "栃木SCカラー ビッグかき氷",
       "price": "¥500",
@@ -88,18 +100,6 @@
       "section": "festival"
     },
     {
-      "id": "i8",
-      "name": "焼きとうもろこし玉子串",
-      "price": "¥650",
-      "desc": "ダシ醤油玉子焼きにコーンをのせ炙りました",
-      "shop": "玉子屋てっちゃん",
-      "zone": "場外",
-      "area": "⑥",
-      "e": "🌽",
-      "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19553_6a69b9f1-e3cc-41d3-915d-25e4857d3f39.jpg",
-      "section": "festival"
-    },
-    {
       "id": "i9",
       "name": "大玉揚げたこ焼き",
       "price": "¥700",
@@ -139,7 +139,7 @@
       "id": "i12",
       "name": "味噌豚丼（バラ/カルビ/あいもり）",
       "price": "¥1,000〜1,500",
-      "desc": "特製味噌たれで香ばしく焼き上げた",
+      "desc": "特製味噌たれで香ばしく焼き上げた　※画像上",
       "shop": "pighip",
       "zone": "場外",
       "area": "③",
@@ -151,7 +151,7 @@
       "id": "i13",
       "name": "味噌豚カルビ串",
       "price": "¥700",
-      "desc": "特製味噌たれで香ばしく焼き上げた",
+      "desc": "特製味噌たれで香ばしく焼き上げた　※画像下",
       "shop": "pighip",
       "zone": "場外",
       "area": "③",
