@@ -51,7 +51,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19506_6a630f3c-3d7c-4e29-b9f7-0a0b857d3f39.jpg",
+          "src": "assets/img/goods/cooltowel.webp",
           "role": "main"
         }
       ]
@@ -68,7 +68,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19511_6a66ceef-a118-485e-b14c-02e5857d3f39.jpg",
+          "src": "assets/img/goods/penlight.webp",
           "role": "main"
         }
       ]
@@ -86,7 +86,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19519_6a66cef0-c648-4a8d-b74f-02e5857d3f39.jpg",
+          "src": "assets/img/goods/armcover.webp",
           "role": "main"
         }
       ]
@@ -103,11 +103,11 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg",
+          "src": "assets/img/goods/coolerbag.webp",
           "role": "main"
         },
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19537_6a66cef2-11d0-4cc0-9969-02e5857d3f39.jpg",
+          "src": "assets/img/goods/coolerbag_use.webp",
           "role": "use",
           "note": "500mlペットボトルが6本入ります"
         }
@@ -124,7 +124,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19521_6a699b0b-4a90-4577-99ca-5cdb857d3f39.jpg",
+          "src": "assets/img/goods/towelmuffler.webp",
           "role": "main"
         }
       ]
@@ -136,7 +136,7 @@
       "desc": "幾重にも重なる「T」のラインで、挑戦を積み重ねながら前進してきた軌跡を表現。その先にはJ2昇格へ向かう力強い上昇の矢印が浮かび上がるデザイン。",
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg",
+          "src": "assets/img/goods/uniform_replica.webp",
           "role": "main"
         }
       ]
@@ -148,7 +148,7 @@
       "desc": "選手が実際に着用するモデルと同じ仕様。デザインはレプリカと共通です。",
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19497_6a630f38-b9bc-4ccb-bc51-0a0b857d3f39.jpg",
+          "src": "assets/img/goods/uniform_authentic.webp",
           "role": "main"
         }
       ]
@@ -164,7 +164,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19515_6a6819e0-e980-4f0e-886a-5ebe857d3f39.jpg",
+          "src": "assets/img/goods/tee_raglan.webp",
           "role": "main"
         }
       ]
@@ -180,7 +180,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19517_6a6819e0-1714-482e-8585-5ebe857d3f39.jpg",
+          "src": "assets/img/goods/shirt_linerib.webp",
           "role": "main"
         }
       ]
@@ -195,12 +195,12 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg",
+          "src": "assets/img/goods/cap_newhattan.webp",
           "role": "lineup",
           "note": "3色展開"
         },
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19634_6a6996f4-a59c-4571-a35d-4daa857d3f39.jpg",
+          "src": "assets/img/goods/cap_newhattan_detail.webp",
           "role": "detail"
         }
       ]
@@ -215,12 +215,12 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img1_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg",
+          "src": "assets/img/goods/cap_flatvisor.webp",
           "role": "lineup",
           "note": "3色展開"
         },
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img2_19635_6a6996f7-dc58-4996-87aa-4daa857d3f39.jpg",
+          "src": "assets/img/goods/cap_flatvisor_detail.webp",
           "role": "detail"
         }
       ]
@@ -236,7 +236,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19503_6a630f3b-e9ac-4821-9db4-0a0b857d3f39.jpg",
+          "src": "assets/img/goods/acrylic_keyholder.webp",
           "role": "main"
         }
       ]
@@ -250,7 +250,7 @@
       "desc": "全選手展開で、選手名をデザインしたアクリルキーホルダー。推し選手の名前をアピールしたり、コレクションとしても楽しめるガチャ限定アイテムです。",
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19513_6a66cef4-9710-46bd-9bd1-02e5857d3f39.jpg",
+          "src": "assets/img/goods/gacha_name.webp",
           "role": "main"
         }
       ]
@@ -264,7 +264,7 @@
       "desc": "勝利への願いを込めた、お守り風デザインのアクリルキーホルダーが新登場！全選手展開なので、お気に入りの選手を集めたり、応援のお供としてもぴったりのガチャ限定アイテムです。",
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19526_6a6821e0-f300-47b8-a483-716f857d3f39.jpg",
+          "src": "assets/img/goods/gacha_omamori.webp",
           "role": "main"
         }
       ]
@@ -279,7 +279,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19499_6a6824e6-7a00-4e80-a9f4-7a67857d3f39.jpg",
+          "src": "assets/img/goods/yearbook.webp",
           "role": "main"
         }
       ]
@@ -294,7 +294,7 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19501_6a630f3a-28ac-45e9-8425-0a0b857d3f39.jpg",
+          "src": "assets/img/goods/calendar.webp",
           "role": "main"
         }
       ]
@@ -309,15 +309,15 @@
       },
       "images": [
         {
-          "src": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19509_6a66ceef-399c-4516-a309-02e5857d3f39.jpg",
+          "src": "assets/img/goods/clearseal.webp",
           "role": "main"
         }
       ]
     }
   ],
   "_todo": [
-    "オーセンティックユニフォームの写真：レプリカと同じ画像を暫定で使用。専用写真があれば差し替え。",
-    "写真はすべて公式サイトへの直リンク。担当者から元データを預かってWebP化する。"
+    "お守りアクリルキーホルダーは公式サイトのスクリーンショット4種を2×2に合成したもの。撮り下ろしが来たら差し替える。",
+    "オーセンティックユニフォームは専用写真が無いため、選手紹介ページの黒背景写真（五十嵐太陽）を上半身に切って使用。"
   ],
   "venueMap": {
     "img": "assets/img/venue_map_b.webp",
@@ -330,19 +330,23 @@
   "heroImages": [
     {
       "src": "assets/img/goods_hero1.webp",
-      "alt": "スタジアムグッズ"
+      "alt": "栃木SC スタジアムグッズ"
     },
     {
       "src": "assets/img/goods_hero2.webp",
-      "alt": "スタジアムグッズ"
+      "alt": "2026/27 レプリカユニフォーム"
     },
     {
       "src": "assets/img/goods_hero3.webp",
-      "alt": "スタジアムグッズ"
+      "alt": "Tochigi SC ロゴのTシャツ"
     },
     {
       "src": "assets/img/goods_hero4.webp",
-      "alt": "スタジアムグッズ"
+      "alt": "トートバッグを持って歩く様子"
+    },
+    {
+      "src": "assets/img/goods_hero5.webp",
+      "alt": "フラットバイザーキャップ"
     }
   ]
 }
