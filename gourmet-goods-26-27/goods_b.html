@@ -431,7 +431,7 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
 
   <header class="hd">
     <div class="hd-in">
-      <a class="back" href="https://tochigisc-official.github.io/homegame_lp/20260809/index.html"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></span><span class="bt">ホームゲーム</span></a>
+      <a class="back" href="https://tochigisc-official.github.io/homegame_lp/20260809/index.html"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></span><span class="bt">ホームゲーム情報</span></a>
       <nav class="seg"><a href="gourmet.html">グルメ</a><a class="on" href="goods.html">グッズ</a></nav>
     </div>
     <nav class="jump">
@@ -445,9 +445,7 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
   <div class="hero" id="hero"></div>
 
   <div class="head first">
-    <span class="hicon"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span>
     <span class="disp">GOODS<span class="mt" id="titleMatch"></span></span>
-    <h2>スタジアムグッズ</h2>
   </div>
 
   <div class="head" id="pickSec">
@@ -665,10 +663,8 @@ function yen(n){ return '¥' + Number(n).toLocaleString('ja-JP'); }
 (function(){
   var m=DATA.match||{}, name=m.short||m.opponent||'', md='';
   if(m.date){ var p=String(m.date).split('-'); md=(+p[1])+'/'+(+p[2]); }
-  // 戻るボタンは短く「8/9 vs 金沢」
-  var bt=document.querySelector('.back .bt');
-  var short=(md?md+' ':'')+(name?'vs '+name:'');
-  if(bt && short) bt.textContent=short;
+  // 戻るボタンは「どこへ行くか」だけを言う。
+  // どの試合かは見出しが持つ（ボタンに両方を持たせると、どちらも弱くなる）。
   // 見出しの横は文章的に「（8月9日金沢戦）」
   var t=document.getElementById('titleMatch');
   if(t && m.date){
