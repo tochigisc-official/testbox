@@ -273,15 +273,22 @@ footer .em{width:30px; height:30px; margin:0 auto 6px;
      読み飛ばせる細さにしつつ、行間は本文なみに取って読めるようにする。 */
   .ctx.note{font-weight:500; line-height:1.65; padding-top:6px;}
 
-  /* オフィシャルオンラインストアへの導線。紙の幅いっぱいのネイビー帯にする。
-     カードの体裁にすると商品の1つに見えてしまうため、あえて別の形にした。
+  /* オフィシャルオンラインストアへの導線。
+     最初はネイビーの帯にしたが、ヘッダーやフッターと同じ色なのでページの骨格に見え、
+     押せるものだと気づかれなかった。黄色の面にして、白地の中で浮かせている。
+     紙の幅いっぱいにはせず左右に余白を残すのも同じ理由で、
+     帯にすると「区切り」に見えて、押す対象として読まれない。
+     エンブレムはクラブ公式の行き先であることを示すために置いている。
      置き場所はラインナップの末尾。先頭に置くと、当日の売店を見る前に外へ送ってしまう。 */
-  .store{display:flex; align-items:center; gap:12px; margin-top:26px; padding:15px 20px;
-         background:var(--navy); color:#fff; text-decoration:none;}
-  .store .st-t{display:block; font-size:15px; font-weight:800; line-height:1.35;}
-  .store .st-n{display:block; font-size:12px; font-weight:600; color:#9db4cc; margin-top:3px;}
-  .store .st-a{margin-left:auto; flex:none; color:var(--yellow); font-size:22px; font-weight:700; line-height:1;}
-  .store:active{opacity:.75;}
+  .store{display:flex; align-items:center; gap:12px; margin:26px 16px 0; padding:14px 16px;
+         background:var(--yellow); color:var(--navy); text-decoration:none;
+         border-radius:var(--card-r); box-shadow:0 2px 10px rgba(4,34,66,.16);}
+  .store .st-em{flex:none; width:34px; height:34px; background-size:contain;
+                background-repeat:no-repeat; background-position:center;}
+  .store .st-t{display:block; font-size:15.5px; font-weight:900; line-height:1.35;}
+  .store .st-n{display:block; font-size:12px; font-weight:700; color:rgba(4,34,66,.62); margin-top:3px;}
+  .store .st-a{margin-left:auto; flex:none; font-size:22px; font-weight:900; line-height:1;}
+  .store:active{transform:translateY(1px); box-shadow:0 1px 5px rgba(4,34,66,.18);}
 
   /* 追従ヘッダー・切り替えセレクター・ページ内ナビは共通トンマナ層にある */
 
@@ -694,7 +701,8 @@ function cardHtml(it, alwaysOpen){
   if(!el) return;
   if(!s || !s.url){ el.remove(); return; }
   el.href=s.url;
-  el.innerHTML='<span><span class="st-t">'+esc(s.label||'オフィシャルオンラインストア')+'</span>'+
+  el.innerHTML='<span class="st-em" style="background-image:url(assets/img/tsc.webp)"></span>'+
+               '<span><span class="st-t">'+esc(s.label||'オフィシャルオンラインストア')+'</span>'+
                (s.note? '<span class="st-n">'+esc(s.note)+'</span>':'')+'</span>'+
                '<span class="st-a" aria-hidden="true">›</span>';
 })();
