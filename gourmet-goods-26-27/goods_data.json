@@ -351,7 +351,6 @@
   ],
   "onlineStore": {
     "url": "https://www.rakuten.ne.jp/gold/monmiya/tochigi-sc/",
-    "label": "オフィシャルオンラインストア",
-    "banner": "assets/img/store_banner.webp"
+    "label": "オフィシャルオンラインストア"
   }
 }

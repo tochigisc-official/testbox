@@ -141,24 +141,24 @@
       "id": "i12",
       "name": "味噌豚丼（バラ/カルビ/あいもり）",
       "price": "¥1,000〜1,500",
-      "desc": "特製味噌たれで香ばしく焼き上げた　※画像上",
+      "desc": "特製味噌たれで香ばしく焼き上げた",
       "shop": "pighip",
       "zone": "場外",
       "area": "③",
       "e": "🍚",
-      "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19637_6a69c841-bf94-4713-bcaf-418a857d3f39.jpg",
+      "img": "assets/img/gourmet/miso_pork_don.webp",
       "section": "meat"
     },
     {
       "id": "i13",
       "name": "味噌豚カルビ串",
       "price": "¥700",
-      "desc": "特製味噌たれで香ばしく焼き上げた　※画像下",
+      "desc": "特製味噌たれで香ばしく焼き上げた",
       "shop": "pighip",
       "zone": "場外",
       "area": "③",
       "e": "🍢",
-      "img": "https://www.tochigisc.jp/upload/NewsDetail/images/pc_img_19637_6a69c841-bf94-4713-bcaf-418a857d3f39.jpg",
+      "img": "assets/img/gourmet/miso_pork_kushi.webp",
       "section": "meat"
     },
     {
