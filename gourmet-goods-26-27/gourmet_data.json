@@ -15,12 +15,14 @@
  "note": "販売エリアは完全キャッシュレス（現金不可）。企画メニューの画像・説明文の出典＝出店店舗の申請書（8/22北九州戦）。",
  "sections": [
   {
-   "key": "kakigori",
-   "name": "かき氷・アイス"
+   "key": "festival",
+   "name": "夏祭りメニュー",
+   "banner": "assets/img/g_bn_festival_0822.webp"
   },
   {
-   "key": "festival",
-   "name": "夏祭り・屋台グルメ"
+   "key": "kakigori",
+   "name": "かき氷・アイス",
+   "banner": "assets/img/g_bn_kakigori_0822.webp"
   },
   {
    "key": "standard",
@@ -28,114 +30,6 @@
   }
  ],
  "items": [
-  {
-   "id": "k1",
-   "name": "日光天然氷",
-   "price": "¥700",
-   "desc": "日光の天然氷を使用したプレミアムなかき氷をご賞味ください！",
-   "shop": "はちまん餃子",
-   "zone": "場外",
-   "area": "⑬",
-   "e": "🍧",
-   "img": "assets/img/gourmet/hachiman_kori.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "k2",
-   "name": "みかんかき氷（夏季限定）",
-   "price": "¥580",
-   "desc": "ストローで飲める特製のカラーゼリー入り。冷たいみかんとツルツルゼリーの食感が楽しい♪夏季限定の商品です！！",
-   "shop": "日光乙女チーズ",
-   "zone": "場外",
-   "area": "⑭",
-   "e": "🍊",
-   "img": "assets/img/gourmet/otome_mikan.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "k3",
-   "name": "ダブルマンゴー・メロンクリームかき氷",
-   "price": "¥600",
-   "desc": "グルメ企画限定！ マンゴーアイスとマンゴーフルーツをのせたダブルマンゴーかき氷と、大笹牧場のジェラートをのせたレトロなフォルムのメロンクリームかき氷です。",
-   "shop": "日光乙女チーズ",
-   "zone": "場外",
-   "area": "⑭",
-   "e": "🥭",
-   "img": "assets/img/gourmet/otome_mango.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "k4",
-   "name": "マンゴーココナッツかき氷",
-   "price": "¥500",
-   "desc": "マンゴーシロップとココナッツシロップがかかったかき氷。キンキン冷えたマンゴーをのせて南国リゾート気分を味わって!!",
-   "shop": "Feel Good Tacos",
-   "zone": "場外",
-   "area": "⑥",
-   "e": "🏝️",
-   "img": "assets/img/gourmet/fgt_mango.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "k5",
-   "name": "かき氷",
-   "price": "¥400",
-   "desc": "あつーい夏には定番のかき氷！かずちゃんちのかき氷は初雪（機械）を使ったふわふわで美味しいかき氷です♩",
-   "shop": "かずちゃんち",
-   "zone": "場外",
-   "area": "⑤",
-   "e": "🍧",
-   "img": "assets/img/gourmet/kazu_kori.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "k6",
-   "name": "かき氷 とちあいかシロップ",
-   "price": "¥600",
-   "desc": "夏にぴったりなかき氷！！とちあいかシロップで、ぜひご賞味ください！",
-   "shop": "ドリームソウル",
-   "zone": "場内",
-   "area": "㉒",
-   "e": "🍓",
-   "img": "assets/img/gourmet/dream_kori.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "k7",
-   "name": "カチコチドリンク",
-   "price": "¥600",
-   "desc": "夏限定！！100%のフルーツジュースを凍らせた【カチコチドリンク】暑い日に熱中症対策しながら飲める！！数量限定です！",
-   "shop": "ねこにレモン",
-   "zone": "場外",
-   "area": "①",
-   "e": "🧊",
-   "img": "assets/img/gourmet/neko_kachikochi.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "k8",
-   "name": "揚げパンアイス（きなこ・ココア）",
-   "price": "¥550",
-   "desc": "お店でも夏の定番、揚げパンアイスが今年も登場！！全部冷凍なので熱い日に冷え冷えの揚げパンがおススメです。今年もきなことココアをご用意しています",
-   "shop": "JOURNEY",
-   "zone": "場内",
-   "area": "⑰",
-   "e": "🍨",
-   "img": "assets/img/gourmet/journey_agepan.webp",
-   "section": "kakigori"
-  },
-  {
-   "id": "f1",
-   "name": "焼きとうもろこし玉子串",
-   "price": "¥650",
-   "desc": "当店自慢のダシ醤油玉子焼きにコーンをのせ炙りました。夏祭り気分になる逸品です。栃木SC出店10年目。黄色い戦士達と共に、強い気持ちでJ2昇格のため焼かせていただきます。",
-   "shop": "玉子屋てっちゃん",
-   "zone": "場外",
-   "area": "⑦",
-   "e": "🌽",
-   "img": "assets/img/gourmet/tamagoya_corn.webp",
-   "section": "festival"
-  },
   {
    "id": "f2",
    "name": "Big豚かしら串 スタミナ味噌だれ",
@@ -231,6 +125,90 @@
    "e": "☁️",
    "img": "assets/img/gourmet/mens_wataame.webp",
    "section": "festival"
+  },
+  {
+   "id": "k1",
+   "name": "日光天然氷",
+   "price": "¥700",
+   "desc": "日光の天然氷を使用したプレミアムなかき氷をご賞味ください！",
+   "shop": "はちまん餃子",
+   "zone": "場外",
+   "area": "⑬",
+   "e": "🍧",
+   "img": "assets/img/gourmet/hachiman_kori.webp",
+   "section": "kakigori"
+  },
+  {
+   "id": "k3",
+   "name": "ダブルマンゴー・メロンクリームかき氷",
+   "price": "¥600",
+   "desc": "グルメ企画限定！ マンゴーアイスとマンゴーフルーツをのせたダブルマンゴーかき氷と、大笹牧場のジェラートをのせたレトロなフォルムのメロンクリームかき氷です。",
+   "shop": "日光乙女チーズ",
+   "zone": "場外",
+   "area": "⑭",
+   "e": "🥭",
+   "img": "assets/img/gourmet/otome_mango.webp",
+   "section": "kakigori"
+  },
+  {
+   "id": "k4",
+   "name": "マンゴーココナッツかき氷",
+   "price": "¥500",
+   "desc": "マンゴーシロップとココナッツシロップがかかったかき氷。キンキン冷えたマンゴーをのせて南国リゾート気分を味わって!!",
+   "shop": "Feel Good Tacos",
+   "zone": "場外",
+   "area": "⑥",
+   "e": "🏝️",
+   "img": "assets/img/gourmet/fgt_mango.webp",
+   "section": "kakigori"
+  },
+  {
+   "id": "k5",
+   "name": "かき氷",
+   "price": "¥400",
+   "desc": "あつーい夏には定番のかき氷！かずちゃんちのかき氷は初雪（機械）を使ったふわふわで美味しいかき氷です♩",
+   "shop": "かずちゃんち",
+   "zone": "場外",
+   "area": "⑤",
+   "e": "🍧",
+   "img": "assets/img/gourmet/kazu_kori.webp",
+   "section": "kakigori"
+  },
+  {
+   "id": "k6",
+   "name": "かき氷 とちあいかシロップ",
+   "price": "¥600",
+   "desc": "夏にぴったりなかき氷！！とちあいかシロップで、ぜひご賞味ください！",
+   "shop": "ドリームソウル",
+   "zone": "場内",
+   "area": "㉒",
+   "e": "🍓",
+   "img": "assets/img/gourmet/dream_kori.webp",
+   "section": "kakigori"
+  },
+  {
+   "id": "k7",
+   "name": "カチコチドリンク",
+   "price": "¥600",
+   "desc": "夏限定！！100%のフルーツジュースを凍らせた【カチコチドリンク】暑い日に熱中症対策しながら飲める！！数量限定です！",
+   "shop": "ねこにレモン",
+   "zone": "場外",
+   "area": "①",
+   "e": "🧊",
+   "img": "assets/img/gourmet/neko_kachikochi.webp",
+   "section": "kakigori"
+  },
+  {
+   "id": "k8",
+   "name": "揚げパンアイス（きなこ・ココア）",
+   "price": "¥550",
+   "desc": "お店でも夏の定番、揚げパンアイスが今年も登場！！全部冷凍なので熱い日に冷え冷えの揚げパンがおススメです。今年もきなことココアをご用意しています",
+   "shop": "JOURNEY",
+   "zone": "場内",
+   "area": "⑰",
+   "e": "🍨",
+   "img": "assets/img/gourmet/journey_agepan.webp",
+   "section": "kakigori"
   },
   {
    "id": "i31",
