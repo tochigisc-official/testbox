@@ -16,13 +16,11 @@
  "sections": [
   {
    "key": "festival",
-   "name": "夏祭りメニュー",
-   "banner": "assets/img/g_bn_festival_0822.webp"
+   "name": "夏祭りメニュー"
   },
   {
    "key": "kakigori",
-   "name": "かき氷・アイス",
-   "banner": "assets/img/g_bn_kakigori_0822.webp"
+   "name": "かき氷・アイス"
   },
   {
    "key": "standard",
@@ -30,6 +28,18 @@
   }
  ],
  "items": [
+  {
+   "id": "f0",
+   "name": "焼きとうもろこし玉子串",
+   "price": "¥650",
+   "desc": "当店自慢のダシ醤油玉子焼きにコーンをのせ炙りました。夏祭り気分になる逸品です。栃木SC出店10年目。黄色い戦士達と共に、強い気持ちでJ2昇格のため焼かせていただきます。",
+   "shop": "玉子屋てっちゃん",
+   "zone": "場外",
+   "area": "⑦",
+   "e": "🌽",
+   "img": "assets/img/gourmet/tamagoya_corn.webp",
+   "section": "festival"
+  },
   {
    "id": "f2",
    "name": "Big豚かしら串 スタミナ味噌だれ",
@@ -139,8 +149,20 @@
    "section": "kakigori"
   },
   {
+   "id": "k0",
+   "name": "みかんかき氷（夏季限定）",
+   "price": "¥580",
+   "desc": "ストローで飲める特製のカラーゼリー入り。冷たいみかんとツルツルゼリーの食感が楽しい♪夏季限定の商品です！！",
+   "shop": "日光乙女チーズ",
+   "zone": "場外",
+   "area": "⑭",
+   "e": "🍊",
+   "img": "assets/img/gourmet/otome_mikan.webp",
+   "section": "kakigori"
+  },
+  {
    "id": "k3",
-   "name": "ダブルマンゴー・メロンクリームかき氷",
+   "name": "ダブルマンゴーかき氷・メロンクリームかき氷",
    "price": "¥600",
    "desc": "グルメ企画限定！ マンゴーアイスとマンゴーフルーツをのせたダブルマンゴーかき氷と、大笹牧場のジェラートをのせたレトロなフォルムのメロンクリームかき氷です。",
    "shop": "日光乙女チーズ",
