@@ -107,6 +107,102 @@
    ]
   },
   {
+   "id": "uniform_replica",
+   "name": "レプリカユニフォーム",
+   "price": 17600,
+   "desc": "幾重にも重なる「T」のラインで、挑戦を積み重ねながら前進してきた軌跡を表現。その先にはJ2昇格へ向かう力強い上昇の矢印が浮かび上がるデザイン。",
+   "images": [
+    {
+     "src": "assets/img/goods/uniform_replica.webp",
+     "role": "main"
+    }
+   ]
+  },
+  {
+   "id": "uniform_authentic",
+   "name": "オーセンティックユニフォーム",
+   "price": 20350,
+   "desc": "選手が実際に着用するモデルと同じ仕様。デザインはレプリカと共通です。",
+   "images": [
+    {
+     "src": "assets/img/goods/uniform_authentic.webp",
+     "role": "main"
+    }
+   ]
+  },
+  {
+   "id": "tee_raglan",
+   "name": "ラグランTシャツ",
+   "price": 4290,
+   "desc": "カレッジ風デザインを取り入れた、普段使いしやすい一着。試合観戦はもちろん、デイリーユースにもおすすめです。",
+   "spec": {
+    "size": "M／L／XL",
+    "material": "綿100%"
+   },
+   "images": [
+    {
+     "src": "assets/img/goods/tee_raglan.webp",
+     "role": "main"
+    }
+   ]
+  },
+  {
+   "id": "shirt_linerib",
+   "name": "ラインリブシャツ",
+   "price": 3520,
+   "desc": "「SC」をスタイリッシュなロゴ風にデザインしたプリントが印象的なラインリブシャツ。襟元と袖口のラインリブがアクセントとなり、スポーティーさとカジュアルさを兼ね備えた一着です。試合観戦はもちろん、普段使いにもおすすめです。",
+   "spec": {
+    "material": "ポリエステル100%",
+    "size": "M／L／XL"
+   },
+   "images": [
+    {
+     "src": "assets/img/goods/shirt_linerib.webp",
+     "role": "main"
+    }
+   ]
+  },
+  {
+   "id": "cap_newhattan",
+   "name": "NEWHATTANキャップ",
+   "price": 3410,
+   "desc": "人気ブランド「NEWHATTAN」の定番キャップに栃木SCデザインをプラス。観戦から普段のコーディネートまで幅広く活躍します。",
+   "spec": {
+    "color": "カーキ／ネイビー／ブルーグレー"
+   },
+   "images": [
+    {
+     "src": "assets/img/goods/cap_newhattan.webp",
+     "role": "lineup",
+     "note": "3色展開"
+    },
+    {
+     "src": "assets/img/goods/cap_newhattan_detail.webp",
+     "role": "detail"
+    }
+   ]
+  },
+  {
+   "id": "cap_flatvisor",
+   "name": "フラットバイザーキャップ",
+   "price": 6600,
+   "desc": "フラットバイザーのシルエットが魅力。カジュアルなスタイルに合わせやすく、日常使いにもおすすめです。",
+   "spec": {
+    "color": "ブラック／ダークネイビー／スプルース"
+   },
+   "images": [
+    {
+     "src": "assets/img/goods/cap_flatvisor.webp",
+     "role": "lineup",
+     "note": "3色展開"
+    },
+    {
+     "src": "assets/img/goods/cap_flatvisor_detail.webp",
+     "role": "detail"
+    }
+   ]
+  },
+  {
    "id": "cooltowel",
    "name": "選手名クールタオル",
    "price": 2915,
@@ -189,30 +285,6 @@
    ]
   },
   {
-   "id": "uniform_replica",
-   "name": "レプリカユニフォーム",
-   "price": 17600,
-   "desc": "幾重にも重なる「T」のラインで、挑戦を積み重ねながら前進してきた軌跡を表現。その先にはJ2昇格へ向かう力強い上昇の矢印が浮かび上がるデザイン。",
-   "images": [
-    {
-     "src": "assets/img/goods/uniform_replica.webp",
-     "role": "main"
-    }
-   ]
-  },
-  {
-   "id": "uniform_authentic",
-   "name": "オーセンティックユニフォーム",
-   "price": 20350,
-   "desc": "選手が実際に着用するモデルと同じ仕様。デザインはレプリカと共通です。",
-   "images": [
-    {
-     "src": "assets/img/goods/uniform_authentic.webp",
-     "role": "main"
-    }
-   ]
-  },
-  {
    "id": "yearbook",
    "name": "2026/27イヤーブック",
    "price": 1650,
@@ -286,78 +358,6 @@
     {
      "src": "assets/img/goods/towelmuffler.webp",
      "role": "main"
-    }
-   ]
-  },
-  {
-   "id": "tee_raglan",
-   "name": "ラグランTシャツ",
-   "price": 4290,
-   "desc": "カレッジ風デザインを取り入れた、普段使いしやすい一着。試合観戦はもちろん、デイリーユースにもおすすめです。",
-   "spec": {
-    "size": "M／L／XL",
-    "material": "綿100%"
-   },
-   "images": [
-    {
-     "src": "assets/img/goods/tee_raglan.webp",
-     "role": "main"
-    }
-   ]
-  },
-  {
-   "id": "shirt_linerib",
-   "name": "ラインリブシャツ",
-   "price": 3520,
-   "desc": "「SC」をスタイリッシュなロゴ風にデザインしたプリントが印象的なラインリブシャツ。襟元と袖口のラインリブがアクセントとなり、スポーティーさとカジュアルさを兼ね備えた一着です。試合観戦はもちろん、普段使いにもおすすめです。",
-   "spec": {
-    "material": "ポリエステル100%",
-    "size": "M／L／XL"
-   },
-   "images": [
-    {
-     "src": "assets/img/goods/shirt_linerib.webp",
-     "role": "main"
-    }
-   ]
-  },
-  {
-   "id": "cap_newhattan",
-   "name": "NEWHATTANキャップ",
-   "price": 3410,
-   "desc": "人気ブランド「NEWHATTAN」の定番キャップに栃木SCデザインをプラス。観戦から普段のコーディネートまで幅広く活躍します。",
-   "spec": {
-    "color": "カーキ／ネイビー／ブルーグレー"
-   },
-   "images": [
-    {
-     "src": "assets/img/goods/cap_newhattan.webp",
-     "role": "lineup",
-     "note": "3色展開"
-    },
-    {
-     "src": "assets/img/goods/cap_newhattan_detail.webp",
-     "role": "detail"
-    }
-   ]
-  },
-  {
-   "id": "cap_flatvisor",
-   "name": "フラットバイザーキャップ",
-   "price": 6600,
-   "desc": "フラットバイザーのシルエットが魅力。カジュアルなスタイルに合わせやすく、日常使いにもおすすめです。",
-   "spec": {
-    "color": "ブラック／ダークネイビー／スプルース"
-   },
-   "images": [
-    {
-     "src": "assets/img/goods/cap_flatvisor.webp",
-     "role": "lineup",
-     "note": "3色展開"
-    },
-    {
-     "src": "assets/img/goods/cap_flatvisor_detail.webp",
-     "role": "detail"
     }
    ]
   },
