@@ -194,7 +194,7 @@
    "desc": "当店名物ローストポークをガーリックバターの効いたとんてきソースで焼き上げました！食べやすいように串打ちしているのでワンハンドで気軽に召し上がれます。",
    "shop": "とちぎのぼんた",
    "zone": "場内",
-   "area": "⑳",
+   "area": "⑲",
    "e": "🍢",
    "img": "assets/img/gourmet/bonta_garibata.webp",
    "section": "stamina"
@@ -230,7 +230,7 @@
    "desc": "１４０gのBIG勝がド～ンッとのった勝利の勝カレー！食べ応え満点の１品。",
    "shop": "MoguRico",
    "zone": "場内",
-   "area": "㉓",
+   "area": "㉑",
    "e": "🍛",
    "img": "assets/img/gourmet/mogu_katsu_curry.webp",
    "section": "stamina"
@@ -242,7 +242,7 @@
    "desc": "りんごチップでじっくり燻製！香ばしさとジューシーさがとまらない、紅茶鴨肉使用♪肉汁じゅわ～っ！やみつきの旨さ！！",
    "shop": "MoguRico",
    "zone": "場内",
-   "area": "㉓",
+   "area": "㉑",
    "e": "🍗",
    "img": "assets/img/gourmet/mogu_leg.webp",
    "section": "stamina"
@@ -290,7 +290,7 @@
    "desc": "ジューシーなもも、旨みたっぷりなねぎま、香ばしい皮！ 3種を食べ比べ♪",
    "shop": "M's kitchen NEWS",
    "zone": "場内",
-   "area": "㉔",
+   "area": "㉒",
    "e": "🍢",
    "img": "assets/img/gourmet/mens_yakitori.webp",
    "section": "festival"
@@ -302,7 +302,7 @@
    "desc": "夏のお祭りで食べたい定番の屋台グルメ、焼きそば・たこ焼き・から揚げを全部合わせた夢のような一品！！まさにお祭りグルメです。",
    "shop": "JOURNEY",
    "zone": "場内",
-   "area": "㉒",
+   "area": "⑳",
    "e": "🥪",
    "img": "assets/img/gourmet/journey_omatsuri_coppe.webp",
    "section": "festival"
@@ -326,7 +326,7 @@
    "desc": "【フードトラック限定】自家焙煎珈琲のお店がつくる、薄皮パリッとこだわりの鯛焼き。",
    "shop": "木鶏珈琲",
    "zone": "場内",
-   "area": "㉗",
+   "area": "㉓",
    "e": "🐟",
    "img": "assets/img/gourmet/mokkei_taiyaki.webp",
    "section": "festival"
@@ -422,7 +422,7 @@
    "desc": "勝つ（カツ）カレーで勝利を呼び込め",
    "shop": "MoguRico",
    "zone": "場内",
-   "area": "㉓",
+   "area": "㉑",
    "e": "🍛",
    "img": "assets/img/gourmet/mogu_katsucurry.webp",
    "section": "standard"
@@ -434,7 +434,7 @@
    "desc": "ボリューム満点鯖サンド！具材たっぷり特製タルタルソース",
    "shop": "M's kitchen NEWS",
    "zone": "場内",
-   "area": "㉔",
+   "area": "㉒",
    "e": "🥪",
    "img": "assets/img/gourmet/mens_sabasand.webp",
    "section": "standard"
@@ -761,7 +761,7 @@
    "_目印": "B1コンコース"
   },
   {
-   "no": "⑳",
+   "no": "⑲",
    "_場所番号": "⑳",
    "zone": "場内",
    "shop": "とちぎのぼんた",
@@ -779,7 +779,7 @@
    "_目印": "C1コンコース"
   },
   {
-   "no": "㉒",
+   "no": "⑳",
    "_場所番号": "㉒",
    "zone": "場内",
    "shop": "JOURNEY",
@@ -797,7 +797,7 @@
    "_目印": "D2コンコース"
   },
   {
-   "no": "㉓",
+   "no": "㉑",
    "_場所番号": "㉓",
    "zone": "場内",
    "shop": "MoguRico",
@@ -815,7 +815,7 @@
    "_目印": "E1コンコース"
   },
   {
-   "no": "㉔",
+   "no": "㉒",
    "_場所番号": "㉔",
    "zone": "場内",
    "shop": "M's kitchen NEWS",
@@ -834,7 +834,7 @@
    "_目印": "E2コンコース"
   },
   {
-   "no": "㉗",
+   "no": "㉓",
    "_場所番号": "㉗",
    "zone": "場内",
    "shop": "木鶏珈琲",
