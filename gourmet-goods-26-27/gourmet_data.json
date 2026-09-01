@@ -27,30 +27,6 @@
  "items": [
   {
    "id": "g1",
-   "name": "勝利をつかむマルゲリータ",
-   "price": "¥1,300",
-   "desc": "勝利のVをモチーフにしたマルゲリータ。大谷石窯で焼き上げた本格ピッツァで勝利を呼び込む一枚です。",
-   "shop": "大谷石窯ピッツァ",
-   "zone": "場外",
-   "area": "②",
-   "e": "🍕",
-   "img": "assets/img/gourmet/oya_margherita.webp",
-   "section": "levain"
-  },
-  {
-   "id": "g2",
-   "name": "薄皮鯛焼き",
-   "price": "¥390",
-   "desc": "【フードトラック限定】自家焙煎珈琲のお店がつくる、薄皮パリッとこだわりの鯛焼き。",
-   "shop": "木鶏珈琲",
-   "zone": "場外",
-   "area": "③",
-   "e": "🐟",
-   "img": "assets/img/gourmet/mokkei_taiyaki.webp",
-   "section": "levain"
-  },
-  {
-   "id": "g3",
    "name": "【ルヴァンカップ限定】ルヴァンコラボ3種盛りジェラート",
    "price": "¥700",
    "desc": "ルヴァンクラッカーをのせた乙女のごほうびジェラート♪抹茶・黒ごま・とちおとめ苺ミルクの人気ジェラート3種に、サクサク食感のルヴァンクラッカーをのせました。一度に3種の味が楽しめます。※限定50個",
@@ -62,7 +38,31 @@
    "section": "levain"
   },
   {
-   "id": "g4",
+   "id": "t1",
+   "name": "勝利をつかむマルゲリータ",
+   "price": "¥1,300",
+   "desc": "勝利のVをモチーフにしたマルゲリータ。大谷石窯で焼き上げた本格ピッツァで勝利を呼び込む一枚です。",
+   "shop": "大谷石窯ピッツァ",
+   "zone": "場外",
+   "area": "②",
+   "e": "🍕",
+   "img": "assets/img/gourmet/oya_margherita.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t2",
+   "name": "薄皮鯛焼き",
+   "price": "¥390",
+   "desc": "【フードトラック限定】自家焙煎珈琲のお店がつくる、薄皮パリッとこだわりの鯛焼き。",
+   "shop": "木鶏珈琲",
+   "zone": "場外",
+   "area": "③",
+   "e": "🐟",
+   "img": "assets/img/gourmet/mokkei_taiyaki.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t3",
    "name": "汁なし担々麺",
    "price": "¥1,000",
    "desc": "タレから手作り、濃厚ゴマダレの汁なし担々麺をぜひご賞味ください。",
@@ -71,10 +71,10 @@
    "area": "⑫",
    "e": "🍜",
    "img": "assets/img/gourmet/smile_tantan.webp",
-   "section": "levain"
+   "section": "standard"
   },
   {
-   "id": "g5",
+   "id": "t4",
    "name": "肉巻き串団子",
    "price": "¥400",
    "desc": "もっちり串団子に豚バラ肉を巻き付けて焼きました！甘辛醤油ダレを絡めて一味を振りかければ、ビールもススムおつまみとしてもGood！",
@@ -83,10 +83,10 @@
    "area": "⑮",
    "e": "🍡",
    "img": "assets/img/gourmet/bonta_nikumaki_dango.webp",
-   "section": "levain"
+   "section": "standard"
   },
   {
-   "id": "g6",
+   "id": "t5",
    "name": "唐揚げ弁当",
    "price": "¥800",
    "desc": "大人から子どもまで大満足！サクサクジューシーな唐揚げとご飯の最強コンビです。",
@@ -95,10 +95,10 @@
    "area": "⑳",
    "e": "🍱",
    "img": "assets/img/gourmet/kyogoku_karaage_bento.webp",
-   "section": "levain"
+   "section": "standard"
   },
   {
-   "id": "t1",
+   "id": "t6",
    "name": "チキンオーバーライス",
    "price": "¥1,000",
    "desc": "ホットソースとホワイトソースが作り出すスパイシーな一皿。",
@@ -110,7 +110,7 @@
    "section": "standard"
   },
   {
-   "id": "t2",
+   "id": "t7",
    "name": "プルコギビビンバ",
    "price": "¥1,000",
    "desc": "自家製甘辛だれに漬け込んだ牛プルコギに、ナムルとキムチを合わせた韓国風ビビンバ。",
@@ -122,7 +122,19 @@
    "section": "standard"
   },
   {
-   "id": "t3",
+   "id": "t8",
+   "name": "マンゴーココナッツかき氷",
+   "price": "¥500",
+   "desc": "マンゴーシロップとココナッツシロップがかかったかき氷。キンキン冷えたマンゴーで南国リゾート気分を！",
+   "shop": "Feel Good Tacos",
+   "zone": "場外",
+   "area": "⑧",
+   "e": "🍧",
+   "img": "assets/img/gourmet/fgt_mango.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t9",
    "name": "玉子焼き",
    "price": "¥700",
    "desc": "玉子屋創業70年、昔ながらの美味しい玉子焼き。",
@@ -134,7 +146,7 @@
    "section": "standard"
   },
   {
-   "id": "t4",
+   "id": "t10",
    "name": "みかんかき氷",
    "price": "¥580",
    "desc": "ストローで飲める特製のカラーゼリー入り。冷たいみかんとツルツルゼリーの食感が楽しい♪",
@@ -146,7 +158,7 @@
    "section": "standard"
   },
   {
-   "id": "t5",
+   "id": "t11",
    "name": "ジェラート",
    "price": "¥500",
    "desc": "日光乙女チーズの自家製ジェラート。",
@@ -158,7 +170,19 @@
    "section": "standard"
   },
   {
-   "id": "t6",
+   "id": "t12",
+   "name": "シャカシャカポテト",
+   "price": "¥600",
+   "desc": "ふって楽しむシャカシャカポテト。岩塩・フレーバーからお選びいただけます♪",
+   "shop": "日光乙女チーズ",
+   "zone": "場外",
+   "area": "⑦",
+   "e": "🍟",
+   "img": "assets/img/gourmet/otome_shaka_garlic.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t13",
    "name": "かき氷",
    "price": "¥400",
    "desc": "初雪（機械）を使った、ふわふわで美味しいかき氷です♩",
@@ -170,7 +194,7 @@
    "section": "standard"
   },
   {
-   "id": "t7",
+   "id": "t14",
    "name": "カットりんご飴",
    "price": "¥918",
    "desc": "市場で仕入れる新鮮りんごのカットりんご飴。",
