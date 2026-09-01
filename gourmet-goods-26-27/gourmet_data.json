@@ -111,6 +111,18 @@
   },
   {
    "id": "t2",
+   "name": "プルコギビビンバ",
+   "price": "¥1,000",
+   "desc": "自家製甘辛だれに漬け込んだ牛プルコギに、ナムルとキムチを合わせた韓国風ビビンバ。",
+   "shop": "Feel Good Tacos",
+   "zone": "場外",
+   "area": "⑧",
+   "e": "🍚",
+   "img": "assets/img/gourmet/fgt_bibimbap.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t3",
    "name": "玉子焼き",
    "price": "¥700",
    "desc": "玉子屋創業70年、昔ながらの美味しい玉子焼き。",
@@ -122,7 +134,43 @@
    "section": "standard"
   },
   {
-   "id": "t3",
+   "id": "t4",
+   "name": "みかんかき氷",
+   "price": "¥580",
+   "desc": "ストローで飲める特製のカラーゼリー入り。冷たいみかんとツルツルゼリーの食感が楽しい♪",
+   "shop": "日光乙女チーズ",
+   "zone": "場外",
+   "area": "⑦",
+   "e": "🍧",
+   "img": "assets/img/gourmet/otome_mikan.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t5",
+   "name": "ジェラート",
+   "price": "¥500",
+   "desc": "日光乙女チーズの自家製ジェラート。",
+   "shop": "日光乙女チーズ",
+   "zone": "場外",
+   "area": "⑦",
+   "e": "🍨",
+   "img": "assets/img/gourmet/otome_gelato.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t6",
+   "name": "かき氷",
+   "price": "¥400",
+   "desc": "初雪（機械）を使った、ふわふわで美味しいかき氷です♩",
+   "shop": "から揚げかずちゃんち",
+   "zone": "場外",
+   "area": "④",
+   "e": "🍧",
+   "img": "assets/img/gourmet/kazu_kori.webp",
+   "section": "standard"
+  },
+  {
+   "id": "t7",
    "name": "カットりんご飴",
    "price": "¥918",
    "desc": "市場で仕入れる新鮮りんごのカットりんご飴。",
